@@ -882,7 +882,7 @@ assign dram.r_user = '0;
 assign dram.b_user = '0;
 
 xlnx_clk_gen i_xlnx_clk_gen (
-  .clk_out1 ( clk           ), // 50 MHz
+  .clk_out1 ( clk           ), // 40 MHz
   .clk_out2 ( phy_tx_clk    ), // 125 MHz (for RGMII PHY)
   .clk_out3 ( eth_clk       ), // 125 MHz quadrature (90 deg phase shift)
   .clk_out4 ( sd_clk_sys    ), // 50 MHz clock
