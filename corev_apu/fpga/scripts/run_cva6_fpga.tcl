@@ -92,6 +92,9 @@ if { $::env(PS7_DDR) == 1 } {
    puts "None of the values is matching"
 }
 
+# Ajout de la directive "PerformanceOptimized" -------
+set_property STEPS.SYNTH_DESIGN.ARGS.DIRECTIVE "PerformanceOptimized" [get_runs synth_1]
+# ---------
 set_property STEPS.SYNTH_DESIGN.ARGS.RETIMING true [get_runs synth_1]
 
 launch_runs synth_1
@@ -109,6 +112,21 @@ report_utilization -hierarchical                                        -file re
 report_cdc                                                              -file reports_cva6_fpga_synth/$project.cdc.rpt
 report_clock_interaction                                                -file reports_cva6_fpga_synth/$project.clock_interaction.rpt
 
+
+# Opti designs pour opti au niveau logique ( nombre de LUTs etc..) ------ 
+
+opt_design -directive ExploreArea -verbose -debug_log
+
+# ---------
+
+# Activation de l'optimisation post routing -------
+set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
+
+#Activation de l'optimisation post placement avec la directive Explore
+#set_property STEPS.PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
+#set_property STEPS.PHYS_OPT_DESIGN.ARGS.DIRECTIVE "AggressiveExplore" [get_runs impl_1]
+# ------------
+
 # set for RuntimeOptimized implementation
 set_property "steps.place_design.args.directive" "RuntimeOptimized" [get_runs impl_1]
 set_property "steps.route_design.args.directive" "RuntimeOptimized" [get_runs impl_1]
@@ -123,6 +141,12 @@ wait_on_run impl_1
 launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 open_run impl_1
+
+
+report_property -all [get_runs synth_1] -verbose 
+report_property -all [get_runs impl_1] -verbose 
+#phys_opt_design -placement_opt -restruct_opt -routing_opt -critical_pin_opt
+
 
 # reports
 exec mkdir -p reports_cva6_fpga_impl/
