@@ -1,0 +1,1304 @@
+#-----------------------------------------------------------
+# Vivado v2024.1.2 (64-bit)
+# SW Build 5164865 on Thu Sep  5 14:36:28 MDT 2024
+# IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
+# SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
+# Start of session at: Tue Jan 21 14:51:16 2025
+# Process ID: 40920
+# Current directory: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1
+# Command line: vivado -log cva6_zybo_z7_20.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source cva6_zybo_z7_20.tcl -notrace
+# Log file: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20.vdi
+# Journal file: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/vivado.jou
+# Running On        :Dell-G15-5515
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 24.04.1 LTS
+# Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics
+# CPU Frequency     :3519.494 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :16078 MB
+# Swap memory       :2147 MB
+# Total Virtual     :18225 MB
+# Available Virtual :12870 MB
+#-----------------------------------------------------------
+source cva6_zybo_z7_20.tcl -notrace
+Command: open_checkpoint /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1358.359 ; gain = 0.000 ; free physical = 6229 ; free virtual = 11924
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
+Netlist sorting complete. Time (s): cpu = 00:00:00.28 ; elapsed = 00:00:00.28 . Memory (MB): peak = 1823.652 ; gain = 0.000 ; free physical = 5509 ; free virtual = 11466
+INFO: [Netlist 29-17] Analyzing 1626 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2024.1.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1935.215 ; gain = 4.000 ; free physical = 5392 ; free virtual = 11349
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2416.223 ; gain = 0.000 ; free physical = 4953 ; free virtual = 10911
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2416.223 ; gain = 0.000 ; free physical = 4953 ; free virtual = 10911
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2416.223 ; gain = 0.000 ; free physical = 4953 ; free virtual = 10911
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2416.223 ; gain = 0.000 ; free physical = 4953 ; free virtual = 10911
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2480.254 ; gain = 64.031 ; free physical = 4953 ; free virtual = 10911
+Read Physdb Files: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2480.254 ; gain = 64.031 ; free physical = 4953 ; free virtual = 10911
+Restored from archive | CPU: 0.050000 secs | Memory: 1.084885 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2480.254 ; gain = 64.031 ; free physical = 4953 ; free virtual = 10911
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2480.254 ; gain = 0.000 ; free physical = 4953 ; free virtual = 10911
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 226 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 6 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 196 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 18 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 4 instances
+  RAM64X1S => RAM64X1S (RAMS64E): 2 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2024.1.2 (64-bit) build 5164865
+open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2480.254 ; gain = 1121.895 ; free physical = 4953 ; free virtual = 10911
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.51 . Memory (MB): peak = 2570.066 ; gain = 89.812 ; free physical = 4944 ; free virtual = 10903
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1ec529c99
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.44 . Memory (MB): peak = 2608.863 ; gain = 38.797 ; free physical = 4931 ; free virtual = 10889
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 1ec529c99
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4607 ; free virtual = 10566
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1ec529c99
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4607 ; free virtual = 10566
+Phase 1 Initialization | Checksum: 1ec529c99
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4607 ; free virtual = 10566
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 1ec529c99
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.29 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4607 ; free virtual = 10566
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 1ec529c99
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.33 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4593 ; free virtual = 10551
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1ec529c99
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.33 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4593 ; free virtual = 10551
+
+Phase 3 Retarget
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 24d248163
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.61 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4594 ; free virtual = 10552
+Retarget | Checksum: 24d248163
+INFO: [Opt 31-389] Phase Retarget created 4 cells and removed 4 cells
+INFO: [Opt 31-1021] In phase Retarget, 113 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 210a0fd71
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.78 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4594 ; free virtual = 10552
+Constant propagation | Checksum: 210a0fd71
+INFO: [Opt 31-389] Phase Constant propagation created 4 cells and removed 4 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 114 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: 233569a83
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4581 ; free virtual = 10540
+Sweep | Checksum: 233569a83
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Sweep, 503 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 233569a83
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4584 ; free virtual = 10542
+BUFG optimization | Checksum: 233569a83
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 233569a83
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4584 ; free virtual = 10542
+Shift Register Optimization | Checksum: 233569a83
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 233569a83
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4584 ; free virtual = 10542
+Post Processing Netlist | Checksum: 233569a83
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 118 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 114c3fff6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4584 ; free virtual = 10542
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4585 ; free virtual = 10543
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 114c3fff6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4585 ; free virtual = 10543
+Phase 9 Finalization | Checksum: 114c3fff6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4585 ; free virtual = 10543
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               4  |               4  |                                            113  |
+|  Constant propagation         |               4  |               4  |                                            114  |
+|  Sweep                        |               0  |               0  |                                            503  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                            118  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 114c3fff6
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2915.645 ; gain = 0.000 ; free physical = 4585 ; free virtual = 10543
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 62 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 48 newly gated: 0 Total Ports: 124
+Ending PowerOpt Patch Enables Task | Checksum: 226fb24f5
+
+Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.27 . Memory (MB): peak = 3281.770 ; gain = 0.000 ; free physical = 4348 ; free virtual = 10318
+Ending Power Optimization Task | Checksum: 226fb24f5
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 3281.770 ; gain = 366.125 ; free physical = 4348 ; free virtual = 10318
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 226fb24f5
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3281.770 ; gain = 0.000 ; free physical = 4348 ; free virtual = 10318
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3281.770 ; gain = 0.000 ; free physical = 4348 ; free virtual = 10318
+Ending Netlist Obfuscation Task | Checksum: 1929695d7
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3281.770 ; gain = 0.000 ; free physical = 4348 ; free virtual = 10318
+INFO: [Common 17-83] Releasing license: Implementation
+40 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:12 . Memory (MB): peak = 3281.770 ; gain = 801.516 ; free physical = 4348 ; free virtual = 10318
+INFO: [Vivado 12-24828] Executing command : report_drc -file cva6_zybo_z7_20_drc_opted.rpt -pb cva6_zybo_z7_20_drc_opted.pb -rpx cva6_zybo_z7_20_drc_opted.rpx
+Command: report_drc -file cva6_zybo_z7_20_drc_opted.rpt -pb cva6_zybo_z7_20_drc_opted.pb -rpx cva6_zybo_z7_20_drc_opted.rpx
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/utilisateur/Xilinx/Vivado/2024.1/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Wrote PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4348 ; free virtual = 10322
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4348 ; free virtual = 10322
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4344 ; free virtual = 10320
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.2 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4342 ; free virtual = 10318
+Wrote Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4342 ; free virtual = 10318
+Wrote Device Cache: Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4342 ; free virtual = 10319
+Write Physdb Complete: Time (s): cpu = 00:00:00.23 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4340 ; free virtual = 10317
+INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_opt.dcp' has been generated.
+Command: place_design -directive RuntimeOptimized
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Vivado_Tcl 4-2302] The placer was invoked with the 'RuntimeOptimized' directive.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 21 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4294 ; free virtual = 10277
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 12ea2b3a3
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4294 ; free virtual = 10277
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4294 ; free virtual = 10278
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
+	tck_IBUF_inst (IBUF.O) is locked to IOB_X1Y112
+	tck_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y0
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 10674a859
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.78 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4293 ; free virtual = 10281
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 12030d52e
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4284 ; free virtual = 10275
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 12030d52e
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4284 ; free virtual = 10276
+Phase 1 Placer Initialization | Checksum: 12030d52e
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:04 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4284 ; free virtual = 10276
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 11816563c
+
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4299 ; free virtual = 10292
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1542983a9
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4300 ; free virtual = 10293
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1542983a9
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4300 ; free virtual = 10293
+
+Phase 2.4 Global Placement Core
+Phase 2.4 Global Placement Core | Checksum: 264f189ad
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:17 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4264 ; free virtual = 10312
+Phase 2 Global Placement | Checksum: 264f189ad
+
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:17 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4254 ; free virtual = 10306
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1ce079a01
+
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:18 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4032 ; free virtual = 10280
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 18fe3346e
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:19 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4027 ; free virtual = 10286
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 12ff93a48
+
+Time (s): cpu = 00:00:49 ; elapsed = 00:00:20 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4027 ; free virtual = 10286
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 1402819c2
+
+Time (s): cpu = 00:00:50 ; elapsed = 00:00:20 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4027 ; free virtual = 10286
+
+Phase 3.5 Fast Optimization
+Phase 3.5 Fast Optimization | Checksum: 137bce79a
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:22 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4019 ; free virtual = 10277
+
+Phase 3.6 Small Shape Detail Placement
+Phase 3.6 Small Shape Detail Placement | Checksum: 1a50dd4c3
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:29 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4023 ; free virtual = 10281
+
+Phase 3.7 Re-assign LUT pins
+Phase 3.7 Re-assign LUT pins | Checksum: 1840cfa7f
+
+Time (s): cpu = 00:01:04 ; elapsed = 00:00:30 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4045 ; free virtual = 10304
+
+Phase 3.8 Pipeline Register Optimization
+Phase 3.8 Pipeline Register Optimization | Checksum: 171b429b5
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:30 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 4046 ; free virtual = 10305
+
+Phase 3.9 Fast Optimization
+Phase 3.9 Fast Optimization | Checksum: 14ee90db5
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:34 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3938 ; free virtual = 10285
+Phase 3 Detail Placement | Checksum: 14ee90db5
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:34 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3938 ; free virtual = 10285
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 1d7b5184a
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-3.063 | TNS=-1334.439 |
+Phase 1 Physical Synthesis Initialization | Checksum: 1b22c01ba
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.68 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3904 ; free virtual = 10282
+INFO: [Place 46-33] Processed net i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]_0, BUFG insertion was skipped due to placement/routing conflicts.
+INFO: [Place 46-56] BUFG insertion identified 1 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 1, Skipped due to Timing Degradation: 0, Skipped due to netlist editing failed: 0.
+Ending Physical Synthesis Task | Checksum: 1d4d832c2
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3899 ; free virtual = 10282
+Phase 4.1.1.1 BUFG Insertion | Checksum: 1d7b5184a
+
+Time (s): cpu = 00:01:26 ; elapsed = 00:00:38 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3898 ; free virtual = 10282
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-0.878. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 2de02bda5
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:40 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3869 ; free virtual = 10273
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:40 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3869 ; free virtual = 10273
+Phase 4.1 Post Commit Optimization | Checksum: 2de02bda5
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:41 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3869 ; free virtual = 10274
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 2de02bda5
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:41 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3861 ; free virtual = 10269
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ____________________________________________________
+|           | Global Congestion | Short Congestion  |
+| Direction | Region Size       | Region Size       |
+|___________|___________________|___________________|
+|      North|                1x1|                8x8|
+|___________|___________________|___________________|
+|      South|                1x1|                8x8|
+|___________|___________________|___________________|
+|       East|                4x4|                8x8|
+|___________|___________________|___________________|
+|       West|                2x2|                1x1|
+|___________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 2de02bda5
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:41 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3861 ; free virtual = 10270
+Phase 4.3 Placer Reporting | Checksum: 2de02bda5
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:41 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3836 ; free virtual = 10247
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3836 ; free virtual = 10248
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:41 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3836 ; free virtual = 10248
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 2951a5e28
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:41 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3835 ; free virtual = 10248
+Ending Placer Task | Checksum: 1963e5edc
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:41 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3833 ; free virtual = 10248
+66 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:32 ; elapsed = 00:00:42 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3829 ; free virtual = 10244
+INFO: [Vivado 12-24838] Running report commands "report_control_sets, report_io, report_utilization" in parallel.
+Running report generation with 3 threads.
+INFO: [Vivado 12-24828] Executing command : report_io -file cva6_zybo_z7_20_io_placed.rpt
+report_io: Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3802 ; free virtual = 10219
+INFO: [Vivado 12-24828] Executing command : report_control_sets -verbose -file cva6_zybo_z7_20_control_sets_placed.rpt
+report_control_sets: Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.17 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3817 ; free virtual = 10234
+INFO: [Vivado 12-24828] Executing command : report_utilization -file cva6_zybo_z7_20_utilization_placed.rpt -pb cva6_zybo_z7_20_utilization_placed.pb
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3802 ; free virtual = 10227
+Wrote PlaceDB: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3756 ; free virtual = 10227
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3756 ; free virtual = 10227
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3756 ; free virtual = 10227
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3756 ; free virtual = 10230
+Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3756 ; free virtual = 10231
+Write Physdb Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3756 ; free virtual = 10232
+INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_placed.dcp' has been generated.
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:02 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3605 ; free virtual = 10186
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 7.16s |  WALL: 2.22s
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3605 ; free virtual = 10187
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.878 | TNS=-141.841 |
+Phase 1 Physical Synthesis Initialization | Checksum: 178aa7fd1
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3493 ; free virtual = 10207
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.878 | TNS=-141.841 |
+
+Phase 2 DSP Register Optimization
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Phase 2 DSP Register Optimization | Checksum: 178aa7fd1
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:02 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3482 ; free virtual = 10206
+
+Phase 3 Critical Path Optimization
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.878 | TNS=-141.841 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][17].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result][17]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][17]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.878 | TNS=-141.650 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][18].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result][18]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][18]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.844 | TNS=-141.459 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][15].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result][15]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][15]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.844 | TNS=-141.352 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][16].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result][16]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][16]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.844 | TNS=-141.245 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][27].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result][27]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][27]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.844 | TNS=-141.138 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][28].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result][28]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][28]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.839 | TNS=-141.124 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][result_n_0_][13]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[1][sbe][result][31]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[1][sbe][result][31]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q_reg[valid]_0[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.823 | TNS=-127.163 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[3][sbe][ex][cause][0].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[3][sbe][ex][cause][0]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[3][sbe][ex][cause][0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.823 | TNS=-126.880 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[3][sbe][ex][cause][2].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[3][sbe][ex][cause][2]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[3][sbe][ex][cause][2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.797 | TNS=-126.597 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[2].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/p_2_in[32]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0.  Re-placed instance i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/wt_cache_subsys_LUT2_2
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.760 | TNS=-114.707 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][31].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][31]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][31]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.753 | TNS=-114.401 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][25].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][25]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][25]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.753 | TNS=-114.108 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][26].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][26]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][26]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.753 | TNS=-113.815 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][13].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][13]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][13]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.753 | TNS=-113.664 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][14].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][14]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][14]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.739 | TNS=-113.513 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][22].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][22]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][22]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.739 | TNS=-113.228 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][23].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][23]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][23]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.709 | TNS=-112.943 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/mult_valid_q_reg_0.  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/mult_valid_q_reg
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/mult_valid_q_reg_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.709 | TNS=-112.233 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][7].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][7]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][7]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.709 | TNS=-112.126 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][8].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][8]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][8]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.671 | TNS=-112.038 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][1].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][1]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.671 | TNS=-111.900 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][2].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][2]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.671 | TNS=-111.762 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][3].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][3]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.671 | TNS=-111.624 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][4].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][4]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.665 | TNS=-111.486 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][19].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][19]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][19]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.665 | TNS=-111.442 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][1].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][1]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.665 | TNS=-111.424 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][20].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][20]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][20]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.665 | TNS=-111.406 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][23].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result][23]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][23]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.665 | TNS=-111.388 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][result_n_0_][24]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[2][sbe][result][31]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[2][sbe][result][31]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q_reg[valid][0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.654 | TNS=-95.226 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][11].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][11]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][11]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.650 | TNS=-95.029 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][21].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][21]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][21]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.649 | TNS=-94.901 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][4].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][4]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.634 | TNS=-94.774 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][12].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][12]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][12]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.634 | TNS=-94.662 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][17].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][17]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][17]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.634 | TNS=-94.605 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][1].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][1]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.634 | TNS=-94.548 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][28].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][28]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][28]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.632 | TNS=-94.491 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[1][sbe][ex][cause][0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/ex_stage_i/lsu_i/i_pipe_reg_load/gen_register.d_o_reg[0]_6[0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/ex_stage_i/lsu_i/i_pipe_reg_load/mem_q[1][sbe][ex][cause][4]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q_reg[valid]_0[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.622 | TNS=-92.232 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][14].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][14]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][14]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.622 | TNS=-92.230 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][26].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][26]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][26]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.622 | TNS=-92.228 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][27].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result][27]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][27]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.620 | TNS=-92.226 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][result_n_0_][14]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[0][sbe][result][31]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[0][sbe][result][31]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q_reg[valid]_1[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.611 | TNS=-76.060 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/lsu_valid_q_reg_0.  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/lsu_valid_q_reg
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/lsu_valid_q_reg_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.609 | TNS=-83.508 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[3][sbe][fu_n_0_][1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/E[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/E[0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[3][sbe][pc][31]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/id_stage_i/issue_ack_iro_sb. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.595 | TNS=-66.409 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][ex][cause][3].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][ex][cause][3]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][ex][cause][3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.595 | TNS=-66.326 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][ex][cause][4].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][ex][cause][4]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[0][sbe][ex][cause][4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.591 | TNS=-66.243 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][0].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][0]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.591 | TNS=-66.199 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][1].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][1]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.591 | TNS=-66.155 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][2].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][2]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.591 | TNS=-66.111 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][3].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][3]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.591 | TNS=-66.067 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][4].  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][4]
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.547 | TNS=-66.023 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q_reg[2][sbe][ex][cause][0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/ex_stage_i/lsu_i/i_pipe_reg_load/gen_register.d_o_reg[0]_5[0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/ex_stage_i/lsu_i/i_pipe_reg_load/mem_q[2][sbe][ex][cause][4]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q_reg[valid][0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.547 | TNS=-64.260 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/lsu_valid_q_reg_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/id_stage_i/issue_stage_i/i_issue_read_operands/alu_valid_q1__1. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/id_stage_i/issue_ack_iro_sb. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/id_stage_i/issue_ack_iro_sb. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/id_stage_i/mem_q[0][sbe][pc][31]_i_2_comp_1.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q_reg[sbe][ex][valid]_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.537 | TNS=-37.258 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg_0[28]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11][0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_8__2_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___236_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.533 | TNS=-36.375 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[0].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[0]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.533 | TNS=-35.922 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[1].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[1]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.533 | TNS=-35.469 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[2].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[2]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[2]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.499 | TNS=-35.016 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11]_0[5]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_4__3_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.471 | TNS=-34.782 |
+INFO: [Physopt 32-134] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-81] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.458 | TNS=-32.536 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11][1]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_7__0_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___236_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.438 | TNS=-31.732 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11][3]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_5__0_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___236_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.433 | TNS=-31.086 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11][4]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_4__0_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___236_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.412 | TNS=-30.539 |
+INFO: [Physopt 32-134] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-81] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.407 | TNS=-29.955 |
+INFO: [Physopt 32-134] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/i___235_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[1].i_wt_dcache_ctrl/rd_off[1]_27[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.402 | TNS=-29.009 |
+INFO: [Physopt 32-81] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][1]. Replicated 1 times.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.395 | TNS=-28.275 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[3].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[3]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[3]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.395 | TNS=-27.960 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[4].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[4]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[4]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.391 | TNS=-27.645 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q_reg[0]_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/gen_pc_q_with_c.idx_ds_q_reg[1].  Re-placed instance i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q[2]_i_2__0
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/gen_pc_q_with_c.idx_ds_q_reg[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.388 | TNS=-26.874 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][1].  Re-placed instance i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/i___235_i_3
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.343 | TNS=-23.416 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/pc_q[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_pc_q_with_c.pc_q[31]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_pc_q_with_c.pc_q[31]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/id_stage_i/E[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.341 | TNS=-18.153 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0_repN.  Re-placed instance i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_comp
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0_repN. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.328 | TNS=-17.692 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/ADDRA[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[0]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[0]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_2__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.320 | TNS=-17.347 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/ADDRA[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_2__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.317 | TNS=-17.057 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q_reg[2]_2. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q[2]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q[2]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/gen_pc_q_with_c.idx_ds_q_reg[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.314 | TNS=-16.723 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q_reg_n_0_[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q[0]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q[0]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_2__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.304 | TNS=-16.395 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q_reg[2]_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q[2]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q[2]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_2__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.290 | TNS=-16.079 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/unaligned_address_q_reg[31][1]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/gen_pc_q_with_c.pc_q[1]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.289 | TNS=-15.753 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q_reg_n_0_[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q[1]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/status_cnt_q[1]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_2__6_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.289 | TNS=-15.463 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/read_pointer_q_reg[1]_0[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/read_pointer_q[0]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/read_pointer_q[0]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/gen_pc_q_with_c.idx_ds_q_reg[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.288 | TNS=-15.156 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/pc_q[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/unaligned_address_q_reg[31][0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/gen_pc_q_with_c.pc_q[0]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.286 | TNS=-14.873 |
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/i_rr_arb_tree/gen_arbiter.gen_int_rr.rr_q_reg[1]_1.  Re-placed instance i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/i_rr_arb_tree/i___235_i_2
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/i_rr_arb_tree/gen_arbiter.gen_int_rr.rr_q_reg[1]_1. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.284 | TNS=-13.399 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/pc_q[22]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/unaligned_address_q_reg[31][22]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/gen_pc_q_with_c.pc_q[22]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.283 | TNS=-13.115 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/pc_q[18]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/unaligned_address_q_reg[31][18]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/gen_pc_q_with_c.pc_q[18]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.279 | TNS=-12.798 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/read_pointer_q_reg[1]_0[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/read_pointer_q[1]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/read_pointer_q[1]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/gen_pc_q_with_c.idx_ds_q_reg[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.277 | TNS=-12.505 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/WEBWE[7]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/Mem_DP_reg_i_73_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.257 | TNS=-12.221 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[5].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[5]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[5]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.257 | TNS=-12.091 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[6].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[6]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[6]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.238 | TNS=-11.961 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][1]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/i___235_i_3_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[1].i_wt_dcache_ctrl/rd_off[1]_27[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.211 | TNS=-9.258 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/pc_q[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/unaligned_address_q_reg[31][2]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/gen_fpga_queue.fifo_ram/gen_pc_q_with_c.pc_q[2]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.211 | TNS=-9.014 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/WEBWE[2]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/Mem_DP_reg_i_78_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.179 | TNS=-8.786 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/read_pointer_q_reg_n_0_[1]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/read_pointer_q[1]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/read_pointer_q[1]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.175 | TNS=-8.575 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/read_pointer_q_reg_n_0_[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/read_pointer_q[0]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/read_pointer_q[0]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.174 | TNS=-8.435 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/status_cnt_q_reg_n_0_[0]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/status_cnt_q[0]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/status_cnt_q[0]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.167 | TNS=-8.231 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/WEBWE[6]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/Mem_DP_reg_i_74__0_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.164 | TNS=-8.054 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[10].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r_reg[10]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[10]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.164 | TNS=-7.890 |
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[9].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r_reg[9]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[9]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.163 | TNS=-7.725 |
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/i_fifo_address/status_cnt_q_reg_n_0_[2]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/pop_address. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/read_pointer_q[1]_i_3__2_comp_10.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/id_stage_i/E[0]. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.159 | TNS=-4.614 |
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/WEBWE[5]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/Mem_DP_reg_i_75_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.152 | TNS=-4.441 |
+INFO: [Common 17-14] Message 'Physopt 32-619' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q[0]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q[0]_i_1_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[0].i_fifo_instr_data/gen_pc_q_with_c.idx_ds_q_reg[1]. Optimization improves timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/WEBWE[0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/Mem_DP_reg_i_80_comp.
+INFO: [Physopt 32-735] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Optimization improves timing on the net.
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[15].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r_reg[15]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[15]. Optimization improves timing on the net.
+INFO: [Common 17-14] Message 'Physopt 32-735' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[16].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r_reg[16]
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/E[0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_scoreboard/mem_q[3][sbe][pc][31]_i_1_comp_1.
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/id_stage_i/issue_entry_valid_id_issue.  Re-placed instance i_ariane/i_cva6/id_stage_i/issue_q_reg[valid]
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q_reg[1]_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q[1]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/i_frontend/i_instr_queue/gen_instr_fifo[1].i_fifo_instr_data/status_cnt_q[1]_i_1_comp.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/WEBWE[1]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/Mem_DP_reg_i_79_comp.
+INFO: [Physopt 32-702] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[5]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-702] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/addr_en_c. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/gaxif_ms_addr_gen.num_of_bytes_r[3]_i_3_n_0.  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/gaxif_ms_addr_gen.num_of_bytes_r[3]_i_3
+INFO: [Physopt 32-710] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/addr_en_c. Critical path length was reduced through logic transformation on cell i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/gaxif_ms_addr_gen.num_of_bytes_r[3]_i_1_comp.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/bank_req[0]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_rtrn_id_fifo/Mem_DP_reg_i_1__4_comp.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___110_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/wt_cache_subsys_LUT2_2_comp_6.
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_pc_q_with_c.idx_ds_q_reg[1]_0.  Re-placed instance i_ariane/i_cva6/i_frontend/i_instr_queue/gen_pc_q_with_c.idx_ds_q_reg[1]
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/fu_data_id_ex[operand_a][17]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[17]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[17]_i_1_comp.
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/i_frontend/i_instr_queue/gen_pc_q_with_c.idx_ds_q_reg[0]_0.  Re-placed instance i_ariane/i_cva6/i_frontend/i_instr_queue/gen_pc_q_with_c.idx_ds_q_reg[0]
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/fu_data_id_ex[operand_a][10]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[10]_i_2_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[10]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[10]_i_2_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[10]_i_2_comp.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/fu_data_id_ex[operand_a][14]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[14]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[14]_i_1_comp.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/fu_data_id_ex[operand_a][21]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-134] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[21]_i_2_n_0. Rewiring did not optimize the net.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[21]_i_2_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[21]_i_2_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[21]_i_2_comp.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/fu_data_id_ex[operand_a][5]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[5]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[5]_i_1_comp.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/fu_data_id_ex[operand_a][25]. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[25]_i_1_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_issue_read_operands/operand_a_q[25]_i_1_comp.
+INFO: [Physopt 32-702] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q[sbe][pc][31]_i_6_n_0. Optimizations did not improve timing on the net.
+INFO: [Physopt 32-663] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/rs1_valid_sb_iro.  Re-placed instance i_ariane/i_cva6/issue_stage_i/i_scoreboard/operand_a_q[31]_i_13
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q[sbe][pc][31]_i_6_n_0. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/issue_stage_i/i_scoreboard/issue_q[sbe][pc][31]_i_6_comp.
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3586 ; free virtual = 10260
+Phase 3 Critical Path Optimization | Checksum: 178aa7fd1
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:18 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3586 ; free virtual = 10260
+
+Phase 4 Critical Path Optimization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3586 ; free virtual = 10260
+Phase 4 Critical Path Optimization | Checksum: 178aa7fd1
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:18 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3586 ; free virtual = 10260
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3586 ; free virtual = 10260
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=0.001 | TNS=0.000 |
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  DSP Register   |          0.000  |          0.000  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Path  |          0.879  |        141.841  |            3  |              0  |                   119  |           0  |           2  |  00:00:17  |
+|  Total          |          0.879  |        141.841  |            3  |              0  |                   119  |           0  |           3  |  00:00:17  |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3584 ; free virtual = 10259
+Ending Physical Synthesis Task | Checksum: 1502fb42b
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:18 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3593 ; free virtual = 10267
+INFO: [Common 17-83] Releasing license: Implementation
+453 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:01:02 ; elapsed = 00:00:21 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3593 ; free virtual = 10267
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3584 ; free virtual = 10262
+Wrote PlaceDB: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3521 ; free virtual = 10233
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3521 ; free virtual = 10233
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.05 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3521 ; free virtual = 10233
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3521 ; free virtual = 10236
+Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3513 ; free virtual = 10229
+Write Physdb Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3513 ; free virtual = 10229
+INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_physopt.dcp' has been generated.
+Command: route_design -directive RuntimeOptimized
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 1 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-270] Using Router directive 'RuntimeOptimized'.
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: 7223d39b ConstDB: 0 ShapeSum: b5cfccf5 RouteDB: 15f972f0
+Post Restoration Checksum: NetGraph: f18653cc | NumContArr: edb6f37e | Constraints: c2a8fa9d | Timing: c2a8fa9d
+Phase 1 Build RT Design | Checksum: 3648f3c84
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:14 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3558 ; free virtual = 10249
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 3648f3c84
+
+Time (s): cpu = 00:00:22 ; elapsed = 00:00:14 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3560 ; free virtual = 10252
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 3648f3c84
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:14 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3560 ; free virtual = 10252
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 2a038c0fc
+
+Time (s): cpu = 00:00:34 ; elapsed = 00:00:18 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3517 ; free virtual = 10211
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.386  | TNS=0.000  | WHS=-0.202 | THS=-144.147|
+
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.0211763 %
+  Global Horizontal Routing Utilization  = 0.0226504 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 30167
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 30149
+  Number of Partially Routed Nets     = 18
+  Number of Node Overlaps             = 25
+
+Phase 2 Router Initialization | Checksum: 293508967
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:19 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3514 ; free virtual = 10208
+
+Phase 3 Global Routing
+Phase 3 Global Routing | Checksum: 293508967
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:19 . Memory (MB): peak = 3312.836 ; gain = 0.000 ; free physical = 3514 ; free virtual = 10208
+
+Phase 4 Initial Routing
+
+Phase 4.1 Initial Net Routing Pass
+Phase 4.1 Initial Net Routing Pass | Checksum: 1ee3b70ec
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:26 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3187 ; free virtual = 9881
+Phase 4 Initial Routing | Checksum: 1ee3b70ec
+
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:26 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3187 ; free virtual = 9881
+
+Phase 5 Rip-up And Reroute
+
+Phase 5.1 Global Iteration 0
+ Number of Nodes with overlaps = 6887
+ Number of Nodes with overlaps = 1478
+ Number of Nodes with overlaps = 426
+ Number of Nodes with overlaps = 207
+ Number of Nodes with overlaps = 79
+ Number of Nodes with overlaps = 60
+ Number of Nodes with overlaps = 15
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.341 | TNS=-9.398 | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Global Iteration 0 | Checksum: 3555a9fae
+
+Time (s): cpu = 00:01:48 ; elapsed = 00:00:55 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3130 ; free virtual = 9923
+
+Phase 5.2 Global Iteration 1
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.341 | TNS=-9.849 | WHS=N/A    | THS=N/A    |
+
+Phase 5.2 Global Iteration 1 | Checksum: 25a0f9733
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:00:58 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3117 ; free virtual = 9910
+Phase 5 Rip-up And Reroute | Checksum: 25a0f9733
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:00:58 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3117 ; free virtual = 9910
+
+Phase 6 Delay and Skew Optimization
+
+Phase 6.1 Delay CleanUp
+ Number of Nodes with overlaps = 0
+Phase 6.1 Delay CleanUp | Checksum: 269a1b671
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:00:58 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3113 ; free virtual = 9907
+
+Phase 6.2 Clock Skew Optimization
+Phase 6.2 Clock Skew Optimization | Checksum: 269a1b671
+
+Time (s): cpu = 00:01:53 ; elapsed = 00:00:58 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3113 ; free virtual = 9907
+Phase 6 Delay and Skew Optimization | Checksum: 269a1b671
+
+Time (s): cpu = 00:01:53 ; elapsed = 00:00:58 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3113 ; free virtual = 9907
+
+Phase 7 Post Hold Fix
+
+Phase 7.1 Hold Fix Iter
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=-0.215 | TNS=-2.566 | WHS=0.020  | THS=0.000  |
+
+Phase 7.1 Hold Fix Iter | Checksum: 2a44695d5
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:00:59 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3113 ; free virtual = 9906
+Phase 7 Post Hold Fix | Checksum: 2a44695d5
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:00:59 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3113 ; free virtual = 9906
+
+Phase 8 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 9.03635 %
+  Global Horizontal Routing Utilization  = 12.4506 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+
+--GLOBAL Congestion:
+Utilization threshold used for congestion level computation: 0.85
+Congestion Report
+North Dir 1x1 Area, Max Cong = 77.4775%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 81.982%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 91.1765%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_L_X52Y25 -> INT_L_X52Y25
+   INT_L_X44Y14 -> INT_L_X44Y14
+   INT_L_X42Y11 -> INT_L_X42Y11
+   INT_R_X51Y9 -> INT_R_X51Y9
+   INT_L_X46Y7 -> INT_L_X46Y7
+West Dir 1x1 Area, Max Cong = 92.6471%, Congestion bounded by tiles (Lower Left Tile -> Upper Right Tile):
+   INT_R_X39Y21 -> INT_R_X39Y21
+   INT_R_X45Y11 -> INT_R_X45Y11
+   INT_R_X55Y8 -> INT_R_X55Y8
+   INT_L_X48Y6 -> INT_L_X48Y6
+   INT_R_X45Y5 -> INT_R_X45Y5
+
+------------------------------
+Reporting congestion hotspots
+------------------------------
+Direction: North
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: South
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
+Direction: East
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 1
+Direction: West
+----------------
+Congested clusters found at Level 0
+Effective congestion level: 1 Aspect Ratio: 1 Sparse Ratio: 0.75
+
+Phase 8 Route finalize | Checksum: 2a44695d5
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:00:59 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3113 ; free virtual = 9906
+
+Phase 9 Verifying routed nets
+
+ Verification completed successfully
+Phase 9 Verifying routed nets | Checksum: 2a44695d5
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:00:59 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3113 ; free virtual = 9906
+
+Phase 10 Depositing Routes
+Phase 10 Depositing Routes | Checksum: 2d2cc1ec8
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:00 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3116 ; free virtual = 9909
+
+Phase 11 Post Process Routing
+Phase 11 Post Process Routing | Checksum: 2d2cc1ec8
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:00 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3116 ; free virtual = 9909
+
+Phase 12 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-0.215 | TNS=-2.566 | WHS=0.020  | THS=0.000  |
+
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 12 Post Router Timing | Checksum: 2d2cc1ec8
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:00 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3116 ; free virtual = 9909
+Total Elapsed time in route_design: 60.44 secs
+
+Phase 13 Post-Route Event Processing
+Phase 13 Post-Route Event Processing | Checksum: 1800c8d07
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:01 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3116 ; free virtual = 9909
+INFO: [Route 35-16] Router Completed Successfully
+Ending Routing Task | Checksum: 1800c8d07
+
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:01 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3117 ; free virtual = 9910
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+471 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:02:03 ; elapsed = 00:01:03 . Memory (MB): peak = 3605.418 ; gain = 292.582 ; free physical = 3116 ; free virtual = 9910
+INFO: [Vivado 12-24828] Executing command : report_drc -file cva6_zybo_z7_20_drc_routed.rpt -pb cva6_zybo_z7_20_drc_routed.pb -rpx cva6_zybo_z7_20_drc_routed.rpx
+Command: report_drc -file cva6_zybo_z7_20_drc_routed.rpt -pb cva6_zybo_z7_20_drc_routed.pb -rpx cva6_zybo_z7_20_drc_routed.rpx
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_drc_routed.rpt.
+report_drc completed successfully
+INFO: [Vivado 12-24828] Executing command : report_methodology -file cva6_zybo_z7_20_methodology_drc_routed.rpt -pb cva6_zybo_z7_20_methodology_drc_routed.pb -rpx cva6_zybo_z7_20_methodology_drc_routed.rpx
+Command: report_methodology -file cva6_zybo_z7_20_methodology_drc_routed.rpt -pb cva6_zybo_z7_20_methodology_drc_routed.pb -rpx cva6_zybo_z7_20_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 8 threads
+INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_methodology_drc_routed.rpt.
+report_methodology completed successfully
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -file cva6_zybo_z7_20_timing_summary_routed.rpt -pb cva6_zybo_z7_20_timing_summary_routed.pb -rpx cva6_zybo_z7_20_timing_summary_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Vivado 12-24838] Running report commands "report_bus_skew, report_incremental_reuse, report_route_status" in parallel.
+Running report generation with 3 threads.
+INFO: [Vivado 12-24828] Executing command : report_incremental_reuse -file cva6_zybo_z7_20_incremental_reuse_routed.rpt
+INFO: [Vivado_Tcl 4-1062] Incremental flow is disabled. No incremental reuse Info to report.
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file cva6_zybo_z7_20_bus_skew_routed.rpt -pb cva6_zybo_z7_20_bus_skew_routed.pb -rpx cva6_zybo_z7_20_bus_skew_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Vivado 12-24828] Executing command : report_route_status -file cva6_zybo_z7_20_route_status.rpt -pb cva6_zybo_z7_20_route_status.pb
+INFO: [Vivado 12-24828] Executing command : report_power -file cva6_zybo_z7_20_power_routed.rpt -pb cva6_zybo_z7_20_power_summary_routed.pb -rpx cva6_zybo_z7_20_power_routed.rpx
+Command: report_power -file cva6_zybo_z7_20_power_routed.rpt -pb cva6_zybo_z7_20_power_summary_routed.pb -rpx cva6_zybo_z7_20_power_routed.rpx
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+491 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+INFO: [Vivado 12-24828] Executing command : report_clock_utilization -file cva6_zybo_z7_20_clock_utilization_routed.rpt
+WARNING: [Device 21-9320] Failed to find the Oracle tile group with name 'HSR_BOUNDARY_TOP'. This is required for Clock regions and Virtual grid.
+WARNING: [Device 21-2174] Failed to initialize Virtual grid.
+generate_parallel_reports: Time (s): cpu = 00:00:43 ; elapsed = 00:00:15 . Memory (MB): peak = 3693.461 ; gain = 88.043 ; free physical = 3052 ; free virtual = 9860
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3052 ; free virtual = 9864
+Wrote PlaceDB: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3015 ; free virtual = 9861
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3015 ; free virtual = 9861
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.48 ; elapsed = 00:00:00.2 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3003 ; free virtual = 9855
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 2999 ; free virtual = 9854
+Wrote Device Cache: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 2999 ; free virtual = 9855
+Write Physdb Complete: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 2999 ; free virtual = 9855
+INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_routed.dcp' has been generated.
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7z020'
+INFO: [Vivado_Tcl 4-241] Physical synthesis in post route mode 
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:08 ; elapsed = 00:00:02 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3015 ; free virtual = 9837
+INFO: [Vivado_Tcl 4-1435] PhysOpt_Tcl_Interface Runtime Before Starting Physical Synthesis Task | CPU: 9.24s |  WALL: 2.99s
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3016 ; free virtual = 9837
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-668] Current Timing Summary | WNS=-0.204 | TNS=-2.169 | WHS=0.021 | THS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 134ded5b9
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:02 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3025 ; free virtual = 9846
+
+Phase 2 Critical Path Optimization
+INFO: [Physopt 32-668] Current Timing Summary | WNS=-0.204 | TNS=-2.169 | WHS=0.021 | THS=0.000 |
+INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[2].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/p_2_in[32].
+INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_xlnx_clk_gen. Processed net: i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11]_0[6]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_3__4_comp.
+INFO: [Physopt 32-952] Improved path group WNS = -0.198. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0.
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[13].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r_reg[13]
+INFO: [Physopt 32-952] Improved path group WNS = -0.198. Path group: clk_out1_xlnx_clk_gen. Processed net: i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[13].
+INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_xlnx_clk_gen. Processed net: i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[8].
+INFO: [Physopt 32-710] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/s_axi_wvalid_0[0]. Critical path length was reduced through logic transformation on cell i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/gaxif_ms_addr_gen.next_address_r[3]_i_1_comp.
+INFO: [Physopt 32-952] Improved path group WNS = -0.121. Path group: clk_out1_xlnx_clk_gen. Processed net: i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/addr_en_c.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11]_0[2]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_7__4_comp.
+INFO: [Physopt 32-952] Improved path group WNS = -0.119. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0.
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/mshr_q_reg[paddr][11]_0[6]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/Mem_DP_reg_i_3__4_comp_1.
+INFO: [Physopt 32-952] Improved path group WNS = -0.112. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0_repN_3.
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[13].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r_reg[13]
+INFO: [Physopt 32-952] Improved path group WNS = -0.099. Path group: clk_out1_xlnx_clk_gen. Processed net: i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[13].
+INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i___237_n_0.
+INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_wbuffer/i_clean_rr/wbuffer_q_reg[1][wtag][0].
+INFO: [Physopt 32-953] Path group WNS did not improve. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[1].i_wt_dcache_ctrl/dcache_req_ports_cache_ex[1][data_gnt].
+INFO: [Physopt 32-710] Processed net i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[1].i_wt_dcache_ctrl/dcache_req_ports_cache_ex[1][data_gnt]. Critical path length was reduced through logic transformation on cell i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[1].i_wt_dcache_ctrl/i___115_i_1_comp.
+INFO: [Physopt 32-952] Improved path group WNS = -0.027. Path group: clk_out1_xlnx_clk_gen. Processed net: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[1].i_wt_dcache_ctrl/i___115_i_4_n_0.
+INFO: [Physopt 32-663] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[10].  Re-placed instance i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r_reg[10]
+INFO: [Physopt 32-735] Processed net i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_ms_addr_gen.bmg_address_r[10]. Optimization improves timing on the net.
+INFO: [Physopt 32-668] Current Timing Summary | WNS=0.014 | TNS=0.000 | WHS=0.021 | THS=0.000 |
+INFO: [Physopt 32-668] Current Timing Summary | WNS=0.014 | TNS=0.000 | WHS=0.021 | THS=0.000 |
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3189 ; free virtual = 9924
+Phase 2 Critical Path Optimization | Checksum: 134ded5b9
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:27 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3189 ; free virtual = 9924
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3189 ; free virtual = 9923
+INFO: [Physopt 32-669] Post Physical Optimization Timing Summary | WNS=0.014 | TNS=0.000 | WHS=0.021 | THS=0.000 |
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization   |  WNS Gain (ns)  |  TNS Gain (ns)  |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Critical Path  |          0.218  |          2.169  |            0  |              0  |                     8  |           0  |           1  |  00:00:25  |
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3189 ; free virtual = 9923
+Ending Physical Synthesis Task | Checksum: 1da196e60
+
+Time (s): cpu = 00:01:03 ; elapsed = 00:00:27 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3189 ; free virtual = 9923
+INFO: [Common 17-83] Releasing license: Implementation
+529 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:01:13 ; elapsed = 00:00:31 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3189 ; free virtual = 9923
+INFO: [Vivado 12-24828] Executing command : report_timing_summary -max_paths 10 -report_unconstrained -warn_on_violation -file cva6_zybo_z7_20_timing_summary_postroute_physopted.rpt -pb cva6_zybo_z7_20_timing_summary_postroute_physopted.pb -rpx cva6_zybo_z7_20_timing_summary_postroute_physopted.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Vivado 12-24828] Executing command : report_bus_skew -warn_on_violation -file cva6_zybo_z7_20_bus_skew_postroute_physopted.rpt -pb cva6_zybo_z7_20_bus_skew_postroute_physopted.pb -rpx cva6_zybo_z7_20_bus_skew_postroute_physopted.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3162 ; free virtual = 9903
+Wrote PlaceDB: Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3130 ; free virtual = 9905
+Wrote PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3130 ; free virtual = 9905
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Wrote RouteStorage: Time (s): cpu = 00:00:00.49 ; elapsed = 00:00:00.2 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3128 ; free virtual = 9909
+Wrote Netlist Cache: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3128 ; free virtual = 9912
+Wrote Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3128 ; free virtual = 9913
+Write Physdb Complete: Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 3693.461 ; gain = 0.000 ; free physical = 3128 ; free virtual = 9913
+INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/impl_1/cva6_zybo_z7_20_postroute_physopt.dcp' has been generated.
+INFO: [Common 17-206] Exiting Vivado at Tue Jan 21 14:54:57 2025...
