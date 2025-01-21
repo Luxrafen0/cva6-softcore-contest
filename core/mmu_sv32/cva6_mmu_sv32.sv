@@ -30,8 +30,8 @@ module cva6_mmu_sv32
   import ariane_pkg::*;
 #(
     parameter config_pkg::cva6_cfg_t CVA6Cfg           = config_pkg::cva6_cfg_empty,
-    parameter int unsigned           INSTR_TLB_ENTRIES = 16,
-    parameter int unsigned           DATA_TLB_ENTRIES  = 16,
+    parameter int unsigned           INSTR_TLB_ENTRIES = 2,
+    parameter int unsigned           DATA_TLB_ENTRIES  = 2,
     parameter int unsigned           ASID_WIDTH        = 1
 ) (
     input logic clk_i,
@@ -86,7 +86,7 @@ module cva6_mmu_sv32
   logic                   ptw_error;  // PTW threw an exception
   logic                   ptw_access_exception;  // PTW threw an access exception (PMPs)
   logic [riscv::PLEN-1:0] ptw_bad_paddr;  // PTW PMP exception bad physical addr
-
+  logic                   lsu_dtlb_hit_tmp_o;
   logic [riscv::VLEN-1:0] update_vaddr;
   tlb_update_sv32_t update_itlb, update_dtlb, update_shared_tlb;
 
@@ -239,7 +239,7 @@ module cva6_mmu_sv32
 
       // PMP
       .pmpcfg_i   (pmpcfg_i),
-      .pmpaddr_i  (pmpaddr_i),
+      .pmpaddr_i  (pmpaddr_int),
       .bad_paddr_o(ptw_bad_paddr)
 
   );
@@ -373,7 +373,7 @@ module cva6_mmu_sv32
       // we will always execute on the instruction fetch port
       .access_type_i(riscv::ACCESS_EXEC),
       // Configuration
-      .conf_addr_i  (pmpaddr_i),
+      .conf_addr_i  (pmpaddr_int),
       .conf_i       (pmpcfg_i),
       .allow_o      (pmp_instr_allow)
   );
@@ -381,7 +381,9 @@ module cva6_mmu_sv32
   //-----------------------
   // Data Interface
   //-----------------------
+
   logic [riscv::VLEN-1:0] lsu_vaddr_n, lsu_vaddr_q;
+  logic [15:0][riscv::PLEN-3:0] pmpaddr_int;
   riscv::pte_sv32_t dtlb_pte_n, dtlb_pte_q;
   exception_t misaligned_ex_n, misaligned_ex_q;
   logic lsu_req_n, lsu_req_q;
@@ -390,8 +392,8 @@ module cva6_mmu_sv32
   logic dtlb_is_4M_n, dtlb_is_4M_q;
 
   // check if we need to do translation or if we are always ready (e.g.: we are not translating anything)
-  assign lsu_dtlb_hit_o = (en_ld_st_translation_i) ? dtlb_lu_hit : 1'b1;
-
+  assign lsu_dtlb_hit_tmp_o = (en_ld_st_translation_i) ? dtlb_lu_hit : 1'b1;
+  
   // Wires to PMP checks
   riscv::pmp_access_t pmp_access_type;
   logic               pmp_data_allow;
@@ -533,7 +535,7 @@ module cva6_mmu_sv32
       .priv_lvl_i   (ld_st_priv_lvl_i),
       .access_type_i(pmp_access_type),
       // Configuration
-      .conf_addr_i  (pmpaddr_i),
+      .conf_addr_i  (pmpaddr_int),
       .conf_i       (pmpcfg_i),
       .allow_o      (pmp_data_allow)
   );
@@ -550,6 +552,8 @@ module cva6_mmu_sv32
       dtlb_hit_q      <= '0;
       lsu_is_store_q  <= '0;
       dtlb_is_4M_q    <= '0;
+      pmpaddr_int     <= '0;
+      lsu_dtlb_hit_o  <= '0;
     end else begin
       lsu_vaddr_q     <= lsu_vaddr_n;
       lsu_req_q       <= lsu_req_n;
@@ -558,6 +562,9 @@ module cva6_mmu_sv32
       dtlb_hit_q      <= dtlb_hit_n;
       lsu_is_store_q  <= lsu_is_store_n;
       dtlb_is_4M_q    <= dtlb_is_4M_n;
+      //rajout registre 
+      pmpaddr_int     <= pmpaddr_i;
+      lsu_dtlb_hit_o  <= lsu_dtlb_hit_tmp_o;
     end
   end
 endmodule

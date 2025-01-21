@@ -362,6 +362,7 @@ module cva6
   logic [riscv::PPNW-1:0] satp_ppn_csr_ex;
   logic [ASID_WIDTH-1:0] asid_csr_ex;
   logic [11:0] csr_addr_ex_csr;
+  logic [11:0] csr_addr_ex_csr_reg;
   fu_op csr_op_commit_csr;
   riscv::xlen_t csr_wdata_commit_csr;
   riscv::xlen_t csr_rdata_csr_commit;
@@ -675,7 +676,7 @@ module cva6
       .resolve_branch_o     (resolve_branch_ex_id),
       // CSR
       .csr_valid_i          (csr_valid_id_ex),
-      .csr_addr_o           (csr_addr_ex_csr),
+      .csr_addr_o           (csr_addr_ex_csr_reg),
       .csr_commit_i         (csr_commit_commit_ex),       // from commit
       // MULT
       .mult_valid_i         (mult_valid_id_ex),
@@ -803,6 +804,16 @@ module cva6
   // ---------
   // CSR
   // ---------
+
+  // rajout registre intermédiaire pour pipelining
+  always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (~rst_ni) begin
+      csr_addr_ex_csr_reg <= '0;
+    end else begin
+      csr_addr_ex_csr_reg <= csr_addr_ex_csr;
+    end
+  end
+
   csr_regfile #(
       .CVA6Cfg       (CVA6ExtendCfg),
       .AsidWidth     (ASID_WIDTH),
