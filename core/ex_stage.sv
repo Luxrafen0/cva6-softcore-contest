@@ -20,114 +20,114 @@ module ex_stage
     parameter config_pkg::cva6_cfg_t CVA6Cfg = config_pkg::cva6_cfg_empty,
     parameter int unsigned ASID_WIDTH = 1
 ) (
-    input logic clk_i,        // Clock
-    input logic rst_ni,       // Asynchronous reset active low
-    input logic flush_i,
-    input logic debug_mode_i,
+    input logic clk_i        // Clock
+//    input logic rst_ni,       // Asynchronous reset active low
+//    input logic flush_i,
+//    input logic debug_mode_i
 
-    input logic [riscv::VLEN-1:0] rs1_forwarding_i,
-    input logic [riscv::VLEN-1:0] rs2_forwarding_i,
-    input fu_data_t fu_data_i,
-    input logic [riscv::VLEN-1:0] pc_i,  // PC of current instruction
-    input logic is_compressed_instr_i,  // we need to know if this was a compressed instruction
-                                        // in order to calculate the next PC on a mis-predict
-    // Fixed latency unit(s)
-    output riscv::xlen_t flu_result_o,
-    output logic [TRANS_ID_BITS-1:0]               flu_trans_id_o,        // ID of scoreboard entry at which to write back
-    output exception_t flu_exception_o,
-    output logic flu_ready_o,  // FLU is ready
-    output logic flu_valid_o,  // FLU result is valid
-    // Branches and Jumps
-    // ALU 1
-    input logic alu_valid_i,  // Output is valid
-    // Branch Unit
-    input logic branch_valid_i,  // we are using the branch unit
-    input branchpredict_sbe_t branch_predict_i,
-    output bp_resolve_t resolved_branch_o,  // the branch engine uses the write back from the ALU
-    output logic resolve_branch_o,  // to ID signaling that we resolved the branch
-    // CSR
-    input logic csr_valid_i,
-    output logic [11:0] csr_addr_o,
-    input logic csr_commit_i,
-    // MULT
-    input logic mult_valid_i,  // Output is valid
-    // LSU
-    output logic lsu_ready_o,  // FU is ready
-    input logic lsu_valid_i,  // Input is valid
+//    input logic [riscv::VLEN-1:0] rs1_forwarding_i,
+//    input logic [riscv::VLEN-1:0] rs2_forwarding_i,
+//    input fu_data_t fu_data_i,
+//    input logic [riscv::VLEN-1:0] pc_i,  // PC of current instruction
+//    input logic is_compressed_instr_i,  // we need to know if this was a compressed instruction
+//                                        // in order to calculate the next PC on a mis-predict
+//    // Fixed latency unit(s)
+//    output riscv::xlen_t flu_result_o,
+//    output logic [TRANS_ID_BITS-1:0]               flu_trans_id_o,        // ID of scoreboard entry at which to write back
+//    output exception_t flu_exception_o,
+//    output logic flu_ready_o,  // FLU is ready
+//    output logic flu_valid_o,  // FLU result is valid
+//    // Branches and Jumps
+//    // ALU 1
+//    input logic alu_valid_i,  // Output is valid
+//    // Branch Unit
+//    input logic branch_valid_i,  // we are using the branch unit
+//    input branchpredict_sbe_t branch_predict_i,
+//    output bp_resolve_t resolved_branch_o,  // the branch engine uses the write back from the ALU
+//    output logic resolve_branch_o,  // to ID signaling that we resolved the branch
+//    // CSR
+//    input logic csr_valid_i,
+//    output logic [11:0] csr_addr_o,
+//    input logic csr_commit_i,
+//    // MULT
+//    input logic mult_valid_i,  // Output is valid
+//    // LSU
+//    output logic lsu_ready_o,  // FU is ready
+//    input logic lsu_valid_i,  // Input is valid
 
-    output logic                             load_valid_o,
-    output riscv::xlen_t                     load_result_o,
-    output logic         [TRANS_ID_BITS-1:0] load_trans_id_o,
-    output exception_t                       load_exception_o,
-    output logic                             store_valid_o,
-    output riscv::xlen_t                     store_result_o,
-    output logic         [TRANS_ID_BITS-1:0] store_trans_id_o,
-    output exception_t                       store_exception_o,
+//    output logic                             load_valid_o,
+//    output riscv::xlen_t                     load_result_o,
+//    output logic         [TRANS_ID_BITS-1:0] load_trans_id_o,
+//    output exception_t                       load_exception_o,
+//    output logic                             store_valid_o,
+//    output riscv::xlen_t                     store_result_o,
+//    output logic         [TRANS_ID_BITS-1:0] store_trans_id_o,
+//    output exception_t                       store_exception_o,
 
-    input logic lsu_commit_i,
-    output logic lsu_commit_ready_o,  // commit queue is ready to accept another commit request
-    input logic [TRANS_ID_BITS-1:0] commit_tran_id_i,
-    input logic stall_st_pending_i,
-    output logic no_st_pending_o,
-    input logic amo_valid_commit_i,
-    // FPU
-    output logic fpu_ready_o,  // FU is ready
-    input logic fpu_valid_i,  // Output is valid
-    input logic [1:0] fpu_fmt_i,  // FP format
-    input logic [2:0] fpu_rm_i,  // FP rm
-    input logic [2:0] fpu_frm_i,  // FP frm csr
-    input logic [6:0] fpu_prec_i,  // FP precision control
-    output logic [TRANS_ID_BITS-1:0] fpu_trans_id_o,
-    output riscv::xlen_t fpu_result_o,
-    output logic fpu_valid_o,
-    output exception_t fpu_exception_o,
-    // CoreV-X-Interface
-    input logic x_valid_i,
-    output logic x_ready_o,
-    input logic [31:0] x_off_instr_i,
-    output logic [TRANS_ID_BITS-1:0] x_trans_id_o,
-    output exception_t x_exception_o,
-    output riscv::xlen_t x_result_o,
-    output logic x_valid_o,
-    output logic x_we_o,
-    output cvxif_pkg::cvxif_req_t cvxif_req_o,
-    input cvxif_pkg::cvxif_resp_t cvxif_resp_i,
-    input logic acc_valid_i,  // Output is valid
-    // Memory Management
-    input logic enable_translation_i,
-    input logic en_ld_st_translation_i,
-    input logic flush_tlb_i,
+//    input logic lsu_commit_i,
+//    output logic lsu_commit_ready_o,  // commit queue is ready to accept another commit request
+//    input logic [TRANS_ID_BITS-1:0] commit_tran_id_i,
+//    input logic stall_st_pending_i,
+//    output logic no_st_pending_o,
+//    input logic amo_valid_commit_i,
+//    // FPU
+//    output logic fpu_ready_o,  // FU is ready
+//    input logic fpu_valid_i,  // Output is valid
+//    input logic [1:0] fpu_fmt_i,  // FP format
+//    input logic [2:0] fpu_rm_i,  // FP rm
+//    input logic [2:0] fpu_frm_i,  // FP frm csr
+//    input logic [6:0] fpu_prec_i,  // FP precision control
+//    output logic [TRANS_ID_BITS-1:0] fpu_trans_id_o,
+//    output riscv::xlen_t fpu_result_o,
+//    output logic fpu_valid_o,
+//    output exception_t fpu_exception_o,
+//    // CoreV-X-Interface
+//    input logic x_valid_i,
+//    output logic x_ready_o,
+//    input logic [31:0] x_off_instr_i,
+//    output logic [TRANS_ID_BITS-1:0] x_trans_id_o,
+//    output exception_t x_exception_o,
+//    output riscv::xlen_t x_result_o,
+//    output logic x_valid_o,
+//    output logic x_we_o,
+//    output cvxif_pkg::cvxif_req_t cvxif_req_o,
+//    input cvxif_pkg::cvxif_resp_t cvxif_resp_i,
+//    input logic acc_valid_i,  // Output is valid
+//    // Memory Management
+//    input logic enable_translation_i,
+//    input logic en_ld_st_translation_i,
+//    input logic flush_tlb_i,
 
-    input  riscv::priv_lvl_t                   priv_lvl_i,
-    input  riscv::priv_lvl_t                   ld_st_priv_lvl_i,
-    input  logic                               sum_i,
-    input  logic                               mxr_i,
-    input  logic             [riscv::PPNW-1:0] satp_ppn_i,
-    input  logic             [ ASID_WIDTH-1:0] asid_i,
-    // icache translation requests
-    input  icache_arsp_t                       icache_areq_i,
-    output icache_areq_t                       icache_areq_o,
+//    input  riscv::priv_lvl_t                   priv_lvl_i,
+//    input  riscv::priv_lvl_t                   ld_st_priv_lvl_i,
+//    input  logic                               sum_i,
+//    input  logic                               mxr_i,
+//    input  logic             [riscv::PPNW-1:0] satp_ppn_i,
+//    input  logic             [ ASID_WIDTH-1:0] asid_i,
+//    // icache translation requests
+//    input  icache_arsp_t                       icache_areq_i,
+//    output icache_areq_t                       icache_areq_o,
 
-    // interface to dcache
-    input dcache_req_o_t [2:0] dcache_req_ports_i,
-    output dcache_req_i_t [2:0] dcache_req_ports_o,
-    input logic dcache_wbuffer_empty_i,
-    input logic dcache_wbuffer_not_ni_i,
-    output amo_req_t amo_req_o,  // request to cache subsytem
-    input amo_resp_t amo_resp_i,  // response from cache subsystem
-    // Performance counters
-    output logic itlb_miss_o,
-    output logic dtlb_miss_o,
-    // PMPs
-    input riscv::pmpcfg_t [15:0] pmpcfg_i,
-    input logic [15:0][riscv::PLEN-3:0] pmpaddr_i,
+//    // interface to dcache
+//    input dcache_req_o_t [2:0] dcache_req_ports_i,
+//    output dcache_req_i_t [2:0] dcache_req_ports_o,
+//    input logic dcache_wbuffer_empty_i,
+//    input logic dcache_wbuffer_not_ni_i,
+//    output amo_req_t amo_req_o,  // request to cache subsytem
+//    input amo_resp_t amo_resp_i,  // response from cache subsystem
+//    // Performance counters
+//    output logic itlb_miss_o,
+//    output logic dtlb_miss_o,
+//    // PMPs
+//    input riscv::pmpcfg_t [15:0] pmpcfg_i,
+//    input logic [15:0][riscv::PLEN-3:0] pmpaddr_i,
 
-    // RVFI
-    output [              riscv::VLEN-1:0] lsu_addr_o,
-    output [              riscv::PLEN-1:0] mem_paddr_o,
-    output [          (riscv::XLEN/8)-1:0] lsu_rmask_o,
-    output [          (riscv::XLEN/8)-1:0] lsu_wmask_o,
-    output [ariane_pkg::TRANS_ID_BITS-1:0] lsu_addr_trans_id_o
+//    // RVFI
+//    output [              riscv::VLEN-1:0] lsu_addr_o,
+//    output [              riscv::PLEN-1:0] mem_paddr_o,
+//    output [          (riscv::XLEN/8)-1:0] lsu_rmask_o,
+//    output [          (riscv::XLEN/8)-1:0] lsu_wmask_o,
+//    output [ariane_pkg::TRANS_ID_BITS-1:0] lsu_addr_trans_id_o
 );
 
   // -------------------------
@@ -150,6 +150,110 @@ module ex_stage
   //                        they will simply block the issue of all other
   //                        instructions.
 
+  //START
+  
+  logic rst_ni;
+  logic flush_i;
+  logic debug_mode_i;
+
+  logic [riscv::VLEN-1:0] rs1_forwarding_i;
+  logic [riscv::VLEN-1:0] rs2_forwarding_i;
+  fu_data_t fu_data_i;
+  logic [riscv::VLEN-1:0] pc_i;
+  logic is_compressed_instr_i;
+  
+  riscv::xlen_t flu_result_o;
+  logic [TRANS_ID_BITS-1:0] flu_trans_id_o;
+  exception_t flu_exception_o;
+  logic flu_ready_o;
+  logic flu_valid_o;
+
+  logic alu_valid_i;
+  logic branch_valid_i;
+  branchpredict_sbe_t branch_predict_i;
+  bp_resolve_t resolved_branch_o;
+  logic resolve_branch_o;
+  
+  logic csr_valid_i;
+  logic [11:0] csr_addr_o;
+  logic csr_commit_i;
+
+  logic mult_valid_i;
+  logic lsu_ready_o;
+  logic lsu_valid_i;
+
+  logic load_valid_o;
+  riscv::xlen_t load_result_o;
+  logic [TRANS_ID_BITS-1:0] load_trans_id_o;
+  exception_t load_exception_o;
+
+  logic store_valid_o;
+  riscv::xlen_t store_result_o;
+  logic [TRANS_ID_BITS-1:0] store_trans_id_o;
+  exception_t store_exception_o;
+
+  logic lsu_commit_i;
+  logic lsu_commit_ready_o;
+  logic [TRANS_ID_BITS-1:0] commit_tran_id_i;
+  logic stall_st_pending_i;
+  logic no_st_pending_o;
+  logic amo_valid_commit_i;
+  
+  logic fpu_ready_o;
+  logic fpu_valid_i;
+  logic [1:0] fpu_fmt_i;
+  logic [2:0] fpu_rm_i;
+  logic [2:0] fpu_frm_i;
+  logic [6:0] fpu_prec_i;
+  logic [TRANS_ID_BITS-1:0] fpu_trans_id_o;
+  riscv::xlen_t fpu_result_o;
+  logic fpu_valid_o;
+  exception_t fpu_exception_o;
+
+  logic x_valid_i;
+  logic x_ready_o;
+  logic [31:0] x_off_instr_i;
+  logic [TRANS_ID_BITS-1:0] x_trans_id_o;
+  exception_t x_exception_o;
+  riscv::xlen_t x_result_o;
+  logic x_valid_o;
+  logic x_we_o;
+  cvxif_pkg::cvxif_req_t cvxif_req_o;
+  cvxif_pkg::cvxif_resp_t cvxif_resp_i;
+  logic acc_valid_i;
+  
+  logic enable_translation_i;
+  logic en_ld_st_translation_i;
+  logic flush_tlb_i;
+
+  riscv::priv_lvl_t priv_lvl_i;
+  riscv::priv_lvl_t ld_st_priv_lvl_i;
+  logic sum_i;
+  logic mxr_i;
+  logic [riscv::PPNW-1:0] satp_ppn_i;
+  logic [ASID_WIDTH-1:0] asid_i;
+  icache_arsp_t icache_areq_i;
+  icache_areq_t icache_areq_o;
+
+  dcache_req_o_t [2:0] dcache_req_ports_i;
+  dcache_req_i_t [2:0] dcache_req_ports_o;
+  logic dcache_wbuffer_empty_i;
+  logic dcache_wbuffer_not_ni_i;
+  amo_req_t amo_req_o;
+  amo_resp_t amo_resp_i;
+  
+  logic itlb_miss_o;
+  logic dtlb_miss_o;
+  riscv::pmpcfg_t [15:0] pmpcfg_i;
+  logic [15:0][riscv::PLEN-3:0] pmpaddr_i;
+
+  logic [riscv::VLEN-1:0] lsu_addr_o;
+  logic [riscv::PLEN-1:0] mem_paddr_o;
+  logic [(riscv::XLEN/8)-1:0] lsu_rmask_o;
+  logic [(riscv::XLEN/8)-1:0] lsu_wmask_o;
+  logic [ariane_pkg::TRANS_ID_BITS-1:0] lsu_addr_trans_id_o;
+  
+  //STOP
 
   logic current_instruction_is_sfence_vma;
   // These two register store the rs1 and rs2 parameters in case of `SFENCE_VMA`

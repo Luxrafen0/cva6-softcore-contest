@@ -11,6 +11,8 @@
 // Description: Xilinx FPGA top-level
 // Author: Florian Zaruba <zarubaf@iis.ee.ethz.ch>
 
+`include "axi/typedef.svh"
+
 module ariane_xilinx (
 // WARNING: Do not define input parameters. This causes the FPGA build to fail.
 `ifdef GENESYSII
@@ -861,7 +863,7 @@ ariane_peripherals #(
     .AxiIdWidth   ( AxiIdWidthSlaves ),
     .AxiUserWidth ( AxiUserWidth     ),
     .InclUART     ( 1'b1             ),
-    .InclGPIO     ( 1'b1             ),
+    .InclGPIO     ( 1'b1             )
     `ifdef KINTEX7
     .InclSPI      ( 1'b1         ),
     .InclEthernet ( 1'b1         )
