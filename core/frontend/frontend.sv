@@ -20,8 +20,9 @@ module frontend
 #(
     parameter config_pkg::cva6_cfg_t CVA6Cfg = config_pkg::cva6_cfg_empty
 ) (
+  
     input logic clk_i,  // Clock
-    input logic rst_ni,  // Asynchronous reset active low
+    /*input logic rst_ni,  // Asynchronous reset active low
     input logic flush_i,  // flush request for PCGEN
     input logic flush_bp_i,  // flush branch prediction
     input logic halt_i,  // halt commit stage
@@ -43,11 +44,52 @@ module frontend
     // Instruction Fetch
     output icache_dreq_t icache_dreq_o,
     input icache_drsp_t icache_dreq_i,
-    // instruction output port -> to processor back-end
-    output fetch_entry_t       fetch_entry_o,       // fetch entry containing all relevant data for the ID stage
-    output logic fetch_entry_valid_o,  // instruction in IF is valid
-    input logic fetch_entry_ready_i  // ID acknowledged this instruction
+    //instruction output port -> to processor back-end
+    output fetch_entry_t     fetch_entry_o, */      // fetch entry containing all relevant data for the ID stage
+    output logic fetch_entry_valid_o // instruction in IF is valid
+    //input logic fetch_entry_ready_i  // ID acknowledged this instruction
 );
+
+
+    logic rst_ni;  // Asynchronous reset active low
+    logic flush_i;  // flush request for PCGEN
+    logic flush_bp_i;  // flush branch prediction
+    logic halt_i;  // halt commit stage
+    logic debug_mode_i;
+    // global input
+    logic [riscv::VLEN-1:0] boot_addr_i;
+    // Set a new PC
+    // mispredict
+    bp_resolve_t        resolved_branch_i;  // from controller signaling a branch_predict -> update BTB
+    // from commit, when flushing the whole pipeline
+    logic set_pc_commit_i;  // Take the PC from commit stage
+    logic [riscv::VLEN-1:0] pc_commit_i;  // PC of instruction in commit stage
+    // CSR input
+    logic [riscv::VLEN-1:0] epc_i;  // exception PC which we need to return to
+    logic eret_i;  // return from exception
+    logic [riscv::VLEN-1:0] trap_vector_base_i; // base of trap vector
+    logic ex_valid_i;  // exception is valid - from commit
+    logic set_debug_pc_i;  // jump to debug address
+    // Instruction Fetch*/
+    icache_dreq_t icache_dreq_o;
+    icache_drsp_t icache_dreq_i;
+    // instruction output port -> to processor back-end
+    fetch_entry_t       fetch_entry_o;     // fetch entry containing all relevant data for the ID stage
+    //output logic fetch_entry_valid_o // instruction in IF is valid
+    logic fetch_entry_ready_i; // ID acknowledged this instruction
+    
+    
+/*logic clk_i;
+logic pll_locked;
+
+xlnx_clk_gen i_xlnx_clk_gen (
+  .clk_out1 ( clk_i          ), // 40 MHz
+  .reset    ( cpu_reset     ),
+  .locked   ( pll_locked    ),
+  .clk_in1  ( clk_sys )  //125 MHz
+);*/
+    
+    
   // Instruction Cache Registers, from I$
   logic                            [                FETCH_WIDTH-1:0] icache_data_q;
   logic                                                              icache_valid_q;

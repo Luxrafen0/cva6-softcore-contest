@@ -18,7 +18,6 @@ module id_stage #(
 ) (
     input logic clk_i,
     input logic rst_ni,
-
     input logic flush_i,
     input logic debug_req_i,
     // from IF
@@ -26,9 +25,9 @@ module id_stage #(
     input logic fetch_entry_valid_i,
     output logic fetch_entry_ready_o,  // acknowledge the instruction (fetch entry)
     // to ID
-    output ariane_pkg::scoreboard_entry_t issue_entry_o,  // a decoded instruction
+    //output ariane_pkg::scoreboard_entry_t issue_entry_o,  // a decoded instruction
     output logic issue_entry_valid_o,  // issue entry is valid
-    output logic is_ctrl_flow_o,  // the instruction we issue is a ctrl flow instructions
+    output logic is_ctrl_flow_o, // the instruction we issue is a ctrl flow instructions
     input logic issue_instr_ack_i,  // issue stage acknowledged sampling of instructions
     // from CSR file
     input riscv::priv_lvl_t priv_lvl_i,  // current privilege level
@@ -42,6 +41,9 @@ module id_stage #(
     input logic tw_i,
     input logic tsr_i
 );
+
+
+    
   // ID/ISSUE register stage
   typedef struct packed {
     logic                          valid;

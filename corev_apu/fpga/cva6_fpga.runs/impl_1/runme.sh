@@ -38,7 +38,7 @@ EAStep()
 }
 
 # pre-commands:
-/bin/touch .write_bitstream.begin.rst
-EAStep vivado -log cva6_zybo_z7_20.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source cva6_zybo_z7_20.tcl -notrace
+/bin/touch .init_design.begin.rst
+EAStep vivado -log commit_iso.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source commit_iso.tcl -notrace
 
 

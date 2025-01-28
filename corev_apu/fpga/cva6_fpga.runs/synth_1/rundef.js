@@ -28,7 +28,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log cva6_zybo_z7_20.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source cva6_zybo_z7_20.tcl" );
+         "-log commit_iso.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source commit_iso.tcl" );
 
 
 

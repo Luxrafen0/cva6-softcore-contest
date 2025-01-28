@@ -226,7 +226,7 @@ localparam AxiUserWidth = ariane_pkg::AXI_USER_WIDTH;
                  logic [AxiIdWidthSlaves-1:0],
                  logic [    AxiDataWidth-1:0],
                  logic [(AxiDataWidth/8)-1:0],
-                 logic [    AxiUserWidth-1:0])
+                 logic [    AxiUserWidth-1:0]);
 
 AXI_BUS #(
     .AXI_ADDR_WIDTH ( AxiAddrWidth     ),

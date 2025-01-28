@@ -476,7 +476,7 @@ module cva6
   // ---------
   // ID
   // ---------
-  id_stage #(
+ id_stage #(
       .CVA6Cfg(CVA6ExtendCfg)
   ) id_stage_i (
       .clk_i,
@@ -875,7 +875,7 @@ module cva6
       .irq_i,
       .time_irq_i,
       .*
-  );
+  );*/
 
   // ------------------------
   // Performance Counters

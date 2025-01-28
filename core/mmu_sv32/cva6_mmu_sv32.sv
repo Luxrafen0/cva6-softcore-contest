@@ -95,10 +95,23 @@ module cva6_mmu_sv32
   logic                               itlb_is_4M;
   logic                               itlb_lu_hit;
 
+  //ITLB2
+  /*logic                             itlb2_lu_access;
+  riscv::pte_sv32_t                   itlb2_content;
+  logic                               itlb2_is_4M;
+  logic                               itlb2_lu_hit;*/
+
+
   logic                               dtlb_lu_access;
   riscv::pte_sv32_t                   dtlb_content;
   logic                               dtlb_is_4M;
   logic                               dtlb_lu_hit;
+
+  //DTLB2
+  /*logic                               dtlb2_lu_access;
+  riscv::pte_sv32_t                   dtlb2_content;
+  logic                               dtlb2_is_4M;
+  logic                               dtlb2_lu_hit;*/
 
   logic                               shared_tlb_access;
   logic             [riscv::VLEN-1:0] shared_tlb_vaddr;
@@ -150,11 +163,75 @@ module cva6_mmu_sv32
       .asid_to_be_flushed_i (asid_to_be_flushed_i),
       .vaddr_to_be_flushed_i(vaddr_to_be_flushed_i),
       .lu_vaddr_i           (lsu_vaddr_i),
-      .lu_content_o         (dtlb_content),
+      .lu_content_o         (dtlb_content),// à modifier
 
-      .lu_is_4M_o(dtlb_is_4M),
-      .lu_hit_o  (dtlb_lu_hit)
+      .lu_is_4M_o(dtlb_is_4M),//à modifier
+      .lu_hit_o  (dtlb_lu_hit)// à modifier
   );
+
+  // ITLB2
+
+  //assign itlb2_lu_access = !itlb_lu_hit && itlb_lu_access;
+
+  /*
+   cva6_tlb_sv32 #(
+      .CVA6Cfg    (CVA6Cfg),
+      .TLB_ENTRIES(INSTR_TLB_ENTRIES),
+      .ASID_WIDTH (ASID_WIDTH)
+  ) i_itlb2 (
+      .clk_i  (clk_i),
+      .rst_ni (rst_ni),
+      .flush_i(flush_tlb_i),
+
+      .update_i(update_itlb2),
+
+      .lu_access_i          (itlb2_lu_access),
+      .lu_asid_i            (asid_i),
+      .asid_to_be_flushed_i (asid_to_be_flushed_i),
+      .vaddr_to_be_flushed_i(vaddr_to_be_flushed_i),
+      .lu_vaddr_i           (icache_areq_i.fetch_vaddr),
+      .lu_content_o         (itlb2_content),
+
+      .lu_is_4M_o(itlb2_is_4M),
+      .lu_hit_o  (itlb2_lu_hit)
+  );
+
+  */
+
+  // DTLB2
+
+  //assign dtlb2_lu_access = !dtlb_lu_hit && dtlb_lu_access;
+
+  /*
+    cva6_tlb_sv32 #(
+      .CVA6Cfg    (CVA6Cfg),
+      .TLB_ENTRIES(INSTR_TLB_ENTRIES),
+      .ASID_WIDTH (ASID_WIDTH)
+    ) i_dtlb2 (
+      .clk_i  (clk_i),
+      .rst_ni (rst_ni),
+      .flush_i(flush_tlb_i),
+
+      .update_i(update_dtlb2),
+
+      .lu_access_i          (dtlb2_lu_access),
+      .lu_asid_i            (asid_i),
+      .asid_to_be_flushed_i (asid_to_be_flushed_i),
+      .vaddr_to_be_flushed_i(vaddr_to_be_flushed_i),
+      .lu_vaddr_i           (icache_areq_i.fetch_vaddr),
+      .lu_content_o         (dtlb2_content),
+
+      .lu_is_4M_o(dtlb2_is_4M),
+      .lu_hit_o  (itlb2_lu_hit)
+  );
+
+  */
+
+
+  // section combinatoire pour déterminer la prio entre un dtlb2_miss et un itlb2_miss pour accès ptw
+  
+
+
 
   cva6_shared_tlb_sv32 #(
       .CVA6Cfg         (CVA6Cfg),
@@ -332,7 +409,16 @@ module cva6_mmu_sv32
         end
       end else
       // ---------
-      // ITLB Miss
+      // ITLB2 HIT
+      // ---------
+      /* end elsif
+
+        insérer code mdr
+
+
+      end else*/
+      // ---------
+      // ITLB2 Miss
       // ---------
       // watch out for exceptions happening during walking the page table
       if (ptw_active && walking_instr) begin

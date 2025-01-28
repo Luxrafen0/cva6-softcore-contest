@@ -7,4 +7,4 @@
 # Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 #
 
-vivado -log cva6_zybo_z7_20.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source cva6_zybo_z7_20.tcl -notrace
+vivado -log commit_iso.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source commit_iso.tcl -notrace

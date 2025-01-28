@@ -465,6 +465,7 @@ module load_store_unit
   // ------------------
   // new data arrives here
   lsu_ctrl_t lsu_req_i;
+  //lsu_ctrl_t lsu_ctrl_tmp;
 
   assign lsu_req_i = {
     lsu_valid_i,
@@ -489,6 +490,14 @@ module load_store_unit
       .ready_o   (lsu_ready_o),
       .*
   );
+
+  /*always_ff @(posedge clk_i or negedge rst_ni) begin
+    if(~rst_ni) begin
+      lsu_ctrl_tmp <= '0;
+    end else begin 
+      lsu_ctrl_tmp <= lsu_ctrl;
+    end
+  end*/
 
   assign lsu_addr_o = lsu_ctrl.vaddr;
   assign lsu_rmask_o = lsu_ctrl.fu == LOAD ? lsu_ctrl.be : '0;

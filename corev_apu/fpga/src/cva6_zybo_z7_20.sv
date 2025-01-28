@@ -62,9 +62,6 @@ module cva6_zybo_z7_20 (
   input  logic     rx        ,
   output logic     tx	
 
-
-
-
 );
 
 // CVA6 config
