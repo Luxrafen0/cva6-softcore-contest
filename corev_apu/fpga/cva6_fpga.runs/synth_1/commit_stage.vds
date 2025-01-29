@@ -1,0 +1,361 @@
+#-----------------------------------------------------------
+# Vivado v2024.1.2 (64-bit)
+# SW Build 5164865 on Thu Sep  5 14:36:28 MDT 2024
+# IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
+# SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
+# Start of session at: Wed Jan 29 10:43:50 2025
+# Process ID: 86477
+# Current directory: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1
+# Command line: vivado -log commit_stage.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source commit_stage.tcl
+# Log file: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/commit_stage.vds
+# Journal file: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/vivado.jou
+# Running On        :Dell-G15-5515
+# Platform          :Ubuntu
+# Operating System  :Ubuntu 24.04.1 LTS
+# Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics
+# CPU Frequency     :3271.384 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :16078 MB
+# Swap memory       :2147 MB
+# Total Virtual     :18225 MB
+# Available Virtual :11480 MB
+#-----------------------------------------------------------
+source commit_stage.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1418.840 ; gain = 0.027 ; free physical = 1463 ; free virtual = 10639
+Command: read_checkpoint -auto_incremental -incremental /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top commit_stage -part xc7z020clg400-1 -directive PerformanceOptimized -global_retiming on
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 86663
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2189.023 ; gain = 413.684 ; free physical = 392 ; free virtual = 9568
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'BRAM' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/src/zybo-z7-20.svh:18]
+INFO: [Synth 8-6157] synthesizing module 'commit_stage' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/commit_stage.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'commit_stage' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/commit_stage.sv:16]
+WARNING: [Synth 8-3848] Net waddr_o[-1] in module/entity commit_stage does not have driver. [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/commit_stage.sv:32]
+WARNING: [Synth 8-3848] Net waddr_o[0] in module/entity commit_stage does not have driver. [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/commit_stage.sv:32]
+WARNING: [Synth 8-3848] Net wdata_o[-1] in module/entity commit_stage does not have driver. [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/commit_stage.sv:33]
+WARNING: [Synth 8-3917] design commit_stage has port dirty_fp_state_o driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port we_fpr_o[-1] driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port we_fpr_o[0] driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port csr_write_fflags_o driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port amo_valid_commit_o driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port flush_commit_o driven by constant 0
+WARNING: [Synth 8-7129] Port waddr_o[-1][4] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[-1][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[-1][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[-1][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[-1][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[0][4] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[0][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[0][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[0][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port waddr_o[0][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][31] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][30] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][29] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][28] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][27] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][26] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][25] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][24] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][23] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][22] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][21] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][20] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][19] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][18] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][17] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][16] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][15] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][14] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][13] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][12] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][11] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][10] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][9] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][8] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][7] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][6] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][5] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][4] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port wdata_o[-1][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_i in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst_ni in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port single_step_i in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][31] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][30] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][29] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][28] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][27] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][26] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][25] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][24] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][23] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][22] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][21] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][20] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][19] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][18] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][17] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][16] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][15] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][14] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][13] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][12] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][11] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][10] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][9] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][8] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][7] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][6] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][5] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][4] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][pc][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][trans_id][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][trans_id][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][fu][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][fu][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][fu][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][fu][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][7] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][6] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][5] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][4] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][op][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs1][4] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs1][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs1][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs1][1] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs1][0] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs2][4] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs2][3] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs2][2] in module commit_stage is either unconnected or has no load
+WARNING: [Synth 8-7129] Port commit_instr_i[-1][rs2][1] in module commit_stage is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2274.992 ; gain = 499.652 ; free physical = 292 ; free virtual = 9469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2289.836 ; gain = 514.496 ; free physical = 292 ; free virtual = 9469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2289.836 ; gain = 514.496 ; free physical = 292 ; free virtual = 9469
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2289.836 ; gain = 0.000 ; free physical = 292 ; free virtual = 9469
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/constraints/cva6_fpga.xdc]
+Finished Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/constraints/cva6_fpga.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/constraints/cva6_fpga.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/commit_stage_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/commit_stage_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/constraints/zybo_z7_20.xdc]
+Finished Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/constraints/zybo_z7_20.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2431.586 ; gain = 0.000 ; free physical = 279 ; free virtual = 9455
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2431.586 ; gain = 0.000 ; free physical = 279 ; free virtual = 9455
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2431.586 ; gain = 656.246 ; free physical = 289 ; free virtual = 9465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 289 ; free virtual = 9465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 289 ; free virtual = 9465
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 292 ; free virtual = 9470
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 11    
+	   2 Input    8 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design commit_stage has port dirty_fp_state_o driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port we_fpr_o[-1] driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port we_fpr_o[0] driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port csr_write_fflags_o driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port amo_valid_commit_o driven by constant 0
+WARNING: [Synth 8-3917] design commit_stage has port flush_commit_o driven by constant 0
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 281 ; free virtual = 9463
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 424 ; free virtual = 9518
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 424 ; free virtual = 9518
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `commit_stage`
+	Numbers of forward move = 0, and backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `commit_stage' done
+
+
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 424 ; free virtual = 9518
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 414 ; free virtual = 9509
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 414 ; free virtual = 9509
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 414 ; free virtual = 9509
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 414 ; free virtual = 9509
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 414 ; free virtual = 9509
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 414 ; free virtual = 9509
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+------+------+
+|      |Cell  |Count |
++------+------+------+
+|1     |LUT2  |     1|
+|2     |LUT3  |    33|
+|3     |LUT4  |    36|
+|4     |LUT5  |    36|
+|5     |LUT6  |    49|
+|6     |IBUF  |   213|
+|7     |OBUF  |   184|
+|8     |OBUFT |    44|
++------+------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.590 ; gain = 664.250 ; free physical = 414 ; free virtual = 9509
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 677 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2439.590 ; gain = 522.500 ; free physical = 413 ; free virtual = 9508
+Synthesis Optimization Complete : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 2439.598 ; gain = 664.250 ; free physical = 414 ; free virtual = 9508
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2439.598 ; gain = 0.000 ; free physical = 688 ; free virtual = 9782
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2495.617 ; gain = 0.000 ; free physical = 715 ; free virtual = 9809
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: c257a92f
+INFO: [Common 17-83] Releasing license: Synthesis
+25 Infos, 117 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:21 . Memory (MB): peak = 2495.617 ; gain = 1073.809 ; free physical = 686 ; free virtual = 9780
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1933.911; main = 1603.195; forked = 393.126
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3481.961; main = 2495.621; forked = 1042.367
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2519.629 ; gain = 0.000 ; free physical = 685 ; free virtual = 9779
+INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/commit_stage.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file commit_stage_utilization_synth.rpt -pb commit_stage_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 29 10:44:20 2025...

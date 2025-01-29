@@ -28,7 +28,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log commit_iso.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source commit_iso.tcl" );
+         "-log commit_stage.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source commit_stage.tcl" );
 
 
 

@@ -56,42 +56,6 @@ module commit_stage
     output logic sfence_vma_o // flush TLBs and pipeline
 );
 
-   /* logic rst_ni;
-    logic halt_i;  // request to halt the core
-    logic flush_dcache_i;  // request to flush dcache -> also flush the pipeline
-    exception_t exception_o;  // take exception to controller
-    logic dirty_fp_state_o;  // mark the F state as dirty
-    logic single_step_i;  // we are in single step debug mode
-    // from scoreboard
-    scoreboard_entry_t [CVA6Cfg.NrCommitPorts-1:0] commit_instr_i;    // the instruction we want to commit
-    logic [CVA6Cfg.NrCommitPorts-1:0]              commit_ack_o;       // acknowledge that we are indeed committing
-    // to register file
-    //logic [CVA6Cfg.NrCommitPorts-1:0][4:0] waddr_o;  // register file write address
-    logic [CVA6Cfg.NrCommitPorts-1:0][riscv::XLEN-1:0] wdata_o;  // register file write data
-    logic [CVA6Cfg.NrCommitPorts-1:0] we_gpr_o;  // register file write enable
-    logic [CVA6Cfg.NrCommitPorts-1:0] we_fpr_o;  // floating point register enable
-    // Atomic memory operations
-    amo_resp_t amo_resp_i;  // result of AMO operation
-    // to CSR file and PC Gen (because on certain CSR instructions we'll need to flush the whole pipeline)
-    logic [riscv::VLEN-1:0] pc_o;
-    // to/from CSR file
-    fu_op csr_op_o;  // decoded CSR operation
-    riscv::xlen_t csr_wdata_o;  // data to write to CSR
-    riscv::xlen_t csr_rdata_i;  // data to read from CSR
-    exception_t                              csr_exception_i;    // exception or interrupt occurred in CSR stage (the same as commit)
-    logic csr_write_fflags_o;  // write the fflags CSR
-    // commit signals to ex
-    logic commit_lsu_o;  // commit the pending store
-    logic commit_lsu_ready_i;  // commit buffer of LSU is ready
-    logic [TRANS_ID_BITS-1:0] commit_tran_id_o;  // transaction id of first commit port
-    logic amo_valid_commit_o;  // valid AMO in commit stage
-    logic no_st_pending_i;  // there is no store pending
-    logic commit_csr_o;  // commit the pending CSR instruction
-    logic fence_i_o;  // flush I$ and pipeline
-    logic fence_o;  // flush D$ and pipeline
-    logic flush_commit_o;  // request a pipeline flush
-    logic sfence_vma_o; // flush TLBs and pipeline*/
-
   // ila_0 i_ila_commit (
   //     .clk(clk_i), // input wire clk
   //     .probe0(commit_instr_i[0].pc), // input wire [63:0]  probe0
@@ -104,7 +68,7 @@ module commit_stage
   //     .probe7(1'b0), // input wire [0:0]  probe7
   //     .probe8(1'b0), // input wire [0:0]  probe8
   //     .probe9(1'b0) // input wire [0:0]  probe9
-  // );
+  // )
 
   for (genvar i = 0; i < CVA6Cfg.NrCommitPorts; i++) begin : gen_waddr
     assign waddr_o[i] = commit_instr_i[i].rd[4:0];

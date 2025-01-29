@@ -2,7 +2,7 @@
 
 #create_clock -period 100.000 -name tck -waveform {0.000 50.000} [get_ports tck]
 #set_input_jitter tck 1.000
-create_clock -period 25.000 -name clk_i -waveform {0.000 12.500} [get_ports clk_i]
+create_clock -period 10.000 -name clk_i -waveform {0.000 5.000} [get_ports clk_i]
 set_input_jitter clk_i 1.000
 #set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets tck_IBUF]
 
