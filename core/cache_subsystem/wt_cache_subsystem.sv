@@ -23,10 +23,127 @@ module wt_cache_subsystem
   import ariane_pkg::*;
   import wt_cache_pkg::*;
 #(
-    parameter config_pkg::cva6_cfg_t CVA6Cfg    = config_pkg::cva6_cfg_empty,
-    parameter int unsigned           NumPorts   = 4,
-    parameter type                   noc_req_t  = logic,
-    parameter type                   noc_resp_t = logic
+    //parameter config_pkg::cva6_cfg_t CVA6Cfg    = config_pkg::cva6_cfg_empty,
+    parameter config_pkg::cva6_cfg_t CVA6Cfg = '{
+      NrCommitPorts:         cva6_config_pkg::CVA6ConfigNrCommitPorts,
+      AxiAddrWidth:          cva6_config_pkg::CVA6ConfigAxiAddrWidth,
+      AxiDataWidth:          cva6_config_pkg::CVA6ConfigAxiDataWidth,
+      AxiIdWidth:            cva6_config_pkg::CVA6ConfigAxiIdWidth,
+      AxiUserWidth:          cva6_config_pkg::CVA6ConfigDataUserWidth,
+      NrLoadBufEntries:      cva6_config_pkg::CVA6ConfigNrLoadBufEntries,
+      RASDepth:              cva6_config_pkg::CVA6ConfigRASDepth,
+      BTBEntries:            cva6_config_pkg::CVA6ConfigBTBEntries,
+      BHTEntries:            cva6_config_pkg::CVA6ConfigBHTEntries,
+      FpuEn:                 bit'(cva6_config_pkg::CVA6ConfigFpuEn),
+      XF16:                  bit'(cva6_config_pkg::CVA6ConfigF16En),
+      XF16ALT:               bit'(cva6_config_pkg::CVA6ConfigF16AltEn),
+      XF8:                   bit'(cva6_config_pkg::CVA6ConfigF8En),
+      RVA:                   bit'(cva6_config_pkg::CVA6ConfigAExtEn),
+      RVV:                   bit'(cva6_config_pkg::CVA6ConfigVExtEn),
+      RVC:                   bit'(cva6_config_pkg::CVA6ConfigCExtEn),
+      RVZCB:                 bit'(cva6_config_pkg::CVA6ConfigZcbExtEn),
+      XFVec:                 bit'(cva6_config_pkg::CVA6ConfigFVecEn),
+      CvxifEn:               bit'(cva6_config_pkg::CVA6ConfigCvxifEn),
+      ZiCondExtEn:           bit'(0),
+      RVF:                   bit'(0),
+      RVD:                   bit'(0),
+      FpPresent:             bit'(0),
+      NSX:                   bit'(0),
+      FLen:                  unsigned'(0),
+      RVFVec:                bit'(0),
+      XF16Vec:               bit'(0),
+      XF16ALTVec:            bit'(0),
+      XF8Vec:                bit'(0),
+      NrRgprPorts:           unsigned'(0),
+      NrWbPorts:             unsigned'(0),
+      EnableAccelerator:     bit'(0),
+      HaltAddress:           dm::HaltAddress,
+      ExceptionAddress:      dm::ExceptionAddress,
+      DmBaseAddress:         ariane_soc::DebugBase,
+      NrPMPEntries:          unsigned'(cva6_config_pkg::CVA6ConfigNrPMPEntries),
+      NOCType:               config_pkg::NOC_TYPE_AXI4_ATOP,
+      // idempotent region
+      NrNonIdempotentRules:  unsigned'(1),
+      NonIdempotentAddrBase: 1024'({64'b0}),
+      NonIdempotentLength:   1024'({ariane_soc::DRAMBase}),
+      NrExecuteRegionRules:  unsigned'(3),
+      ExecuteRegionAddrBase: 1024'({ariane_soc::DRAMBase,   ariane_soc::ROMBase,   ariane_soc::DebugBase}),
+      ExecuteRegionLength:   1024'({ariane_soc::DRAMLength, ariane_soc::ROMLength, ariane_soc::DebugLength}),
+      // cached region
+      NrCachedRegionRules:   unsigned'(1),
+      CachedRegionAddrBase:  1024'({ariane_soc::DRAMBase}),
+      CachedRegionLength:    1024'({ariane_soc::DRAMLength}),
+      MaxOutstandingStores:  unsigned'(7)
+    },
+    
+    parameter type axi_ar_chan_t = struct packed {
+      logic [CVA6Cfg.AxiIdWidth-1:0]   id;
+      logic [CVA6Cfg.AxiAddrWidth-1:0] addr;
+      axi_pkg::len_t                   len;
+      axi_pkg::size_t                  size;
+      axi_pkg::burst_t                 burst;
+      logic                            lock;
+      axi_pkg::cache_t                 cache;
+      axi_pkg::prot_t                  prot;
+      axi_pkg::qos_t                   qos;
+      axi_pkg::region_t                region;
+      logic [CVA6Cfg.AxiUserWidth-1:0] user;
+    },
+    parameter type axi_aw_chan_t = struct packed {
+      logic [CVA6Cfg.AxiIdWidth-1:0]   id;
+      logic [CVA6Cfg.AxiAddrWidth-1:0] addr;
+      axi_pkg::len_t                   len;
+      axi_pkg::size_t                  size;
+      axi_pkg::burst_t                 burst;
+      logic                            lock;
+      axi_pkg::cache_t                 cache;
+      axi_pkg::prot_t                  prot;
+      axi_pkg::qos_t                   qos;
+      axi_pkg::region_t                region;
+      axi_pkg::atop_t                  atop;
+      logic [CVA6Cfg.AxiUserWidth-1:0] user;
+    },
+    parameter type axi_w_chan_t = struct packed {
+      logic [CVA6Cfg.AxiDataWidth-1:0]     data;
+      logic [(CVA6Cfg.AxiDataWidth/8)-1:0] strb;
+      logic                                last;
+      logic [CVA6Cfg.AxiUserWidth-1:0]     user;
+    },
+    parameter type b_chan_t = struct packed {
+      logic [CVA6Cfg.AxiIdWidth-1:0]   id;
+      axi_pkg::resp_t                  resp;
+      logic [CVA6Cfg.AxiUserWidth-1:0] user;
+    },
+    parameter type r_chan_t = struct packed {
+      logic [CVA6Cfg.AxiIdWidth-1:0]   id;
+      logic [CVA6Cfg.AxiDataWidth-1:0] data;
+      axi_pkg::resp_t                  resp;
+      logic                            last;
+      logic [CVA6Cfg.AxiUserWidth-1:0] user;
+    },
+    parameter type noc_req_t = struct packed {
+      axi_aw_chan_t aw;
+      logic         aw_valid;
+      axi_w_chan_t  w;
+      logic         w_valid;
+      logic         b_ready;
+      axi_ar_chan_t ar;
+      logic         ar_valid;
+      logic         r_ready;
+    },
+    parameter type noc_resp_t = struct packed {
+      logic    aw_ready;
+      logic    ar_ready;
+      logic    w_ready;
+      logic    b_valid;
+      b_chan_t b;
+      logic    r_valid;
+      r_chan_t r;
+    },
+    
+    parameter int unsigned           NumPorts   = 4
+    //parameter type                   noc_req_t  = logic,
+    //parameter type                   noc_resp_t = logic
 ) (
     input logic clk_i,
     input logic rst_ni,

@@ -1,0 +1,1795 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:36:09 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Wed Jan 29 15:13:56 2025
+# Process ID: 176965
+# Current directory: /nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1
+# Command line: vivado -log wt_cache_subsystem.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source wt_cache_subsystem.tcl
+# Log file: /nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/wt_cache_subsystem.vds
+# Journal file: /nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/vivado.jou
+# Running On        :secil3.siame.univ-tlse3.fr
+# Platform          :Fedora
+# Operating System  :Fedora Linux 40 (Forty)
+# Processor Detail  :Intel(R) Core(TM) i7-10700T CPU @ 2.00GHz
+# CPU Frequency     :4199.021 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :16457 MB
+# Swap memory       :16888 MB
+# Total Virtual     :33345 MB
+# Available Virtual :26603 MB
+#-----------------------------------------------------------
+Sourcing tcl script '/nfs/xilinx/Vivado/2024.1/scripts/Vivado_init.tcl'
+source wt_cache_subsystem.tcl -notrace
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1639.633 ; gain = 75.883 ; free physical = 3185 ; free virtual = 25045
+Command: read_checkpoint -auto_incremental -incremental /nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top wt_cache_subsystem -part xc7z020clg400-1 -directive PerformanceOptimized -global_retiming on
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 177090
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2422.121 ; gain = 413.598 ; free physical = 2076 ; free virtual = 23936
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'BRAM' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/src/zybo-z7-20.svh:18]
+INFO: [Synth 8-6157] synthesizing module 'wt_cache_subsystem' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_cache_subsystem.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'cva6_icache' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/cva6_icache.sv:28]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+	Parameter RdTxId bound to: 2'b00 
+INFO: [Synth 8-6157] synthesizing module 'sram' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/sram.sv:21]
+	Parameter DATA_WIDTH bound to: 23 - type: integer 
+	Parameter NUM_WORDS bound to: 256 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'tc_sram_wrapper' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/tc_sram_fpga_wrapper.sv:10]
+	Parameter NumWords bound to: 256 - type: integer 
+	Parameter DataWidth bound to: 32'b00000000000000000000000001000000 
+	Parameter ByteWidth bound to: 8 - type: integer 
+	Parameter NumPorts bound to: 1 - type: integer 
+	Parameter Latency bound to: 1 - type: integer 
+	Parameter SimInit bound to: none - type: string 
+	Parameter PrintSimCfg bound to: 1'b0 
+INFO: [Synth 8-6157] synthesizing module 'SyncSpRamBeNx64' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv:28]
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DATA_DEPTH bound to: 256 - type: integer 
+	Parameter OUT_REGS bound to: 0 - type: integer 
+	Parameter SIM_INIT bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'SyncSpRamBeNx64' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/SyncSpRamBeNx64.sv:28]
+INFO: [Synth 8-6155] done synthesizing module 'tc_sram_wrapper' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/tc_sram_fpga_wrapper.sv:10]
+INFO: [Synth 8-6155] done synthesizing module 'sram' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/sram.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'sram__parameterized0' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/sram.sv:21]
+	Parameter DATA_WIDTH bound to: 128 - type: integer 
+	Parameter USER_WIDTH bound to: 128 - type: integer 
+	Parameter USER_EN bound to: 0 - type: integer 
+	Parameter NUM_WORDS bound to: 256 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sram__parameterized0' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/sram.sv:21]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/cva6_icache.sv:208]
+INFO: [Synth 8-6157] synthesizing module 'lzc' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/lzc.sv:25]
+	Parameter WIDTH bound to: 32'b00000000000000000000000000000010 
+INFO: [Synth 8-6155] done synthesizing module 'lzc' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/lzc.sv:25]
+INFO: [Synth 8-6157] synthesizing module 'lfsr' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/lfsr.sv:22]
+	Parameter LfsrWidth bound to: 32'b00000000000000000000000000001000 
+	Parameter OutWidth bound to: 32'b00000000000000000000000000000001 
+INFO: [Synth 8-6155] done synthesizing module 'lfsr' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/lfsr.sv:22]
+INFO: [Synth 8-6155] done synthesizing module 'cva6_icache' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/cva6_icache.sv:28]
+INFO: [Synth 8-6157] synthesizing module 'wt_dcache' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache.sv:16]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+	Parameter RdAmoTxId bound to: 2'b01 
+INFO: [Synth 8-6157] synthesizing module 'wt_dcache_ctrl' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_ctrl.sv:16]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+	Parameter RdTxId bound to: 2'b01 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_ctrl.sv:131]
+INFO: [Synth 8-226] default block is never used [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_ctrl.sv:131]
+INFO: [Synth 8-6155] done synthesizing module 'wt_dcache_ctrl' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_ctrl.sv:16]
+INFO: [Synth 8-6157] synthesizing module 'wt_dcache_missunit' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:17]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+	Parameter AmoTxId bound to: 2'b01 
+	Parameter NumPorts bound to: 32'b00000000000000000000000000000100 
+INFO: [Synth 8-6157] synthesizing module 'lzc__parameterized0' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/lzc.sv:25]
+	Parameter WIDTH bound to: 32'b00000000000000000000000000000100 
+INFO: [Synth 8-6155] done synthesizing module 'lzc__parameterized0' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/lzc.sv:25]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:95]
+INFO: [Synth 8-6157] synthesizing module 'exp_backoff' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/exp_backoff.sv:23]
+	Parameter Seed bound to: 32'b00000000000000000000000000000011 
+	Parameter MaxExp bound to: 32'b00000000000000000000000000010000 
+WARNING: [Synth 8-693] zero replication count - replication ignored [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/exp_backoff.sv:59]
+INFO: [Synth 8-6155] done synthesizing module 'exp_backoff' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/exp_backoff.sv:23]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:347]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:448]
+INFO: [Synth 8-6155] done synthesizing module 'wt_dcache_missunit' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:17]
+INFO: [Synth 8-6157] synthesizing module 'wt_dcache_wbuffer' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_wbuffer.sv:52]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/include/wt_cache_pkg.sv:332]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/include/wt_cache_pkg.sv:307]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/include/wt_cache_pkg.sv:283]
+INFO: [Synth 8-6157] synthesizing module 'fifo_v3' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+	Parameter FALL_THROUGH bound to: 1'b0 
+	Parameter DATA_WIDTH bound to: 32'b00000000000000000000000000000010 
+	Parameter DEPTH bound to: 32'b00000000000000000000000000000100 
+INFO: [Synth 8-6157] synthesizing module 'AsyncDpRam' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+	Parameter DATA_DEPTH bound to: 4 - type: integer 
+	Parameter DATA_WIDTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'AsyncDpRam' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_v3' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'rr_arb_tree' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+	Parameter NumIn bound to: 32'b00000000000000000000000000000100 
+	Parameter DataWidth bound to: 32'b00000000000000000000000000000001 
+	Parameter LockIn bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'rr_arb_tree' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'rr_arb_tree__parameterized0' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+	Parameter NumIn bound to: 32'b00000000000000000000000000000010 
+	Parameter LockIn bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'rr_arb_tree__parameterized0' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+INFO: [Synth 8-6157] synthesizing module 'rr_arb_tree__parameterized1' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+	Parameter NumIn bound to: 32'b00000000000000000000000000000010 
+INFO: [Synth 8-6155] done synthesizing module 'rr_arb_tree__parameterized1' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'wt_dcache_wbuffer' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_wbuffer.sv:52]
+INFO: [Synth 8-6157] synthesizing module 'wt_dcache_mem' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_mem.sv:29]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+	Parameter NumPorts bound to: 32'b00000000000000000000000000000100 
+INFO: [Synth 8-6157] synthesizing module 'sram__parameterized1' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/sram.sv:21]
+	Parameter DATA_WIDTH bound to: 64 - type: integer 
+	Parameter USER_WIDTH bound to: 64 - type: integer 
+	Parameter USER_EN bound to: 0 - type: integer 
+	Parameter NUM_WORDS bound to: 256 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'sram__parameterized1' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/common/local/util/sram.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'rr_arb_tree__parameterized2' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+	Parameter NumIn bound to: 32'b00000000000000000000000000000100 
+	Parameter DataWidth bound to: 32'b00000000000000000000000000000001 
+INFO: [Synth 8-6155] done synthesizing module 'rr_arb_tree__parameterized2' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'wt_dcache_mem' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_mem.sv:29]
+INFO: [Synth 8-6155] done synthesizing module 'wt_dcache' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache.sv:16]
+INFO: [Synth 8-6157] synthesizing module 'wt_axi_adapter' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_axi_adapter.sv:17]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+INFO: [Synth 8-6157] synthesizing module 'rr_arb_tree__parameterized3' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+	Parameter NumIn bound to: 32'b00000000000000000000000000000010 
+	Parameter DataWidth bound to: 32'b00000000000000000000000000000001 
+	Parameter AxiVldRdy bound to: 1'b1 
+	Parameter LockIn bound to: 1'b1 
+INFO: [Synth 8-6155] done synthesizing module 'rr_arb_tree__parameterized3' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rr_arb_tree.sv:47]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_axi_adapter.sv:190]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_axi_adapter.sv:199]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_axi_adapter.sv:221]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_axi_adapter.sv:231]
+INFO: [Synth 8-6157] synthesizing module 'fifo_v3__parameterized0' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+	Parameter DEPTH bound to: 32'b00000000000000000000000000000010 
+INFO: [Synth 8-6157] synthesizing module 'AsyncDpRam__parameterized0' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DATA_DEPTH bound to: 2 - type: integer 
+	Parameter DATA_WIDTH bound to: 38 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'AsyncDpRam__parameterized0' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_v3__parameterized0' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'fifo_v3__parameterized1' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+	Parameter DEPTH bound to: 32'b00000000000000000000000000000010 
+INFO: [Synth 8-6157] synthesizing module 'AsyncDpRam__parameterized1' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DATA_DEPTH bound to: 2 - type: integer 
+	Parameter DATA_WIDTH bound to: 111 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'AsyncDpRam__parameterized1' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_v3__parameterized1' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'fifo_v3__parameterized2' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+	Parameter FALL_THROUGH bound to: 1'b1 
+	Parameter DATA_WIDTH bound to: 32'b00000000000000000000000000000101 
+	Parameter DEPTH bound to: 32'b00000000000000000000000000000100 
+INFO: [Synth 8-6157] synthesizing module 'AsyncDpRam__parameterized2' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+	Parameter DATA_DEPTH bound to: 4 - type: integer 
+	Parameter DATA_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'AsyncDpRam__parameterized2' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/fpga-support/rtl/AsyncDpRam.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_v3__parameterized2' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/fifo_v3.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'axi_shim' [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/axi_shim.sv:22]
+	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
+	Parameter CVA6Cfg[AxiIdWidth] bound to: 32'b00000000000000000000000000000100 
+	Parameter CVA6Cfg[AxiUserWidth] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[NrLoadBufEntries] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[FpuEn] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALT] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8] bound to: 1'b0 
+	Parameter CVA6Cfg[RVA] bound to: 1'b1 
+	Parameter CVA6Cfg[RVV] bound to: 1'b0 
+	Parameter CVA6Cfg[RVC] bound to: 1'b1 
+	Parameter CVA6Cfg[RVZCB] bound to: 1'b1 
+	Parameter CVA6Cfg[XFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[CvxifEn] bound to: 1'b0 
+	Parameter CVA6Cfg[ZiCondExtEn] bound to: 1'b0 
+	Parameter CVA6Cfg[RVF] bound to: 1'b0 
+	Parameter CVA6Cfg[RVD] bound to: 1'b0 
+	Parameter CVA6Cfg[FpPresent] bound to: 1'b0 
+	Parameter CVA6Cfg[NSX] bound to: 1'b0 
+	Parameter CVA6Cfg[FLen] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[RVFVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF16ALTVec] bound to: 1'b0 
+	Parameter CVA6Cfg[XF8Vec] bound to: 1'b0 
+	Parameter CVA6Cfg[NrRgprPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrWbPorts] bound to: 32'b00000000000000000000000000000000 
+	Parameter CVA6Cfg[EnableAccelerator] bound to: 1'b0 
+	Parameter CVA6Cfg[HaltAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000000000 
+	Parameter CVA6Cfg[ExceptionAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000100000001000 
+	Parameter CVA6Cfg[RASDepth] bound to: 32'b00000000000000000000000000000010 
+	Parameter CVA6Cfg[BTBEntries] bound to: 32'b00000000000000000000000000100000 
+	Parameter CVA6Cfg[BHTEntries] bound to: 32'b00000000000000000000000010000000 
+	Parameter CVA6Cfg[DmBaseAddress] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NrPMPEntries] bound to: 32'b00000000000000000000000000001000 
+	Parameter CVA6Cfg[NOCType] bound to: 32'sb00000000000000000000000000000000 
+	Parameter CVA6Cfg[NrNonIdempotentRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[NonIdempotentLength][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[NrExecuteRegionRules] bound to: 32'b00000000000000000000000000000011 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][2] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000010000000000000000 
+	Parameter CVA6Cfg[ExecuteRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000001000000000000 
+	Parameter CVA6Cfg[NrCachedRegionRules] bound to: 32'b00000000000000000000000000000001 
+	Parameter CVA6Cfg[CachedRegionAddrBase][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionAddrBase][0] bound to: 64'b0000000000000000000000000000000010000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][15] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][14] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][13] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][12] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][11] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][10] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][9] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][8] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][7] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][6] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][5] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][4] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][3] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][2] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
+	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000111 
+	Parameter AxiNumWords bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axi_shim' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/axi_shim.sv:22]
+INFO: [Synth 8-6155] done synthesizing module 'wt_axi_adapter' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_axi_adapter.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'wt_cache_subsystem' (0#1) [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_cache_subsystem.sv:22]
+WARNING: [Synth 8-6014] Unused sequential element mshr_q_reg[size] was removed.  [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:397]
+WARNING: [Synth 8-6014] Unused sequential element mshr_q_reg[vld_bits] was removed.  [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:397]
+WARNING: [Synth 8-6014] Unused sequential element mshr_q_reg[id] was removed.  [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/core/cache_subsystem/wt_dcache_missunit.sv:397]
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][31] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][30] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][29] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][28] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][27] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][26] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][25] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][24] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][23] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][22] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][21] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][20] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][19] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][18] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][17] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][16] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][15] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][14] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][13] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][12] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][11] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][10] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][9] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][8] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][7] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][6] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][5] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][4] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][3] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][2] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][1] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[b][user][0] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][31] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][30] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][29] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][28] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][27] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][26] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][25] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][24] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][23] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][22] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][21] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][20] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][19] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][18] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][17] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][16] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][15] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][14] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][13] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][12] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][11] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][10] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][9] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][8] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][7] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][6] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][5] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][4] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][3] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][2] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][1] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port axi_resp_i[r][user][0] in module axi_shim is either unconnected or has no load
+WARNING: [Synth 8-7129] Port testmode_i in module fifo_v3__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port testmode_i in module fifo_v3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port testmode_i in module fifo_v3__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port testmode_i in module fifo_v3__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rr_i[0] in module rr_arb_tree__parameterized3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[63] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[62] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[61] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[60] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[59] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[58] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[57] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[56] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[55] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[54] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[53] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[52] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[51] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[50] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[49] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[48] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[47] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[46] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[45] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[44] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[43] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[42] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[41] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[40] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[39] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[38] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[37] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[36] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[35] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[34] in module wt_axi_adapter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inval_addr_i[33] in module wt_axi_adapter is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2541.090 ; gain = 532.566 ; free physical = 1938 ; free virtual = 23799
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2558.902 ; gain = 550.379 ; free physical = 1935 ; free virtual = 23796
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2558.902 ; gain = 550.379 ; free physical = 1935 ; free virtual = 23796
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2558.902 ; gain = 0.000 ; free physical = 1935 ; free virtual = 23797
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/test_cache/imports/constraints/zybo_z7_20.xdc]
+Finished Parsing XDC File [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/test_cache/imports/constraints/zybo_z7_20.xdc]
+Parsing XDC File [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/test_cache/imports/constraints/cva6_fpga.xdc]
+CRITICAL WARNING: [Common 17-165] Too many positional options when parsing 'MHz', please type 'create_clock -help' for usage info. [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/test_cache/imports/constraints/cva6_fpga.xdc:4]
+Finished Parsing XDC File [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/test_cache/imports/constraints/cva6_fpga.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/test_cache/imports/constraints/cva6_fpga.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/wt_cache_subsystem_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/wt_cache_subsystem_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2707.652 ; gain = 0.000 ; free physical = 1927 ; free virtual = 23789
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2707.652 ; gain = 0.000 ; free physical = 1927 ; free virtual = 23789
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2707.652 ; gain = 699.129 ; free physical = 1928 ; free virtual = 23790
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1928 ; free virtual = 23790
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1928 ; free virtual = 23790
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_q_reg' in module 'cva6_icache'
+INFO: [Synth 8-802] inferred FSM for state register 'state_q_reg' in module 'wt_dcache_ctrl'
+INFO: [Synth 8-802] inferred FSM for state register 'state_q_reg' in module 'wt_dcache_missunit'
+INFO: [Synth 8-802] inferred FSM for state register 'wr_state_q_reg' in module 'axi_shim'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   FLUSH |                              000 |                              000
+                    IDLE |                              001 |                              001
+                    READ |                              010 |                              010
+                    MISS |                              011 |                              011
+               KILL_MISS |                              100 |                              101
+             KILL_ATRANS |                              101 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encoding 'sequential' in module 'cva6_icache'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                    READ |                              001 |                              001
+                MISS_REQ |                              010 |                              010
+           KILL_MISS_ACK |                              011 |                              101
+              REPLAY_REQ |                              100 |                              110
+             REPLAY_READ |                              101 |                              111
+               MISS_WAIT |                              110 |                              011
+               KILL_MISS |                              111 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encoding 'sequential' in module 'wt_dcache_ctrl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                   FLUSH |                              000 |                              011
+                    IDLE |                              001 |                              000
+                   DRAIN |                              010 |                              001
+                     AMO |                              011 |                              010
+                AMO_WAIT |                              100 |                              110
+              STORE_WAIT |                              101 |                              100
+               LOAD_WAIT |                              110 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_q_reg' using encoding 'sequential' in module 'wt_dcache_missunit'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+           WAIT_AW_READY |                              001 |                             0001
+WAIT_LAST_W_READY_AW_READY |                              010 |                             0011
+     WAIT_AW_READY_BURST |                              011 |                             0100
+       WAIT_LAST_W_READY |                              100 |                             0010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wr_state_q_reg' using encoding 'sequential' in module 'axi_shim'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1915 ; free virtual = 23779
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   16 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 8     
+	   2 Input    2 Bit       Adders := 12    
+	   2 Input    1 Bit       Adders := 5     
++---XORs : 
+	   2 Input      8 Bit         XORs := 2     
+	   4 Input      1 Bit         XORs := 1     
++---Registers : 
+	               64 Bit    Registers := 16    
+	               34 Bit    Registers := 1     
+	               32 Bit    Registers := 15    
+	               22 Bit    Registers := 5     
+	               16 Bit    Registers := 3     
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 9     
+	                4 Bit    Registers := 18    
+	                3 Bit    Registers := 8     
+	                2 Bit    Registers := 31    
+	                1 Bit    Registers := 54    
++---RAMs : 
+	              16K Bit	(256 X 64 bit)          RAMs := 12    
++---Muxes : 
+	   2 Input  111 Bit        Muxes := 1     
+	   4 Input   64 Bit        Muxes := 26    
+	   2 Input   64 Bit        Muxes := 153   
+	  12 Input   64 Bit        Muxes := 2     
+	   2 Input   38 Bit        Muxes := 1     
+	   2 Input   34 Bit        Muxes := 4     
+	   4 Input   34 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 55    
+	   4 Input   32 Bit        Muxes := 10    
+	  12 Input   32 Bit        Muxes := 2     
+	   2 Input   22 Bit        Muxes := 11    
+	   4 Input   22 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 4     
+	   4 Input   16 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 60    
+	   4 Input    8 Bit        Muxes := 4     
+	  12 Input    8 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 84    
+	   7 Input    4 Bit        Muxes := 1     
+	   6 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 4     
+	  12 Input    4 Bit        Muxes := 1     
+	  17 Input    3 Bit        Muxes := 1     
+	  19 Input    3 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 22    
+	   7 Input    3 Bit        Muxes := 1     
+	   4 Input    3 Bit        Muxes := 4     
+	   5 Input    3 Bit        Muxes := 1     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 68    
+	   3 Input    2 Bit        Muxes := 8     
+	   7 Input    2 Bit        Muxes := 1     
+	   4 Input    2 Bit        Muxes := 3     
+	   4 Input    1 Bit        Muxes := 33    
+	   2 Input    1 Bit        Muxes := 273   
+	   6 Input    1 Bit        Muxes := 12    
+	   7 Input    1 Bit        Muxes := 31    
+	   5 Input    1 Bit        Muxes := 7     
+	  12 Input    1 Bit        Muxes := 3     
+	  15 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (FSM_sequential_wr_state_q_reg[1]) is unused and will be removed from module axi_shim.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++----------------------+-----------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name           | RTL Object                                    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------------+-----------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper__1:   | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper__1:   | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper:      | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper:      | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
++----------------------+-----------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++----------------------------------+------------------------------------------------+-----------+----------------------+---------------+
+|Module Name                       | RTL Object                                     | Inference | Size (Depth x Width) | Primitives    | 
++----------------------------------+------------------------------------------------+-----------+----------------------+---------------+
+|\i_wt_dcache/i_wt_dcache_wbuffer  | i_rtrn_id_fifo/gen_fpga_queue.fifo_ram/mem_reg | Implied   | 4 x 2                | RAM16X1D x 2  | 
+|i_adapter/i_icache_data_fifo      | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 2 x 38               | RAM32M x 7    | 
+|i_adapter/i_dcache_data_fifo      | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 2 x 111              | RAM32M x 19   | 
+|fifo_v3:                          | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 4 x 2                | RAM16X1D x 2  | 
+|fifo_v3:                          | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 4 x 2                | RAM16X1D x 2  | 
+|i_adapter/i_b_fifo                | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 4 x 5                | RAM32M x 1    | 
++----------------------------------+------------------------------------------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1887 ; free virtual = 23760
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1887 ; free virtual = 23760
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++----------------------+-----------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name           | RTL Object                                    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++----------------------+-----------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper__1:   | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper__1:   | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper:      | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|tc_sram_wrapper:      | i_ram/Mem_DP_reg                              | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram__parameterized1: | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|sram:                 | gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg | 256 x 64(READ_FIRST)   | W |   | 256 x 64(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
++----------------------+-----------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++----------------------------------+------------------------------------------------+-----------+----------------------+---------------+
+|Module Name                       | RTL Object                                     | Inference | Size (Depth x Width) | Primitives    | 
++----------------------------------+------------------------------------------------+-----------+----------------------+---------------+
+|\i_wt_dcache/i_wt_dcache_wbuffer  | i_rtrn_id_fifo/gen_fpga_queue.fifo_ram/mem_reg | Implied   | 4 x 2                | RAM16X1D x 2  | 
+|i_adapter/i_icache_data_fifo      | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 2 x 38               | RAM32M x 7    | 
+|i_adapter/i_dcache_data_fifo      | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 2 x 111              | RAM32M x 19   | 
+|fifo_v3:                          | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 4 x 2                | RAM16X1D x 2  | 
+|fifo_v3:                          | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 4 x 2                | RAM16X1D x 2  | 
+|i_adapter/i_b_fifo                | gen_fpga_queue.fifo_ram/mem_reg                | Implied   | 4 x 5                | RAM32M x 1    | 
++----------------------------------+------------------------------------------------+-----------+----------------------+---------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-11322] No global retiming is needed without any clock constraint
+INFO: [Synth 8-7052] The timing for the instance i_cva6_icache/gen_sram[0].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cva6_icache/gen_sram[0].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cva6_icache/gen_sram[0].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cva6_icache/gen_sram[1].tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cva6_icache/gen_sram[1].data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_cva6_icache/gen_sram[1].data_sram/gen_cut[1].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcache/i_wt_dcache_mem/gen_data_banks[0].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcache/i_wt_dcache_mem/gen_data_banks[1].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcache/i_wt_dcache_mem/gen_data_banks[2].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcache/i_wt_dcache_mem/gen_data_banks[3].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[0].i_tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_wt_dcache/i_wt_dcache_mem/gen_tag_srams[1].i_tag_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1887 ; free virtual = 23760
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |    78|
+|3     |LUT1     |    28|
+|4     |LUT2     |   247|
+|5     |LUT3     |   416|
+|6     |LUT4     |   213|
+|7     |LUT5     |   721|
+|8     |LUT6     |   944|
+|9     |RAM16X1D |     6|
+|10    |RAM32M   |    21|
+|11    |RAMB36E1 |    12|
+|12    |FDCE     |   886|
+|13    |FDPE     |    21|
+|14    |IBUF     |   481|
+|15    |OBUF     |   917|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.656 ; gain = 707.133 ; free physical = 1877 ; free virtual = 23750
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 591 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2715.656 ; gain = 558.383 ; free physical = 1877 ; free virtual = 23750
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 2715.664 ; gain = 707.133 ; free physical = 1878 ; free virtual = 23751
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2715.664 ; gain = 0.000 ; free physical = 2163 ; free virtual = 24036
+INFO: [Netlist 29-17] Analyzing 117 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2771.684 ; gain = 0.000 ; free physical = 2172 ; free virtual = 24044
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 27 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 6 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 21 instances
+
+Synth Design complete | Checksum: ba44c37d
+INFO: [Common 17-83] Releasing license: Synthesis
+119 Infos, 107 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:01:05 . Memory (MB): peak = 2771.684 ; gain = 1126.082 ; free physical = 2172 ; free virtual = 24044
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2067.271; main = 1677.054; forked = 438.511
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4452.852; main = 2771.688; forked = 1737.191
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2795.695 ; gain = 0.000 ; free physical = 2171 ; free virtual = 24044
+INFO: [Common 17-1381] The checkpoint '/nfs/home/camsi6/Documents/Projet_CVA6/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/wt_cache_subsystem.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file wt_cache_subsystem_utilization_synth.rpt -pb wt_cache_subsystem_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 29 15:15:14 2025...

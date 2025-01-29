@@ -87,7 +87,8 @@ module axi_shim #(
   assign wr_single_req       = (wr_blen_i == 0);
 
   // address
-  assign axi_req_o.aw.burst  = axi_pkg::BURST_INCR;  // Use BURST_INCR for AXI regular transaction
+  //assign axi_req_o.aw.burst  = axi_pkg::BURST_INCR;  // Use BURST_INCR for AXI regular transaction
+  assign axi_req_o.aw.burst  = 2'b01;
   assign axi_req_o.aw.addr   = wr_addr_i[CVA6Cfg.AxiAddrWidth-1:0];
   assign axi_req_o.aw.size   = wr_size_i;
   assign axi_req_o.aw.len    = wr_blen_i;
