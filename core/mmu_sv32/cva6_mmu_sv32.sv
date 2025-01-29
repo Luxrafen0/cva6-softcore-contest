@@ -80,6 +80,7 @@ module cva6_mmu_sv32
 );
 
   logic                   iaccess_err;  // insufficient privilege to access this instruction page
+  logic                   i2access_err;
   logic                   daccess_err;  // insufficient privilege to access this data page
   logic                   ptw_active;  // PTW is currently walking a page table
   logic                   walking_instr;  // PTW is walking because of an ITLB miss
@@ -89,11 +90,29 @@ module cva6_mmu_sv32
   logic                   lsu_dtlb_hit_tmp_o;
   logic [riscv::VLEN-1:0] update_vaddr;
   tlb_update_sv32_t update_itlb, update_dtlb, update_shared_tlb;
+  tlb_update_sv32_t update_itlb2, update_dtlb2;
 
   logic                               itlb_lu_access;
   riscv::pte_sv32_t                   itlb_content;
   logic                               itlb_is_4M;
   logic                               itlb_lu_hit;
+
+  // ITLB2
+
+
+  logic                               itlb2_lu_access;
+  riscv::pte_sv32_t                   itlb2_content;
+  logic                               itlb2_is_4M;
+  logic                               itlb2_lu_hit;
+
+
+  // DTLB2
+  
+  logic                               dtlb2_lu_access;
+  riscv::pte_sv32_t                   dtlb2_content;
+  logic                               dtlb2_is_4M;
+  logic                               dtlb2_lu_hit;
+
 
   logic                               dtlb_lu_access;
   riscv::pte_sv32_t                   dtlb_content;
@@ -110,6 +129,8 @@ module cva6_mmu_sv32
   // Assignments
   assign itlb_lu_access = icache_areq_i.fetch_req;
   assign dtlb_lu_access = lsu_req_i;
+  //assign itlb2_lu_access = 
+  //assign dtlb2_lu_access = 
 
 
   cva6_tlb_sv32 #(
@@ -156,7 +177,51 @@ module cva6_mmu_sv32
       .lu_hit_o  (dtlb_lu_hit)
   );
 
-  cva6_shared_tlb_sv32 #(
+  cva6_tlb_sv32 #(
+      .CVA6Cfg    (CVA6Cfg),
+      .TLB_ENTRIES(64),
+      .ASID_WIDTH (ASID_WIDTH)
+  ) i_itlb2 (
+      .clk_i  (clk_i),
+      .rst_ni (rst_ni),
+      .flush_i(flush_tlb_i),
+
+      .update_i(update_itlb2),
+
+      .lu_access_i          (itlb2_lu_access),
+      .lu_asid_i            (asid_i),
+      .asid_to_be_flushed_i (asid_to_be_flushed_i),
+      .vaddr_to_be_flushed_i(vaddr_to_be_flushed_i),
+      .lu_vaddr_i           (icache_areq_i.fetch_vaddr),
+      .lu_content_o         (itlb2_content),
+
+      .lu_is_4M_o(itlb2_is_4M),
+      .lu_hit_o  (itlb2_lu_hit)
+  );
+
+  cva6_tlb_sv32 #(
+      .CVA6Cfg    (CVA6Cfg),
+      .TLB_ENTRIES(64),
+      .ASID_WIDTH (ASID_WIDTH)
+  ) i_dtlb2 (
+      .clk_i  (clk_i),
+      .rst_ni (rst_ni),
+      .flush_i(flush_tlb_i),
+
+      .update_i(update_dtlb2),
+
+      .lu_access_i          (dtlb2_lu_access),
+      .lu_asid_i            (asid_i),
+      .asid_to_be_flushed_i (asid_to_be_flushed_i),
+      .vaddr_to_be_flushed_i(vaddr_to_be_flushed_i),
+      .lu_vaddr_i           (lsu_vaddr_i),
+      .lu_content_o         (dtlb2_content),
+
+      .lu_is_4M_o(dtlb2_is_4M),
+      .lu_hit_o  (dtlb2_lu_hit)
+  );
+
+  /*cva6_shared_tlb_sv32 #(
       .CVA6Cfg         (CVA6Cfg),
       .SHARED_TLB_DEPTH(64),
       .SHARED_TLB_WAYS (2),
@@ -195,7 +260,7 @@ module cva6_mmu_sv32
       .itlb_req_o         (itlb_req),
       // to update shared tlb
       .shared_tlb_update_i(update_shared_tlb)
-  );
+  );*/
 
   cva6_ptw_sv32 #(
       .CVA6Cfg   (CVA6Cfg),
@@ -286,6 +351,9 @@ module cva6_mmu_sv32
     // Check whether we are allowed to access this memory region from a fetch perspective
     iaccess_err   = icache_areq_i.fetch_req && (((priv_lvl_i == riscv::PRIV_LVL_U) && ~itlb_content.u)
                                                  || ((priv_lvl_i == riscv::PRIV_LVL_S) && itlb_content.u));
+    // NEW                                             
+    i2access_err = icache_areq_i.fetch_req && (((priv_lvl_i == riscv::PRIV_LVL_U) && ~itlb2_content.u)
+                                                 || ((priv_lvl_i == riscv::PRIV_LVL_S) && itlb2_content.u))*/
 
     // MMU enabled: address from TLB, request delayed until hit. Error when TLB
     // hit and no access right or TLB hit and translated address not valid (e.g.
@@ -310,7 +378,6 @@ module cva6_mmu_sv32
         icache_areq_o.fetch_paddr[21:12] = icache_areq_i.fetch_vaddr[21:12];
       end
 
-
       // ---------
       // ITLB Hit
       // --------
@@ -331,6 +398,29 @@ module cva6_mmu_sv32
           };  //to check on wave --> not connected
         end
       end else
+        icache_areq_o.fetch_paddr = {itlb2_content.ppn, icache_areq_i.fetch_vaddr[11:0]};
+
+        if (itlb2_is_4M) begin
+          icache_areq_o.fetch_paddr[21:12] = icache_areq_i.fetch_vaddr[21:12];
+        end
+
+      /*if (itlb2_lu_hit) begin
+        icache_areq_o.fetch_valid = icache_areq_i.fetch_req;
+        // we got an access error
+        if (i2access_err) begin
+          // throw a page fault
+          icache_areq_o.fetch_exception = {
+            riscv::INSTR_PAGE_FAULT,
+            {{riscv::XLEN - riscv::VLEN{1'b0}}, icache_areq_i.fetch_vaddr},
+            1'b1
+          };  //to check on wave --> not connected
+        end else if (!pmp_instr_allow) begin
+          icache_areq_o.fetch_exception = {
+            riscv::INSTR_ACCESS_FAULT, icache_areq_i.fetch_vaddr, 1'b1
+          };  //to check on wave --> not connected
+        end
+      end*/
+
       // ---------
       // ITLB Miss
       // ---------
@@ -379,20 +469,47 @@ module cva6_mmu_sv32
   );
 
   //-----------------------
+  // Handle priority access to ptw
+  //-----------------------
+
+  always_comb begin: priority
+
+    if (enable_translation_i & itlb2_lu_access & ~itlb2_lu_hit & ~dtlb2_lu_access) begin
+      // i_req_o 
+      // update les registres 
+    end else if (en_ld_st_translation_i & dtlb2_lu_access & ~dtlb2_lu_hit) begin
+      // 
+    end 
+  end
+
+
+  //----------------------
+  // Update TLBs
+  //----------------------
+
+
+  // OUI je vais faire ça
+
+  //-----------------------
   // Data Interface
   //-----------------------
 
   logic [riscv::VLEN-1:0] lsu_vaddr_n, lsu_vaddr_q;
   logic [15:0][riscv::PLEN-3:0] pmpaddr_int;
   riscv::pte_sv32_t dtlb_pte_n, dtlb_pte_q;
+  //riscv::pte_sv32_t dtlb2_pte_n, dtlb2_pte_q;
   exception_t misaligned_ex_n, misaligned_ex_q;
   logic lsu_req_n, lsu_req_q;
   logic lsu_is_store_n, lsu_is_store_q;
   logic dtlb_hit_n, dtlb_hit_q;
+  //logic dtlb2_hit_n, dtlb2_hit_q;
   logic dtlb_is_4M_n, dtlb_is_4M_q;
+  //logic dtlb2_is_4M_n, dtlb2_is_4M_q;
 
   // check if we need to do translation or if we are always ready (e.g.: we are not translating anything)
-  assign lsu_dtlb_hit_tmp_o = (en_ld_st_translation_i) ? dtlb_lu_hit : 1'b1;
+  //assign lsu_dtlb_hit_tmp_o = (en_ld_st_translation_i) ? dtlb_lu_hit  : 1'b1;
+  // NEW
+  assign lsu_dtlb_hit_tmp_o = (en_ld_st_translation_i ) ? dtlb_lu_hit || dtlb2_lu_hit : 1'b1;
   
   // Wires to PMP checks
   riscv::pmp_access_t pmp_access_type;
@@ -405,9 +522,12 @@ module cva6_mmu_sv32
     lsu_req_n       = lsu_req_i;
     misaligned_ex_n = misaligned_ex_i;
     dtlb_pte_n      = dtlb_content;
+    //dtlb2_pte_n      = dtlb2_content;
     dtlb_hit_n      = dtlb_lu_hit;
+    //dtlb2_hit_n      = dtlb2_lu_hit;
     lsu_is_store_n  = lsu_is_store_i;
     dtlb_is_4M_n    = dtlb_is_4M;
+    //dtlb2_is_4M_n   = dtlb2_is_4M;
 
     if (riscv::PLEN > riscv::VLEN) begin
       lsu_paddr_o    = {{riscv::PLEN - riscv::VLEN{1'b0}}, lsu_vaddr_q};
@@ -426,7 +546,12 @@ module cva6_mmu_sv32
     // Check if the User flag is set, then we may only access it in supervisor mode
     // if SUM is enabled
     daccess_err = (ld_st_priv_lvl_i == riscv::PRIV_LVL_S && !sum_i && dtlb_pte_q.u) || // SUM is not set and we are trying to access a user page in supervisor mode
-    (ld_st_priv_lvl_i == riscv::PRIV_LVL_U && !dtlb_pte_q.u);            // this is not a user page but we are in user mode and trying to access it
+    (ld_st_priv_lvl_i == riscv::PRIV_LVL_U && !dtlb_pte_q.u);
+    
+    d2access_err = (ld_st_priv_lvl_i == riscv::PRIV_LVL_S && !sum_i && dtlb2_pte_q.u) || // SUM is not set and we are trying to access a user page in supervisor mode
+    (ld_st_priv_lvl_i == riscv::PRIV_LVL_U && !dtlb2_pte_q.u)
+
+
     // translation is enabled and no misaligned exception occurred
     if (en_ld_st_translation_i && !misaligned_ex_q.valid) begin
       lsu_valid_o = 1'b0;
@@ -481,7 +606,56 @@ module cva6_mmu_sv32
             };  //only 32 bits on 34b of lsu_paddr_o are returned.
           end
         end
-      end else
+      end else 
+
+      /*lsu_paddr_o = {dtlb_pte_q.ppn, lsu_vaddr_q[11:0]};
+      lsu_dtlb_ppn_o = dtlb2_content.ppn;
+      // Mega page
+      if (dtlb2_is_4M_q) begin
+        lsu_paddr_o[21:12] = lsu_vaddr_q[21:12];
+        lsu_dtlb_ppn_o[21:12] = lsu_vaddr_n[21:12];
+      end*/
+
+      /*if (dtlb_hit_q && lsu_req_q) begin
+        lsu_valid_o = 1'b1;
+        // exception priority:
+        // PAGE_FAULTS have higher priority than ACCESS_FAULTS
+        // virtual memory based exceptions are PAGE_FAULTS
+        // physical memory based exceptions are ACCESS_FAULTS (PMA/PMP)
+
+        // this is a store
+        if (lsu_is_store_q) begin
+          // check if the page is write-able and we are not violating privileges
+          // also check if the dirty flag is set
+          if (!dtlb_pte_q.w || daccess_err || !dtlb_pte_q.d) begin
+            lsu_exception_o = {
+              riscv::STORE_PAGE_FAULT,
+              {{riscv::XLEN - riscv::VLEN{lsu_vaddr_q[riscv::VLEN-1]}}, lsu_vaddr_q},
+              1'b1
+            };  //to check on wave
+            // Check if any PMPs are violated
+          end else if (!pmp_data_allow) begin
+            lsu_exception_o = {
+              riscv::ST_ACCESS_FAULT, lsu_paddr_o[riscv::PLEN-1:2], 1'b1
+            };  //only 32 bits on 34b of lsu_paddr_o are returned.
+          end
+
+          // this is a load
+        end else begin
+          // check for sufficient access privileges - throw a page fault if necessary
+          if (daccess_err) begin
+            lsu_exception_o = {
+              riscv::LOAD_PAGE_FAULT,
+              {{riscv::XLEN - riscv::VLEN{lsu_vaddr_q[riscv::VLEN-1]}}, lsu_vaddr_q},
+              1'b1
+            };
+            // Check if any PMPs are violated
+          end else if (!pmp_data_allow) begin
+            lsu_exception_o = {
+              riscv::LD_ACCESS_FAULT, lsu_paddr_o[riscv::PLEN-1:2], 1'b1
+            };  //only 32 bits on 34b of lsu_paddr_o are returned.
+          end
+        end*/
 
       // ---------
       // DTLB Miss
@@ -549,9 +723,12 @@ module cva6_mmu_sv32
       lsu_req_q       <= '0;
       misaligned_ex_q <= '0;
       dtlb_pte_q      <= '0;
+      //dtlb2_pte_q   <= '0;
       dtlb_hit_q      <= '0;
+      //dtlb2_hit_q   <= '0;
       lsu_is_store_q  <= '0;
       dtlb_is_4M_q    <= '0;
+      //dtlb2_is_4M_q <= '0;
       pmpaddr_int     <= '0;
       lsu_dtlb_hit_o  <= '0;
     end else begin
@@ -559,9 +736,12 @@ module cva6_mmu_sv32
       lsu_req_q       <= lsu_req_n;
       misaligned_ex_q <= misaligned_ex_n;
       dtlb_pte_q      <= dtlb_pte_n;
+      //dtlb2_pte_q   <= dtlb2_pte_n;
       dtlb_hit_q      <= dtlb_hit_n;
+      //dtlb2_hit_q   <= dtlb2_hit_n;
       lsu_is_store_q  <= lsu_is_store_n;
       dtlb_is_4M_q    <= dtlb_is_4M_n;
+      //dtlb2_is_4M_q <= dtlb2_is_4M_n;
       //rajout registre 
       pmpaddr_int     <= pmpaddr_i;
       lsu_dtlb_hit_o  <= lsu_dtlb_hit_tmp_o;
