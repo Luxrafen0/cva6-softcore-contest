@@ -92,6 +92,7 @@ module cva6_mmu_sv32
   logic [riscv::VLEN-1:0] update_vaddr;
   tlb_update_sv32_t update_itlb, update_dtlb, update_tlb_nv2;
   tlb_update_sv32_t update_itlb2, update_dtlb2;
+  logic [15:0][riscv::PLEN-3:0] pmpaddr_int;
 
   logic                               itlb_lu_access;
   riscv::pte_sv32_t                   itlb_content;
@@ -124,14 +125,14 @@ module cva6_mmu_sv32
   logic             [riscv::VLEN-1:0] tlb_nv2_vaddr,tlb_nv2_vaddr_d,tlb_nv2_vaddr_q;
   logic                               tlb_nv2_hit;
 
-  logic                               itlb_req;
+  logic                               itlb_req,itlb_req_d,itlb_req_q;
 
 
   // Assignments
   assign itlb_lu_access = icache_areq_i.fetch_req;
   assign dtlb_lu_access = lsu_req_i;
-  assign itlb2_lu_access = icache_areq_i.fetch_req & itlb_lu_access & ~itlb_lu_hit ;
-  assign dtlb2_lu_access = lsu_req_i & & dtlb_lu_access & ~dtlb_lu_hit;
+  assign itlb2_lu_access = icache_areq_i.fetch_req;
+  assign dtlb2_lu_access = lsu_req_i;
 
 
   cva6_tlb_sv32 #(
@@ -222,47 +223,6 @@ module cva6_mmu_sv32
       .lu_hit_o  (dtlb2_lu_hit)
   );
 
-  /*cva6_shared_tlb_sv32 #(
-      .CVA6Cfg         (CVA6Cfg),
-      .SHARED_TLB_DEPTH(64),
-      .SHARED_TLB_WAYS (2),
-      .ASID_WIDTH      (ASID_WIDTH)
-  ) i_shared_tlb (
-      .clk_i  (clk_i),
-      .rst_ni (rst_ni),
-      .flush_i(flush_tlb_i),
-
-      .enable_translation_i  (enable_translation_i),
-      .en_ld_st_translation_i(en_ld_st_translation_i),
-
-      .asid_i       (asid_i),
-      // from TLBs
-      // did we miss?
-      .itlb_access_i(itlb_lu_access),
-      .itlb_hit_i   (itlb_lu_hit),
-      .itlb_vaddr_i (icache_areq_i.fetch_vaddr),
-
-      .dtlb_access_i(dtlb_lu_access),
-      .dtlb_hit_i   (dtlb_lu_hit),
-      .dtlb_vaddr_i (lsu_vaddr_i),
-
-      // to TLBs, update logic
-      .itlb_update_o(update_itlb),
-      .dtlb_update_o(update_dtlb),
-
-      // Performance counters
-      .itlb_miss_o(itlb_miss_o),
-      .dtlb_miss_o(dtlb_miss_o),
-
-      .shared_tlb_access_o(shared_tlb_access),
-      .shared_tlb_hit_o   (shared_tlb_hit),
-      .shared_tlb_vaddr_o (shared_tlb_vaddr),
-
-      .itlb_req_o         (itlb_req),
-      // to update shared tlb
-      .shared_tlb_update_i(update_shared_tlb)
-  );*/
-
   cva6_ptw_sv32 #(
       .CVA6Cfg   (CVA6Cfg),
       .ASID_WIDTH(ASID_WIDTH)
@@ -311,7 +271,7 @@ module cva6_mmu_sv32
   );
 
   //-----------------------
-  // Instruction Interface
+  // Instruction Interface 
   //-----------------------
   logic match_any_execute_region;
   logic pmp_instr_allow;
@@ -356,7 +316,7 @@ module cva6_mmu_sv32
       // 4K page
       icache_areq_o.fetch_paddr = {itlb_content.ppn, icache_areq_i.fetch_vaddr[11:0]};
       // Mega page
-      if (itlb_is_4M) begin
+      if (itlb_is_4M | itlb2_is_4M) begin
         icache_areq_o.fetch_paddr[21:12] = icache_areq_i.fetch_vaddr[21:12];
       end
 
@@ -381,11 +341,7 @@ module cva6_mmu_sv32
         end
       end else
 
-        icache_areq_o.fetch_paddr = {itlb2_content.ppn, icache_areq_i.fetch_vaddr[11:0]};
-
-        if (itlb2_is_4M) begin
-          icache_areq_o.fetch_paddr[21:12] = icache_areq_i.fetch_vaddr[21:12];
-        end
+      icache_areq_o.fetch_paddr = {itlb2_content.ppn, icache_areq_i.fetch_vaddr[11:0]};
 
       if (itlb2_lu_hit) begin
         icache_areq_o.fetch_valid = icache_areq_i.fetch_req;
@@ -462,24 +418,22 @@ module cva6_mmu_sv32
   always_comb begin: request_ptw
 
     tlb_nv2_vaddr_d = tlb_nv2_vaddr_q;
-    tlb_nv2_hit = 1'b0;
+    tlb_nv2_hit = itlb2_lu_hit & dtlb2_lu_hit ;
     tlb_nv2_access_d = 1'b0;
     itlb_req_d = 1'b0;
     itlb_miss_o = '0;
     dtlb_miss_o = '0;
 
-    if (enable_translation_i & itlb_lu_access & ~itlb_lu_hit & ~dtlb_lu_access) begin
+    if (enable_translation_i & itlb2_lu_access & ~itlb2_lu_hit & ~dtlb2_lu_access) begin
 
       itlb_req_d = 1'b1;
       tlb_nv2_vaddr_d = icache_areq_i.fetch_vaddr;
-      tlb_nv2_hit = itlb2_lu_hit;
       tlb_nv2_access_d = 1'b1;
       itlb_miss_o = '1;
 
-    end else if (en_ld_st_translation_i & dtlb_lu_access & ~dtlb_lu_hit) begin
+    end else if (en_ld_st_translation_i & dtlb2_lu_access & ~dtlb2_lu_hit) begin
 
       tlb_nv2_vaddr_d = lsu_vaddr_i;
-      tlb_nv2_hit = dtlb2_lu_hit;
       tlb_nv2_access_d = 1'b1;
       dtlb_miss_o = '1;
 
@@ -500,17 +454,12 @@ module cva6_mmu_sv32
       update_dtlb2 = update_tlb_nv2;
     end
   end
-
-  //-----------------------
-  //
-
-
+  
   //-----------------------
   // Data Interface
   //-----------------------
 
   logic [riscv::VLEN-1:0] lsu_vaddr_n, lsu_vaddr_q;
-  logic [15:0][riscv::PLEN-3:0] pmpaddr_int;
   riscv::pte_sv32_t dtlb_pte_n, dtlb_pte_q;
   riscv::pte_sv32_t dtlb2_pte_n, dtlb2_pte_q;
   exception_t misaligned_ex_n, misaligned_ex_q;
@@ -522,9 +471,8 @@ module cva6_mmu_sv32
   logic dtlb2_is_4M_n, dtlb2_is_4M_q;
 
   // check if we need to do translation or if we are always ready (e.g.: we are not translating anything)
-  //assign lsu_dtlb_hit_tmp_o = (en_ld_st_translation_i) ? dtlb_lu_hit  : 1'b1;
   // NEW
-  assign lsu_dtlb_hit_tmp_o = (en_ld_st_translation_i ) ? dtlb_lu_hit || dtlb2_lu_hit : 1'b1;
+  assign lsu_dtlb_hit_tmp_o = (en_ld_st_translation_i ) ? (dtlb_lu_hit | dtlb2_lu_hit) : 1'b1;
   
   // Wires to PMP checks
   riscv::pmp_access_t pmp_access_type;
@@ -565,7 +513,7 @@ module cva6_mmu_sv32
     
     //NEW
     d2access_err = (ld_st_priv_lvl_i == riscv::PRIV_LVL_S && !sum_i && dtlb2_pte_q.u) || // SUM is not set and we are trying to access a user page in supervisor mode
-    (ld_st_priv_lvl_i == riscv::PRIV_LVL_U && !dtlb2_pte_q.u)
+    (ld_st_priv_lvl_i == riscv::PRIV_LVL_U && !dtlb2_pte_q.u);
 
 
     // translation is enabled and no misaligned exception occurred

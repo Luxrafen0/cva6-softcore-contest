@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1737467474">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1738247797">
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="cva6_zybo_z7_20_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS" Name="cva6_zybo_z7_20_routed.rqs"/>
@@ -713,13 +713,6 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../core/mmu_sv32/cva6_ptw_sv32.sv">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../core/mmu_sv32/cva6_shared_tlb_sv32.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -1859,6 +1852,14 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../../core/cache_subsystem/hpdcache/rtl/src/hwpf_stride/hwpf_stride_snooper.sv">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../core/mmu_sv32/cva6_shared_tlb_sv32.sv">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>

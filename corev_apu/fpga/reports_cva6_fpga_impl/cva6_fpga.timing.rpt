@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Tue Jan 21 14:56:03 2025
+| Date         : Thu Jan 30 15:45:45 2025
 | Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.1 LTS
 | Command      : report_timing -nworst 1 -delay_type max -sort_by group -file reports_cva6_fpga_impl/cva6_fpga.timing.rpt
 | Design       : cva6_zybo_z7_20
@@ -12,23 +12,23 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanc
 
 Timing Report
 
-Slack (MET) :             0.014ns  (required time - arrival time)
-  Source:                 i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[size][0]/C
-                            (rising edge-triggered cell FDCE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@8.333ns period=16.667ns})
-  Destination:            i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[5]/CE
-                            (rising edge-triggered cell FDSE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@8.333ns period=16.667ns})
+Slack (VIOLATED) :        -1.763ns  (required time - arrival time)
+  Source:                 i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][1]/C
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@6.250ns period=12.500ns})
+  Destination:            i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][0]/CE
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@6.250ns period=12.500ns})
   Path Group:             clk_out1_xlnx_clk_gen
   Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            16.667ns  (clk_out1_xlnx_clk_gen rise@16.667ns - clk_out1_xlnx_clk_gen rise@0.000ns)
-  Data Path Delay:        16.199ns  (logic 6.734ns (41.570%)  route 9.465ns (58.430%))
-  Logic Levels:           35  (CARRY4=23 LUT2=1 LUT3=1 LUT4=1 LUT5=3 LUT6=6)
-  Clock Path Skew:        0.000ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.539ns = ( 15.127 - 16.667 ) 
-    Source Clock Delay      (SCD):    -0.972ns
-    Clock Pessimism Removal (CPR):    0.567ns
-  Clock Uncertainty:      0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Requirement:            12.500ns  (clk_out1_xlnx_clk_gen rise@12.500ns - clk_out1_xlnx_clk_gen rise@0.000ns)
+  Data Path Delay:        13.585ns  (logic 5.999ns (44.158%)  route 7.586ns (55.842%))
+  Logic Levels:           31  (CARRY4=22 LUT2=1 LUT3=1 LUT4=1 LUT5=1 LUT6=5)
+  Clock Path Skew:        -0.435ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.650ns = ( 10.850 - 12.500 ) 
+    Source Clock Delay      (SCD):    -0.762ns
+    Clock Pessimism Removal (CPR):    0.453ns
+  Clock Uncertainty:      0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.148ns
+    Discrete Jitter          (DJ):    0.129ns
     Phase Error              (PE):    0.000ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -42,130 +42,123 @@ Slack (MET) :             0.014ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
                                                      -7.759    -4.999 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           2.206    -2.793    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101    -2.692 r  i_xlnx_clk_gen/inst/clkout1_buf/O
-                         net (fo=13760, routed)       1.720    -0.972    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/clk_out1
-    SLICE_X83Y58         FDCE                                         r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[size][0]/C
+    BUFGCTRL_X0Y31       BUFG (Prop_bufg_I_O)         0.101    -2.692 r  i_xlnx_clk_gen/inst/clkout1_buf_replica/O
+                         net (fo=10, routed)          0.161    -2.531    i_xlnx_clk_gen/inst/clk_out1_repN
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101    -2.430 r  i_xlnx_clk_gen/inst/clkout1_buf/O
+                         net (fo=13745, routed)       1.668    -0.762    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/clk_out1
+    SLICE_X41Y44         FDCE                                         r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X83Y58         FDCE (Prop_fdce_C_Q)         0.456    -0.516 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[size][0]/Q
-                         net (fo=2, routed)           1.079     0.563    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.a_data_q_reg[size_n_0_][0]
-    SLICE_X88Y58         LUT3 (Prop_lut3_I2_O)        0.152     0.715 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/size_q[0]_i_1/O
-                         net (fo=11, routed)          0.830     1.544    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][0]_0
-    SLICE_X89Y56         LUT4 (Prop_lut4_I1_O)        0.326     1.870 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_i_269/O
-                         net (fo=1, routed)           0.000     1.870    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_i_269_n_0
-    SLICE_X89Y56         CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532     2.402 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_256/CO[3]
-                         net (fo=1, routed)           0.000     2.402    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_256_n_0
-    SLICE_X89Y57         CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.334     2.736 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_242/O[1]
-                         net (fo=1, routed)           0.665     3.402    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_198_0[1]
-    SLICE_X90Y57         LUT2 (Prop_lut2_I1_O)        0.303     3.705 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_i_221/O
-                         net (fo=1, routed)           0.000     3.705    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_i_221_n_0
-    SLICE_X90Y57         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     4.238 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_198/CO[3]
-                         net (fo=1, routed)           0.000     4.238    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_198_n_0
-    SLICE_X90Y58         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.355 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_178/CO[3]
-                         net (fo=1, routed)           0.000     4.355    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_178_n_0
-    SLICE_X90Y59         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.472 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_158/CO[3]
-                         net (fo=1, routed)           0.000     4.472    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_158_n_0
-    SLICE_X90Y60         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.589 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_138/CO[3]
-                         net (fo=1, routed)           0.000     4.589    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_138_n_0
-    SLICE_X90Y61         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.706 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_120/CO[3]
-                         net (fo=1, routed)           0.000     4.706    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_120_n_0
-    SLICE_X90Y62         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.823 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_104/CO[3]
-                         net (fo=1, routed)           0.000     4.823    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_104_n_0
-    SLICE_X90Y63         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     4.940 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_90/CO[3]
-                         net (fo=1, routed)           0.000     4.940    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_90_n_0
-    SLICE_X90Y64         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.057 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_78/CO[3]
-                         net (fo=1, routed)           0.000     5.057    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_54_0[0]
-    SLICE_X90Y65         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.174 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_66/CO[3]
-                         net (fo=1, routed)           0.000     5.174    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_66_n_0
-    SLICE_X90Y66         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.291 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_54/CO[3]
-                         net (fo=1, routed)           0.000     5.291    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_54_n_0
-    SLICE_X90Y67         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.408 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_42/CO[3]
-                         net (fo=1, routed)           0.000     5.408    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_42_n_0
-    SLICE_X90Y68         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.525 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_30/CO[3]
-                         net (fo=1, routed)           0.000     5.525    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_30_n_0
-    SLICE_X90Y69         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.642 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_18/CO[3]
-                         net (fo=1, routed)           0.000     5.642    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_18_n_0
-    SLICE_X90Y70         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.759 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_8/CO[3]
-                         net (fo=1, routed)           0.000     5.759    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_8_n_0
-    SLICE_X90Y71         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     5.876 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_4/CO[3]
-                         net (fo=1, routed)           1.293     7.169    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_4_n_0
-    SLICE_X93Y56         LUT6 (Prop_lut6_I0_O)        0.124     7.293 f  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_i_2__27/O
-                         net (fo=3, routed)           0.466     7.759    i_axi_riscv_atomics/i_atomics/i_amos/aw_valid_reg_0
-    SLICE_X94Y56         LUT6 (Prop_lut6_I1_O)        0.124     7.883 r  i_axi_riscv_atomics/i_atomics/i_amos/w_cnt_q[0]_i_3/O
-                         net (fo=7, routed)           0.195     8.078    i_axi_riscv_atomics/i_atomics/i_lrsc/w_cnt_q_reg[0]
-    SLICE_X94Y56         LUT6 (Prop_lut6_I1_O)        0.124     8.202 r  i_axi_riscv_atomics/i_atomics/i_lrsc/aw_ready_i_72/O
-                         net (fo=68, routed)          1.072     9.274    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/art_check_id[1]
-    SLICE_X103Y49        LUT6 (Prop_lut6_I2_O)        0.124     9.398 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_137/O
-                         net (fo=1, routed)           0.894    10.291    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_137_n_0
-    SLICE_X96Y49         LUT5 (Prop_lut5_I4_O)        0.124    10.415 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_105/O
-                         net (fo=1, routed)           0.622    11.038    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_105_n_0
-    SLICE_X97Y49         LUT6 (Prop_lut6_I5_O)        0.124    11.162 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_51/O
-                         net (fo=1, routed)           0.000    11.162    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_51_n_0
-    SLICE_X97Y49         CARRY4 (Prop_carry4_S[0]_CO[3])
-                                                      0.532    11.694 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_24/CO[3]
-                         net (fo=1, routed)           0.001    11.694    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_24_n_0
-    SLICE_X97Y50         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.808 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_19/CO[3]
-                         net (fo=1, routed)           0.000    11.808    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_19_n_0
-    SLICE_X97Y51         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    11.922 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_18/CO[3]
-                         net (fo=1, routed)           0.000    11.922    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_18_n_0
-    SLICE_X97Y52         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.036 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_15/CO[3]
-                         net (fo=1, routed)           0.000    12.036    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_15_n_0
-    SLICE_X97Y53         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.114    12.150 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_8/CO[3]
-                         net (fo=1, routed)           0.000    12.150    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_8_n_0
-    SLICE_X97Y54         CARRY4 (Prop_carry4_CI_CO[1])
-                                                      0.157    12.307 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_4/CO[1]
-                         net (fo=5, routed)           0.637    12.944    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/check_res_o0
-    SLICE_X93Y54         LUT5 (Prop_lut5_I1_O)        0.329    13.273 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/i_xlnx_blk_mem_gen_i_14/O
-                         net (fo=7, routed)           0.688    13.961    i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/s_axi_awvalid
-    SLICE_X92Y50         LUT6 (Prop_lut6_I5_O)        0.124    14.085 r  i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/gaxif_ms_addr_gen.num_of_bytes_r[3]_i_1_comp/O
-                         net (fo=33, routed)          0.626    14.711    i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/addr_en_c
-    SLICE_X91Y50         LUT5 (Prop_lut5_I0_O)        0.118    14.829 r  i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r[7]_i_1/O
-                         net (fo=8, routed)           0.398    15.227    i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/axi_wr_fsm_n_4
-    SLICE_X90Y50         FDSE                                         r  i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[5]/CE
+    SLICE_X41Y44         FDCE (Prop_fdce_C_Q)         0.456    -0.306 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][1]/Q
+                         net (fo=1, routed)           0.739     0.433    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size_n_0_][1]
+    SLICE_X42Y42         LUT3 (Prop_lut3_I0_O)        0.124     0.557 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/size_q[1]_i_1/O
+                         net (fo=11, routed)          0.857     1.414    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][1]_0
+    SLICE_X42Y44         LUT4 (Prop_lut4_I2_O)        0.124     1.538 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_i_260/O
+                         net (fo=1, routed)           0.000     1.538    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_i_260_n_0
+    SLICE_X42Y44         CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.513     2.051 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_242/CO[3]
+                         net (fo=1, routed)           0.000     2.051    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_242_n_0
+    SLICE_X42Y45         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     2.168 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_223/CO[3]
+                         net (fo=1, routed)           0.000     2.168    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_223_n_0
+    SLICE_X42Y46         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     2.285 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_203/CO[3]
+                         net (fo=1, routed)           0.000     2.285    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_203_n_0
+    SLICE_X42Y47         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     2.402 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_183/CO[3]
+                         net (fo=1, routed)           0.000     2.402    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_183_n_0
+    SLICE_X42Y48         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     2.725 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_163/O[1]
+                         net (fo=1, routed)           0.568     3.293    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_120_0[1]
+    SLICE_X40Y48         LUT2 (Prop_lut2_I1_O)        0.306     3.599 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_i_141/O
+                         net (fo=1, routed)           0.000     3.599    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_i_141_n_0
+    SLICE_X40Y48         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     4.149 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_120/CO[3]
+                         net (fo=1, routed)           0.000     4.149    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_120_n_0
+    SLICE_X40Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.263 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_104/CO[3]
+                         net (fo=1, routed)           0.001     4.263    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_104_n_0
+    SLICE_X40Y50         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.377 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_90/CO[3]
+                         net (fo=1, routed)           0.000     4.377    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_90_n_0
+    SLICE_X40Y51         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.491 r  i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_78/CO[3]
+                         net (fo=1, routed)           0.000     4.491    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_54_0[0]
+    SLICE_X40Y52         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.605 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_66/CO[3]
+                         net (fo=1, routed)           0.000     4.605    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_66_n_0
+    SLICE_X40Y53         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.719 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_54/CO[3]
+                         net (fo=1, routed)           0.000     4.719    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_54_n_0
+    SLICE_X40Y54         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.833 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_42/CO[3]
+                         net (fo=1, routed)           0.000     4.833    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_42_n_0
+    SLICE_X40Y55         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     4.947 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_30/CO[3]
+                         net (fo=1, routed)           0.000     4.947    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_30_n_0
+    SLICE_X40Y56         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.061 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_18/CO[3]
+                         net (fo=1, routed)           0.000     5.061    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_18_n_0
+    SLICE_X40Y57         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.175 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_8/CO[3]
+                         net (fo=1, routed)           0.000     5.175    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_8_n_0
+    SLICE_X40Y58         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     5.289 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_full_q_reg_i_4/CO[3]
+                         net (fo=2, routed)           0.767     6.056    i_axi_riscv_atomics/i_atomics/i_amos/gen_spill_reg.b_full_q_reg_i_4_n_0_alias
+    SLICE_X39Y58         LUT6 (Prop_lut6_I4_O)        0.124     6.180 r  i_axi_riscv_atomics/i_atomics/i_amos/w_cnt_q[0]_i_3_comp/O
+                         net (fo=7, routed)           0.506     6.687    i_axi_riscv_atomics/i_atomics/i_lrsc/w_cnt_q_reg[0]
+    SLICE_X39Y57         LUT6 (Prop_lut6_I1_O)        0.124     6.811 r  i_axi_riscv_atomics/i_atomics/i_lrsc/aw_ready_i_73/O
+                         net (fo=68, routed)          1.065     7.875    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/art_check_id[0]
+    SLICE_X39Y45         LUT6 (Prop_lut6_I4_O)        0.124     7.999 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_130/O
+                         net (fo=1, routed)           0.573     8.572    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_130_n_0
+    SLICE_X39Y46         LUT5 (Prop_lut5_I2_O)        0.124     8.696 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_99/O
+                         net (fo=1, routed)           0.578     9.275    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_99_n_0
+    SLICE_X37Y47         LUT6 (Prop_lut6_I4_O)        0.124     9.399 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_50/O
+                         net (fo=1, routed)           0.000     9.399    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_i_50_n_0
+    SLICE_X37Y47         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     9.949 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_24/CO[3]
+                         net (fo=1, routed)           0.000     9.949    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_24_n_0
+    SLICE_X37Y48         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.063 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_19/CO[3]
+                         net (fo=1, routed)           0.000    10.063    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_19_n_0
+    SLICE_X37Y49         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.177 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_18/CO[3]
+                         net (fo=1, routed)           0.001    10.177    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_18_n_0
+    SLICE_X37Y50         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.291 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_15/CO[3]
+                         net (fo=1, routed)           0.000    10.291    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_15_n_0
+    SLICE_X37Y51         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114    10.405 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_8/CO[3]
+                         net (fo=1, routed)           0.000    10.405    i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_8_n_0
+    SLICE_X37Y52         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.157    10.562 r  i_axi_riscv_atomics/i_atomics/i_lrsc/i_art/aw_ready_reg_i_4/CO[1]
+                         net (fo=8, routed)           1.151    11.714    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/check_res_o0_alias
+    SLICE_X42Y52         LUT6 (Prop_lut6_I3_O)        0.329    12.043 r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q[id][4]_i_1__20_comp/O
+                         net (fo=55, routed)          0.780    12.823    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_fill
+    SLICE_X42Y45         FDCE                                         r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_xlnx_clk_gen rise edge)
-                                                     16.667    16.667 r  
-    K17                                               0.000    16.667 r  clk_sys (IN)
-                         net (fo=0)                   0.000    16.667    i_xlnx_clk_gen/inst/clk_in1
-    K17                  IBUF (Prop_ibuf_I_O)         1.404    18.071 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
-                         net (fo=1, routed)           1.162    19.233    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
+                                                     12.500    12.500 r  
+    K17                                               0.000    12.500 r  clk_sys (IN)
+                         net (fo=0)                   0.000    12.500    i_xlnx_clk_gen/inst/clk_in1
+    K17                  IBUF (Prop_ibuf_I_O)         1.404    13.904 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    15.066    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
-                                                     -7.814    11.419 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
-                         net (fo=1, routed)           2.012    13.431    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.522 r  i_xlnx_clk_gen/inst/clkout1_buf/O
-                         net (fo=13760, routed)       1.606    15.127    i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/s_aclk
-    SLICE_X90Y50         FDSE                                         r  i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[5]/C
-                         clock pessimism              0.567    15.694    
-                         clock uncertainty           -0.082    15.612    
-    SLICE_X90Y50         FDSE (Setup_fdse_C_CE)      -0.371    15.241    i_xlnx_blk_mem_gen/U0/inst_blk_mem_gen/gnbram.gaxibmg.axi_wr_fsm/gaxif_wlast_gen.awlen_cntr_r_reg[5]
+                                                     -7.814     7.252 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           2.012     9.264    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
+    BUFGCTRL_X0Y31       BUFG (Prop_bufg_I_O)         0.091     9.355 r  i_xlnx_clk_gen/inst/clkout1_buf_replica/O
+                         net (fo=10, routed)          1.495    10.850    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/clk_out1_repN_alias
+    SLICE_X42Y45         FDCE                                         r  i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][0]/C
+                         clock pessimism              0.453    11.303    
+                         clock uncertainty           -0.074    11.229    
+    SLICE_X42Y45         FDCE (Setup_fdce_C_CE)      -0.169    11.060    i_axi_xbar/i_xbar/gen_mst_port_mux[0].i_axi_mux/gen_mux.i_aw_spill_reg/spill_register_flushable_i/gen_spill_reg.b_data_q_reg[size][0]
   -------------------------------------------------------------------
-                         required time                         15.241    
-                         arrival time                         -15.227    
+                         required time                         11.060    
+                         arrival time                         -12.823    
   -------------------------------------------------------------------
-                         slack                                  0.014    
+                         slack                                 -1.763    
 
-Slack (MET) :             1.267ns  (required time - arrival time)
+Slack (MET) :             0.660ns  (required time - arrival time)
   Source:                 i_dmi_jtag/i_dmi_jtag_tap/td_o_reg/C
                             (falling edge-triggered cell FDCE clocked by tck  {rise@0.000ns fall@50.000ns period=100.000ns})
   Destination:            tdo
@@ -173,12 +166,12 @@ Slack (MET) :             1.267ns  (required time - arrival time)
   Path Group:             tck
   Path Type:              Max at Slow Process Corner
   Requirement:            20.000ns  (MaxDelay Path 20.000ns)
-  Data Path Delay:        6.184ns  (logic 4.015ns (64.930%)  route 2.169ns (35.070%))
+  Data Path Delay:        6.801ns  (logic 4.015ns (59.043%)  route 2.785ns (40.957%))
   Logic Levels:           1  (OBUF=1)
   Output Delay:           5.000ns
-  Clock Path Skew:        -7.047ns (DCD - SCD + CPR)
+  Clock Path Skew:        -7.037ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    0.000ns
-    Source Clock Delay      (SCD):    7.047ns
+    Source Clock Delay      (SCD):    7.037ns
     Clock Pessimism Removal (CPR):    0.000ns
   Clock Uncertainty:      0.501ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -195,13 +188,13 @@ Slack (MET) :             1.267ns  (required time - arrival time)
     H15                  IBUF (Prop_ibuf_I_O)         1.500     1.500 f  tck_IBUF_inst/O
                          net (fo=1, routed)           3.659     5.159    tck_IBUF
     BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.101     5.260 f  tck_IBUF_BUFG_inst/O
-                         net (fo=258, routed)         1.787     7.047    i_dmi_jtag/i_dmi_jtag_tap/tck_ni
-    SLICE_X103Y92        FDCE                                         r  i_dmi_jtag/i_dmi_jtag_tap/td_o_reg/C  (IS_INVERTED)
+                         net (fo=258, routed)         1.777     7.037    i_dmi_jtag/i_dmi_jtag_tap/tck_ni
+    SLICE_X93Y82         FDCE                                         r  i_dmi_jtag/i_dmi_jtag_tap/td_o_reg/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
-    SLICE_X103Y92        FDCE (Prop_fdce_C_Q)         0.459     7.506 r  i_dmi_jtag/i_dmi_jtag_tap/td_o_reg/Q
-                         net (fo=1, routed)           2.169     9.675    tdo_OBUF
-    J15                  OBUF (Prop_obuf_I_O)         3.556    13.232 r  tdo_OBUF_inst/O
-                         net (fo=0)                   0.000    13.232    tdo
+    SLICE_X93Y82         FDCE (Prop_fdce_C_Q)         0.459     7.496 r  i_dmi_jtag/i_dmi_jtag_tap/td_o_reg/Q
+                         net (fo=1, routed)           2.785    10.282    tdo_OBUF
+    J15                  OBUF (Prop_obuf_I_O)         3.556    13.838 r  tdo_OBUF_inst/O
+                         net (fo=0)                   0.000    13.838    tdo
     J15                                                               r  tdo (OUT)
   -------------------------------------------------------------------    -------------------
 
@@ -211,27 +204,27 @@ Slack (MET) :             1.267ns  (required time - arrival time)
                          output delay                -5.000    14.499    
   -------------------------------------------------------------------
                          required time                         14.499    
-                         arrival time                         -13.232    
+                         arrival time                         -13.838    
   -------------------------------------------------------------------
-                         slack                                  1.267    
+                         slack                                  0.660    
 
-Slack (MET) :             13.123ns  (required time - arrival time)
+Slack (MET) :             9.071ns  (required time - arrival time)
   Source:                 i_dm_top/i_dm_csrs/dmcontrol_q_reg[ndmreset]/C
-                            (rising edge-triggered cell FDCE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@8.333ns period=16.667ns})
-  Destination:            i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]/CLR
-                            (recovery check against rising-edge clock clk_out1_xlnx_clk_gen  {rise@0.000ns fall@8.333ns period=16.667ns})
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@6.250ns period=12.500ns})
+  Destination:            i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[0]/CLR
+                            (recovery check against rising-edge clock clk_out1_xlnx_clk_gen  {rise@0.000ns fall@6.250ns period=12.500ns})
   Path Group:             **async_default**
   Path Type:              Recovery (Max at Slow Process Corner)
-  Requirement:            16.667ns  (clk_out1_xlnx_clk_gen rise@16.667ns - clk_out1_xlnx_clk_gen rise@0.000ns)
-  Data Path Delay:        3.012ns  (logic 0.773ns (25.667%)  route 2.239ns (74.333%))
+  Requirement:            12.500ns  (clk_out1_xlnx_clk_gen rise@12.500ns - clk_out1_xlnx_clk_gen rise@0.000ns)
+  Data Path Delay:        2.890ns  (logic 0.580ns (20.068%)  route 2.310ns (79.932%))
   Logic Levels:           1  (LUT2=1)
-  Clock Path Skew:        -0.131ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.613ns = ( 15.053 - 16.667 ) 
-    Source Clock Delay      (SCD):    -0.915ns
-    Clock Pessimism Removal (CPR):    0.567ns
-  Clock Uncertainty:      0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Clock Path Skew:        -0.060ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.352ns = ( 11.148 - 12.500 ) 
+    Source Clock Delay      (SCD):    -0.700ns
+    Clock Pessimism Removal (CPR):    0.591ns
+  Clock Uncertainty:      0.074ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.148ns
+    Discrete Jitter          (DJ):    0.129ns
     Phase Error              (PE):    0.000ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -245,37 +238,41 @@ Slack (MET) :             13.123ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
                                                      -7.759    -4.999 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
                          net (fo=1, routed)           2.206    -2.793    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101    -2.692 r  i_xlnx_clk_gen/inst/clkout1_buf/O
-                         net (fo=13760, routed)       1.777    -0.915    i_dm_top/i_dm_csrs/clk_out1
-    SLICE_X98Y83         FDCE                                         r  i_dm_top/i_dm_csrs/dmcontrol_q_reg[ndmreset]/C
+    BUFGCTRL_X0Y31       BUFG (Prop_bufg_I_O)         0.101    -2.692 r  i_xlnx_clk_gen/inst/clkout1_buf_replica/O
+                         net (fo=10, routed)          0.161    -2.531    i_xlnx_clk_gen/inst/clk_out1_repN
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101    -2.430 r  i_xlnx_clk_gen/inst/clkout1_buf/O
+                         net (fo=13745, routed)       1.730    -0.700    i_dm_top/i_dm_csrs/clk_out1
+    SLICE_X83Y17         FDCE                                         r  i_dm_top/i_dm_csrs/dmcontrol_q_reg[ndmreset]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X98Y83         FDCE (Prop_fdce_C_Q)         0.478    -0.437 f  i_dm_top/i_dm_csrs/dmcontrol_q_reg[ndmreset]/Q
-                         net (fo=3, routed)           0.528     0.091    i_dm_top/i_dm_csrs/ndmreset
-    SLICE_X96Y88         LUT2 (Prop_lut2_I1_O)        0.295     0.386 f  i_dm_top/i_dm_csrs/dm_csrs_LUT2/O
-                         net (fo=4, routed)           1.711     2.096    i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]_1
-    SLICE_X82Y72         FDCE                                         f  i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]/CLR
+    SLICE_X83Y17         FDCE (Prop_fdce_C_Q)         0.456    -0.244 f  i_dm_top/i_dm_csrs/dmcontrol_q_reg[ndmreset]/Q
+                         net (fo=3, routed)           1.549     1.304    i_dm_top/i_dm_csrs/ndmreset
+    SLICE_X82Y34         LUT2 (Prop_lut2_I1_O)        0.124     1.428 f  i_dm_top/i_dm_csrs/dm_csrs_LUT2/O
+                         net (fo=4, routed)           0.762     2.190    i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]_1
+    SLICE_X77Y34         FDCE                                         f  i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[0]/CLR
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_xlnx_clk_gen rise edge)
-                                                     16.667    16.667 r  
-    K17                                               0.000    16.667 r  clk_sys (IN)
-                         net (fo=0)                   0.000    16.667    i_xlnx_clk_gen/inst/clk_in1
-    K17                  IBUF (Prop_ibuf_I_O)         1.404    18.071 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
-                         net (fo=1, routed)           1.162    19.233    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
+                                                     12.500    12.500 r  
+    K17                                               0.000    12.500 r  clk_sys (IN)
+                         net (fo=0)                   0.000    12.500    i_xlnx_clk_gen/inst/clk_in1
+    K17                  IBUF (Prop_ibuf_I_O)         1.404    13.904 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
+                         net (fo=1, routed)           1.162    15.066    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
-                                                     -7.814    11.419 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
-                         net (fo=1, routed)           2.012    13.431    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    13.522 r  i_xlnx_clk_gen/inst/clkout1_buf/O
-                         net (fo=13760, routed)       1.532    15.053    i_rstgen_main/i_rstgen_bypass/clk_out1
-    SLICE_X82Y72         FDCE                                         r  i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]/C
-                         clock pessimism              0.567    15.620    
-                         clock uncertainty           -0.082    15.538    
-    SLICE_X82Y72         FDCE (Recov_fdce_C_CLR)     -0.319    15.219    i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[3]
+                                                     -7.814     7.252 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, routed)           2.012     9.264    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
+    BUFGCTRL_X0Y31       BUFG (Prop_bufg_I_O)         0.091     9.355 r  i_xlnx_clk_gen/inst/clkout1_buf_replica/O
+                         net (fo=10, routed)          0.147     9.502    i_xlnx_clk_gen/inst/clk_out1_repN
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     9.593 r  i_xlnx_clk_gen/inst/clkout1_buf/O
+                         net (fo=13745, routed)       1.555    11.148    i_rstgen_main/i_rstgen_bypass/clk_out1
+    SLICE_X77Y34         FDCE                                         r  i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[0]/C
+                         clock pessimism              0.591    11.740    
+                         clock uncertainty           -0.074    11.666    
+    SLICE_X77Y34         FDCE (Recov_fdce_C_CLR)     -0.405    11.261    i_rstgen_main/i_rstgen_bypass/synch_regs_q_reg[0]
   -------------------------------------------------------------------
-                         required time                         15.219    
-                         arrival time                          -2.096    
+                         required time                         11.261    
+                         arrival time                          -2.190    
   -------------------------------------------------------------------
-                         slack                                 13.123    
+                         slack                                  9.071    
 
 
 
