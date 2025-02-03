@@ -362,7 +362,7 @@ module cva6
   logic [riscv::PPNW-1:0] satp_ppn_csr_ex;
   logic [ASID_WIDTH-1:0] asid_csr_ex;
   logic [11:0] csr_addr_ex_csr;
-  logic [11:0] csr_addr_ex_csr_reg;
+  //logic [11:0] csr_addr_ex_csr_reg;
   fu_op csr_op_commit_csr;
   riscv::xlen_t csr_wdata_commit_csr;
   riscv::xlen_t csr_rdata_csr_commit;
@@ -446,10 +446,13 @@ module cva6
   logic                                                                inval_valid;
   logic                                                                inval_ready;
 
+
+  logic bp_valid,replay,instru_queue_ready,if_ready,speculative;
+  logic [ riscv::VLEN-1:0] replay_addr, predict_address;
   // --------------
   // Frontend
   // --------------
-  frontend #(
+  /*frontend #(
       .CVA6Cfg(CVA6ExtendCfg)
   ) i_frontend (
       .flush_i            (flush_ctrl_if),                  // not entirely correct
@@ -471,6 +474,57 @@ module cva6
       .fetch_entry_valid_o(fetch_valid_if_id),
       .fetch_entry_ready_i(fetch_ready_id_if),
       .*
+  );*/
+
+  next_pc #(
+    .CVA6Cfg(CVA6ExtendCfg)
+  )next_pc_i (
+    .clk_i,  
+    .rst_ni,  
+    .flush_i(fetch_ready_id_if),  
+    .halt_i(halt_ctrl),  
+    .debug_mode_i(debug_mode),
+    .boot_addr_i(boot_addr_i[riscv::VLEN-1:0]),
+    .resolved_branch_i(resolved_branch),
+    .set_pc_commit_i(set_pc_ctrl_pcgen),  
+    .pc_commit_i(pc_commit),  
+    .epc_i(epc_commit_pcgen),  
+    .eret_i(eret), 
+    .trap_vector_base_i(trap_vector_base_commit_pcgen), 
+    .ex_valid_i(ex_commit.valid),  
+    .set_debug_pc_i(set_debug_pc),  
+    .icache_dreq_o(icache_dreq_if_cache),
+    .bp_valid,
+    .replay,
+    .replay_addr,
+    .predict_address,
+    .instr_queue_ready,
+    .if_ready,
+    .speculative
+
+  );
+
+  fetch #( 
+    .CVA6Cfg(CVA6ExtendCfg)
+  )(
+    .clk_i, 
+    .rst_ni,  
+    .flush_i(fetch_ready_id_if), 
+    .flush_bp_i(1'b0), 
+    .halt_i(halt_ctrl),  
+    .debug_mode_i(debug_mode),
+    .resolved_branch_i(resolved_branch),
+    .icache_dreq_i(icache_dreq_cache_if),
+    .fetch_entry_o(fetch_entry_if_id), 
+    .fetch_entry_valid_o(fetch_valid_if_id), 
+    .fetch_entry_ready_i(fetch_ready_id_if),
+    .bp_valid,
+    .replay,
+    .replay_addr,
+    .predict_address,
+    .instr_queue_ready,
+    .if_ready,
+    .speculative
   );
 
   // ---------
@@ -676,7 +730,7 @@ module cva6
       .resolve_branch_o     (resolve_branch_ex_id),
       // CSR
       .csr_valid_i          (csr_valid_id_ex),
-      .csr_addr_o           (csr_addr_ex_csr_reg),
+      .csr_addr_o           (csr_addr_ex_csr),
       .csr_commit_i         (csr_commit_commit_ex),       // from commit
       // MULT
       .mult_valid_i         (mult_valid_id_ex),
@@ -806,13 +860,13 @@ module cva6
   // ---------
 
   // rajout registre intermédiaire pour pipelining
-  always_ff @(posedge clk_i or negedge rst_ni) begin
+  /*always_ff @(posedge clk_i or negedge rst_ni) begin
     if (~rst_ni) begin
       csr_addr_ex_csr_reg <= '0;
     end else begin
       csr_addr_ex_csr_reg <= csr_addr_ex_csr;
     end
-  end
+  end*/
 
   csr_regfile #(
       .CVA6Cfg       (CVA6ExtendCfg),
