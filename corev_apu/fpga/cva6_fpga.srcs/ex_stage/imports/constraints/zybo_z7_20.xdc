@@ -1,7 +1,9 @@
 set_property PACKAGE_PIN K17 [get_ports clk_i]
 set_property IOSTANDARD LVCMOS33 [get_ports clk_i]
 
-set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports flu_ready_o]
+set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports s_fu_data_i]
+set_property -dict {PACKAGE_PIN H15 IOSTANDARD LVCMOS33} [get_ports s_result_o]
+set_property -dict {PACKAGE_PIN V13 IOSTANDARD LVCMOS33} [get_ports alu_branch_res_o]
 set_property -dict {PACKAGE_PIN Y16 IOSTANDARD LVCMOS33} [get_ports rst_ni]
 
 ## Buttons

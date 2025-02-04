@@ -1,6 +1,6 @@
 ## Common Ariane XDCs
 
-create_clock -period 10.638 -name clk_i -waveform {0.000 5.319} [get_ports clk_i]
+create_clock -period 15.000 -name clk_i -waveform {0.000 7.500} [get_ports clk_i]
 set_input_jitter clk_i 1.000
 #set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets tck_IBUF]
 
