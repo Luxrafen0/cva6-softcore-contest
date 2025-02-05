@@ -143,8 +143,6 @@ wait_on_run impl_1
 open_run impl_1
 
 
-report_property -all [get_runs synth_1] -verbose 
-report_property -all [get_runs impl_1] -verbose 
 #phys_opt_design -placement_opt -restruct_opt -routing_opt -critical_pin_opt
 
 

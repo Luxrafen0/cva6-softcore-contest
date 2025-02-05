@@ -1,6 +1,8 @@
 set_property PACKAGE_PIN K17 [get_ports clk_sys]
 set_property IOSTANDARD LVCMOS33 [get_ports clk_sys]
 
+
+
 ## Buttons
 set_property -dict {PACKAGE_PIN Y16 IOSTANDARD LVCMOS33} [get_ports cpu_reset]
 

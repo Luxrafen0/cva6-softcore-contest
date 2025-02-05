@@ -33,7 +33,9 @@ components = [
 	"csr_regfile_i",
 	"ex_stage_i",
 	"gen_cache_wt.i_cache_subsystem",
-	"i_frontend",
+	"next_pc_i",
+	"fetch_i",
+	"fetch_request_i",
 	"id_stage_i",
 	"issue_stage_i",
 ]

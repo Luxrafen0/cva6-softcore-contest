@@ -39,26 +39,22 @@ module next_pc
     input logic [riscv::VLEN-1:0] trap_vector_base_i,  // base of trap vector
     input logic ex_valid_i,  // exception is valid - from commit
     input logic set_debug_pc_i,  // jump to debug address
-    // to $I
-    output icache_dreq_t icache_dreq_o,
 
     // from fetch
-    input logic bp_valid,
-    input logic replay,
-    input logic [ riscv::VLEN-1:0] replay_addr,
-    input logic [ riscv::VLEN-1:0] predict_address,
-    input logic instr_queue_ready,
-    input logic if_ready,
-    input logic speculative
+    input logic bp_valid_i,
+    input logic replay_i,
+    input logic [ riscv::VLEN-1:0] replay_addr_i,
+    input logic [ riscv::VLEN-1:0] predict_address_i,
+    input logic if_ready_i,
+    // to fetch_request
+    output logic [riscv::VLEN-1:0] next_addr_o
 );
   //Synchrone Output for signals
   logic bp_valid_q;
   logic [riscv::VLEN-1:0] replay_addr_q;
   logic replay_q;
   logic [riscv::VLEN-1:0] predict_address_q;
-  logic instr_queue_ready_q;
   logic if_ready_q;
-  logic speculative_q;
   logic ex_valid_q,set_debug_pc_q,eret_q,set_pc_commit_q,is_mispredict_q;
   logic [riscv::VLEN-1:0] pc_commit_q,trap_vector_base_q,epc_q;
   logic [riscv::VLEN-1:0] npc_d, npc_q;  // next PC
@@ -70,18 +66,8 @@ module next_pc
 
   assign is_mispredict = resolved_branch_i.valid & resolved_branch_i.is_mispredict;
 
-  // Cache interface
-  assign icache_dreq_o.req = instr_queue_ready;
-  // We need to flush the cache pipeline if:
-  // 1. We mispredicted
-  // 2. Want to flush the whole processor front-end
-  // 3. Need to replay an instruction because the fetch-fifo was full
-  assign icache_dreq_o.kill_s1 = is_mispredict | flush_i | replay;
-  // if we have a valid branch-prediction we need to only kill the last cache request
-  // also if we killed the first stage we also need to kill the second stage (inclusive flush)
-  assign icache_dreq_o.kill_s2 = icache_dreq_o.kill_s1 | bp_valid;
 
-  assign icache_dreq_o.spec = speculative_q;
+  assign next_addr_o = npc_q;
 
 
   // -------------------
@@ -146,14 +132,14 @@ module next_pc
     // or if the commit stage is halted, just take the current pc of the
     // instruction in the commit stage
     // TODO(zarubaf) This adder can at least be merged with the one in the csr_regfile stage
-    if (set_pc_commit_i) begin
-      npc_d = pc_commit_i + (halt_i ? '0 : {{riscv::VLEN - 3{1'b0}}, 3'b100});
+    if (set_pc_commit_q) begin
+      npc_d = pc_commit_q + (halt_i ? '0 : {{riscv::VLEN - 3{1'b0}}, 3'b100});
     end
     // 7. Debug
     // enter debug on a hard-coded base-address
-    if (set_debug_pc_i)
+    if (set_debug_pc_q)
       npc_d = CVA6Cfg.DmBaseAddress[riscv::VLEN-1:0] + CVA6Cfg.HaltAddress[riscv::VLEN-1:0];
-    icache_dreq_o.vaddr = fetch_address;
+    //icache_dreq_o.vaddr = fetch_address;
   end
 
 
@@ -169,38 +155,33 @@ module next_pc
       replay_addr_q     <= '0;
       replay_q          <= '0;
       predict_address_q <= '0;
-      instr_queue_ready_q <= '0;
-      if_ready_q        <= '0;
+      if_ready_q <= '0;
       ex_valid_q <= '0;
       set_debug_pc_q <= '0;
-      eret_q <= '0
+      eret_q <= '0;
       set_pc_commit_q <= '0;
       pc_commit_q <= '0;
       trap_vector_base_q <= '0;
       epc_q <= '0;
-      npc_d <= '0;
       npc_q <= '0;
       is_mispredict_q <= '0;
-      speculative_q <= '0;
 
     end else begin
       npc_rst_load_q <= 1'b0;
       npc_q <= npc_d;
-      bp_valid_q <= bp_valid;
-      replay_addr_q <= replay_addr;
-      replay_q <= replay;
-      predict_address_q <= predict_address;
-      instr_queue_ready_q <= instr_queue_ready;
-      if_ready_q <= if_ready;
+      bp_valid_q <= bp_valid_i;
+      replay_addr_q <= replay_addr_i;
+      replay_q <= replay_i;
+      predict_address_q <= predict_address_i;
+      if_ready_q <= if_ready_i;
       ex_valid_q <= ex_valid_i;
-      set_debug_pc_q <= set_debug_pc;
+      set_debug_pc_q <= set_debug_pc_i;
       eret_q <= eret_i;
       set_pc_commit_q <= set_pc_commit_i;
       pc_commit_q <= pc_commit_i;
       trap_vector_base_q <= trap_vector_base_i;
       epc_q <= epc_i;
       is_mispredict_q <= is_mispredict;
-      speculative_q <= speculative;
     end
   end
 

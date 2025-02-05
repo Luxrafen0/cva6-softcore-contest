@@ -15,7 +15,7 @@
 // This module interfaces with the instruction cache, handles control
 // change request from the back-end and does branch prediction.
 
-module fetch
+module frontend
   import ariane_pkg::*;
 #(
     parameter config_pkg::cva6_cfg_t CVA6Cfg = config_pkg::cva6_cfg_empty
@@ -26,41 +26,47 @@ module fetch
     input logic flush_bp_i,  // flush branch prediction
     input logic halt_i,  // halt commit stage
     input logic debug_mode_i,
-
-    input  bp_resolve_t        resolved_branch_i,
-    
+    // global input
+    input logic [riscv::VLEN-1:0] boot_addr_i,
+    // Set a new PC
+    // mispredict
+    input  bp_resolve_t        resolved_branch_i,  // from controller signaling a branch_predict -> update BTB
+    // from commit, when flushing the whole pipeline
+    input logic set_pc_commit_i,  // Take the PC from commit stage
+    input logic [riscv::VLEN-1:0] pc_commit_i,  // PC of instruction in commit stage
+    // CSR input
+    input logic [riscv::VLEN-1:0] epc_i,  // exception PC which we need to return to
+    input logic eret_i,  // return from exception
+    input logic [riscv::VLEN-1:0] trap_vector_base_i,  // base of trap vector
+    input logic ex_valid_i,  // exception is valid - from commit
+    input logic set_debug_pc_i,  // jump to debug address
     // Instruction Fetch
+    output icache_dreq_t icache_dreq_o,
     input icache_drsp_t icache_dreq_i,
-    
     // instruction output port -> to processor back-end
-    output fetch_entry_t fetch_entry_o, // fetch entry containing all relevant data for the ID stage
+    output fetch_entry_t       fetch_entry_o,       // fetch entry containing all relevant data for the ID stage
     output logic fetch_entry_valid_o,  // instruction in IF is valid
     input logic fetch_entry_ready_i  // ID acknowledged this instruction
-
-    // To NextPC
-    output logic bp_valid,
-    output logic replay,
-    output logic [ riscv::VLEN-1:0] replay_addr,
-    output logic [ riscv::VLEN-1:0] predict_address,
-    output logic instr_queue_ready,
-    output logic if_ready,
-    output logic speculative
-
-    
-
 );
   // Instruction Cache Registers, from I$
   logic                            [                FETCH_WIDTH-1:0] icache_data_q;
   logic                                                              icache_valid_q;
   ariane_pkg::frontend_exception_t                                   icache_ex_valid_q;
   logic                            [                riscv::VLEN-1:0] icache_vaddr_q;
-  //logic                                                              instr_queue_ready;
+  logic                                                              instr_queue_ready;
   logic                            [ariane_pkg::INSTR_PER_FETCH-1:0] instr_queue_consumed;
   // upper-most branch-prediction from last cycle
   btb_prediction_t                                                   btb_q;
   bht_prediction_t                                                   bht_q;
-
+  // instruction fetch is ready
+  logic                                                              if_ready;
   logic [riscv::VLEN-1:0] npc_d, npc_q;  // next PC
+
+  // indicates whether we come out of reset (then we need to load boot_addr_i)
+  logic                                           npc_rst_load_q;
+
+  logic                                           replay;
+  logic [                        riscv::VLEN-1:0] replay_addr;
 
   // shift amount
   logic [$clog2(ariane_pkg::INSTR_PER_FETCH)-1:0] shamt;
@@ -93,24 +99,35 @@ module fetch
   logic            [    riscv::VLEN-1:0]                  vpc_btb;
 
   // branch-predict update
-  //logic                                                   is_mispredict;
+  logic                                                   is_mispredict;
   logic ras_push, ras_pop;
   logic [                riscv::VLEN-1:0] ras_update;
 
   // Instruction FIFO
-  //logic [                riscv::VLEN-1:0] predict_address;
+  logic [                riscv::VLEN-1:0] predict_address;
   cf_t  [ariane_pkg::INSTR_PER_FETCH-1:0] cf_type;
   logic [ariane_pkg::INSTR_PER_FETCH-1:0] taken_rvi_cf;
   logic [ariane_pkg::INSTR_PER_FETCH-1:0] taken_rvc_cf;
 
   logic                                   serving_unaligned;
+
+  // registers temp
+  logic [riscv::VLEN-1:0] boot_addr_q;
+  logic set_pc_commit_q;
+  logic [riscv::VLEN-1:0] pc_commit_q;
+  logic [riscv::VLEN-1:0] epc_q;
+  logic eret_q;
+  logic [riscv::VLEN-1:0] trap_vector_base_q;
+  logic ex_valid_q;
+  logic set_debug_pc_q;
+
   // Re-align instructions
   instr_realign #(
       .CVA6Cfg(CVA6Cfg)
   ) i_instr_realign (
       .clk_i              (clk_i),
       .rst_ni             (rst_ni),
-      .flush_i            (kill_s2),
+      .flush_i            (icache_dreq_o.kill_s2),
       .valid_i            (icache_valid_q),
       .serving_unaligned_o(serving_unaligned),
       .address_i          (icache_vaddr_q),
@@ -148,7 +165,7 @@ module fetch
 
   // for the return address stack it doens't matter as we have the
   // address of the call/return already
-  //logic bp_valid;
+  logic bp_valid;
 
   logic [INSTR_PER_FETCH-1:0] is_branch;
   logic [INSTR_PER_FETCH-1:0] is_call;
@@ -242,7 +259,6 @@ module fetch
       // calculate the jump target address
       if (taken_rvc_cf[i] || taken_rvi_cf[i]) begin
         predict_address = addr[i] + (taken_rvc_cf[i] ? rvc_imm[i] : rvi_imm[i]);
-
       end
     end
   end
@@ -255,6 +271,7 @@ module fetch
     for (int i = 0; i < INSTR_PER_FETCH; i++)
     bp_valid |= ((cf_type[i] != NoCF & cf_type[i] != Return) | ((cf_type[i] == Return) & ras_predict.valid));
   end
+  assign is_mispredict = resolved_branch_i.valid & resolved_branch_i.is_mispredict;
 
   // Cache interface
   assign icache_dreq_o.req = instr_queue_ready;
@@ -263,10 +280,10 @@ module fetch
   // 1. We mispredicted
   // 2. Want to flush the whole processor front-end
   // 3. Need to replay an instruction because the fetch-fifo was full
-  //assign icache_dreq_o.kill_s1 = is_mispredict | flush_i | replay;
+  assign icache_dreq_o.kill_s1 = is_mispredict | flush_i | replay;
   // if we have a valid branch-prediction we need to only kill the last cache request
   // also if we killed the first stage we also need to kill the second stage (inclusive flush)
-  //assign icache_dreq_o.kill_s2 = icache_dreq_o.kill_s1 | bp_valid;
+  assign icache_dreq_o.kill_s2 = icache_dreq_o.kill_s1 | bp_valid;
 
   // Update Control Flow Predictions
   bht_update_t bht_update;
@@ -275,7 +292,7 @@ module fetch
   // assert on branch, deassert when resolved
   logic speculative_q, speculative_d;
   assign speculative_d = (speculative_q && !resolved_branch_i.valid || |is_branch || |is_return || |is_jalr) && !flush_i;
-  //assign icache_dreq_o.spec = speculative_d;
+  assign icache_dreq_o.spec = speculative_d;
 
   assign bht_update.valid = resolved_branch_i.valid
                                 & (resolved_branch_i.cf_type == ariane_pkg::Branch);
@@ -287,6 +304,78 @@ module fetch
                                 & (resolved_branch_i.cf_type == ariane_pkg::JumpR);
   assign btb_update.pc = resolved_branch_i.pc;
   assign btb_update.target_address = resolved_branch_i.target_address;
+
+  // -------------------
+  // Next PC
+  // -------------------
+  // next PC (NPC) can come from (in order of precedence):
+  // 0. Default assignment/replay instruction
+  // 1. Branch Predict taken
+  // 2. Control flow change request (misprediction)
+  // 3. Return from environment call
+  // 4. Exception/Interrupt
+  // 5. Pipeline Flush because of CSR side effects
+  // Mis-predict handling is a little bit different
+  // select PC a.k.a PC Gen
+  always_comb begin : npc_select
+    automatic logic [riscv::VLEN-1:0] fetch_address;
+    // check whether we come out of reset
+    // this is a workaround. some tools have issues
+    // having boot_addr_i in the asynchronous
+    // reset assignment to npc_q, even though
+    // boot_addr_i will be assigned a constant
+    // on the top-level.
+    if (npc_rst_load_q) begin
+      npc_d         = boot_addr_q;
+      fetch_address = boot_addr_q;
+    end else begin
+      fetch_address = npc_q;
+      // keep stable by default
+      npc_d         = npc_q;
+    end
+    // 0. Branch Prediction
+    if (bp_valid) begin
+      fetch_address = predict_address;
+      npc_d = predict_address;
+    end
+    // 1. Default assignment
+    if (if_ready) begin
+      npc_d = {fetch_address[riscv::VLEN-1:2], 2'b0} + 'h4;
+    end
+    // 2. Replay instruction fetch
+    if (replay) begin
+      npc_d = replay_addr;
+    end
+    // 3. Control flow change request
+    if (is_mispredict) begin
+      npc_d = resolved_branch_i.target_address;
+    end
+    // 4. Return from environment call
+    if (eret_q) begin
+      npc_d = epc_q;
+    end
+    // 5. Exception/Interrupt
+    if (ex_valid_q) begin
+      npc_d = trap_vector_base_q;
+    end
+    // 6. Pipeline Flush because of CSR side effects
+    // On a pipeline flush start fetching from the next address
+    // of the instruction in the commit stage
+    // we either came here from a flush request of a CSR instruction or AMO,
+    // so as CSR or AMO instructions do not exist in a compressed form
+    // we can unconditionally do PC + 4 here
+    // or if the commit stage is halted, just take the current pc of the
+    // instruction in the commit stage
+    // TODO(zarubaf) This adder can at least be merged with the one in the csr_regfile stage
+    if (set_pc_commit_q) begin
+      npc_d = pc_commit_q + (halt_i ? '0 : {{riscv::VLEN - 3{1'b0}}, 3'b100});
+    end
+    // 7. Debug
+    // enter debug on a hard-coded base-address
+    if (set_debug_pc_q)
+      npc_d = CVA6Cfg.DmBaseAddress[riscv::VLEN-1:0] + CVA6Cfg.HaltAddress[riscv::VLEN-1:0];
+    icache_dreq_o.vaddr = fetch_address;
+  end
 
   logic [FETCH_WIDTH-1:0] icache_data;
   // re-align the cache line
@@ -303,6 +392,14 @@ module fetch
       icache_ex_valid_q <= ariane_pkg::FE_NONE;
       btb_q             <= '0;
       bht_q             <= '0;
+      boot_addr_q       <= '0;
+      set_pc_commit_q   <= '0;
+      pc_commit_q       <= '0;
+      epc_q             <= '0;
+      eret_q            <= '0;
+      trap_vector_base_q <= '0;
+      ex_valid_q         <= '0;
+      set_debug_pc_q     <= '0;
     end else begin
       npc_rst_load_q <= 1'b0;
       npc_q          <= npc_d;
@@ -323,6 +420,14 @@ module fetch
         btb_q <= btb_prediction[INSTR_PER_FETCH-1];
         bht_q <= bht_prediction[INSTR_PER_FETCH-1];
       end
+      boot_addr_q <= boot_addr_i;
+      set_pc_commit_q <= set_pc_commit_i;
+      pc_commit_q     <= pc_commit_i;
+      epc_q           <= epc_i;
+      eret_q          <= eret_i;
+      trap_vector_base_q <= trap_vector_base_i;
+      ex_valid_q <= ex_valid_i;
+      set_debug_pc_q <= set_debug_pc_i;
     end
   end
 

@@ -447,12 +447,13 @@ module cva6
   logic                                                                inval_ready;
 
 
-  logic bp_valid,replay,instru_queue_ready,if_ready,speculative;
-  logic [ riscv::VLEN-1:0] replay_addr, predict_address;
-  // --------------
+  //logic bp_valid,replay,instr_queue_ready,if_ready,kill,speculative;
+  //logic [ riscv::VLEN-1:0] replay_addr, predict_address,next_addr;
+
+    // --------------
   // Frontend
   // --------------
-  /*frontend #(
+  frontend #(
       .CVA6Cfg(CVA6ExtendCfg)
   ) i_frontend (
       .flush_i            (flush_ctrl_if),                  // not entirely correct
@@ -474,11 +475,29 @@ module cva6
       .fetch_entry_valid_o(fetch_valid_if_id),
       .fetch_entry_ready_i(fetch_ready_id_if),
       .*
-  );*/
+  );
 
-  next_pc #(
+
+  // Registres pipelining 
+
+  /*icache_dreq_t icache_dreq_if_cache_q;
+  icache_drsp_t icache_dreq_cache_if_q;
+  logic bp_valid_q;
+  logic replay_q;
+  logic [ riscv::VLEN-1:0] replay_addr_q;
+  logic [ riscv::VLEN-1:0] predict_address_q;
+  logic instr_queue_ready_q;
+  logic if_ready_q;
+  logic speculative_q;
+  logic kill_q;*/
+
+  //------------
+  // next_pc
+  //------------
+
+  /*next_pc #(
     .CVA6Cfg(CVA6ExtendCfg)
-  )next_pc_i (
+  ) next_pc_i (
     .clk_i,  
     .rst_ni,  
     .flush_i(fetch_ready_id_if),  
@@ -493,20 +512,41 @@ module cva6
     .trap_vector_base_i(trap_vector_base_commit_pcgen), 
     .ex_valid_i(ex_commit.valid),  
     .set_debug_pc_i(set_debug_pc),  
-    .icache_dreq_o(icache_dreq_if_cache),
-    .bp_valid,
-    .replay,
-    .replay_addr,
-    .predict_address,
-    .instr_queue_ready,
-    .if_ready,
-    .speculative
-
+    .bp_valid_i(bp_valid),
+    .replay_i(replay),
+    .replay_addr_i(replay_addr),
+    .predict_address_i(predict_address),
+    .if_ready_i(if_ready),
+    .next_addr_o(next_addr)
   );
 
-  fetch #( 
+  // ---------------
+  // fetch_request 
+  // ---------------
+
+  fetch_request #(
     .CVA6Cfg(CVA6ExtendCfg)
-  )(
+  ) fetch_request_i (
+    .clk_i, 
+    .rst_ni,
+    .flush_i(fetch_ready_id_if),
+    .resolved_branch_i(resolved_branch),
+    .icache_dreq_o(icache_dreq_if_cache),
+    .instr_queue_ready_i(instr_queue_ready),
+    .bp_valid_i(bp_valid),
+    .replay_i(replay),
+    .next_addr_i(next_addr),
+    .speculative_i(speculative),
+    .kills2_o(kill)
+  );
+
+  //-----------------
+  // fetch stage
+  //-----------------
+
+  fetch_stage #( 
+    .CVA6Cfg(CVA6ExtendCfg)
+  ) fetch_i (
     .clk_i, 
     .rst_ni,  
     .flush_i(fetch_ready_id_if), 
@@ -518,15 +558,42 @@ module cva6
     .fetch_entry_o(fetch_entry_if_id), 
     .fetch_entry_valid_o(fetch_valid_if_id), 
     .fetch_entry_ready_i(fetch_ready_id_if),
-    .bp_valid,
-    .replay,
-    .replay_addr,
-    .predict_address,
-    .instr_queue_ready,
-    .if_ready,
-    .speculative
+    .bp_valid_o(bp_valid),
+    .replay_o(replay),
+    .replay_addr_o(replay_addr),
+    .predict_address_o(predict_address),
+    .instr_queue_ready_o(instr_queue_ready),
+    .if_ready_o(if_ready),
+    .speculative_o(speculative),
+    .kill_s2_i(kill)
   );
 
+  // Mettre des registres, encore
+  /*always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+        icache_dreq_if_cache_q <= '0;
+        icache_dreq_cache_if_q <= '0;
+        kill_q <= '0;
+        bp_valid_q <= '0;
+        replay_q <= '0;
+        replay_addr_q <= '0;
+        predict_address <= '0;
+        instr_queue_ready_q <= '0;
+        if_ready_q  <= '0;
+        speculative_q <= '0;
+    end else begin
+        icache_dreq_if_cache_q <= icache_dreq_if_cache;
+        icache_dreq_cache_if_q <= icache_dreq_cache_if;
+        kill_q <= kill;
+        bp_valid_q <= bp_valid;
+        replay_q <= replay;
+        replay_addr_q <= replay_addr;
+        predict_address <= predict_address;
+        instr_queue_ready_q <= instr_queue_ready;
+        if_ready_q  <= if_ready;
+        speculative_q <= speculative;
+    end
+  end */
   // ---------
   // ID
   // ---------
@@ -1094,7 +1161,7 @@ module cva6
         .icache_miss_o (icache_miss_cache_perf),
         .icache_areq_i (icache_areq_ex_cache),
         .icache_areq_o (icache_areq_cache_ex),
-        .icache_dreq_i (icache_dreq_if_cache),
+        .icache_dreq_i (icache_dreq_if_cache_q),
         .icache_dreq_o (icache_dreq_cache_if),
 
         .dcache_enable_i   (dcache_en_csr_nbdcache),
@@ -1152,7 +1219,7 @@ module cva6
         .icache_miss_o     (icache_miss_cache_perf),
         .icache_areq_i     (icache_areq_ex_cache),
         .icache_areq_o     (icache_areq_cache_ex),
-        .icache_dreq_i     (icache_dreq_if_cache),
+        .icache_dreq_i     (icache_dreq_if_cache_q),
         .icache_dreq_o     (icache_dreq_cache_if),
         // D$
         .dcache_enable_i   (dcache_en_csr_nbdcache),
