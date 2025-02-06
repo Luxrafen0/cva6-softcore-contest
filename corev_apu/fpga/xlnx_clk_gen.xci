@@ -603,7 +603,7 @@
         "OUTPUTDIR": [ { "value": "../../../../xlnx_clk_gen.gen/sources_1/ip/xlnx_clk_gen" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "." } ],
-        "SWVERSION": [ { "value": "2024.1.2" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
         "SYNTHESISFLOW": [ { "value": "OUT_OF_CONTEXT" } ]
       }
     },

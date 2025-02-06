@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Sat Jan 18 13:49:20 2025
-| Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.1 LTS
+| Tool Version : Vivado v.2024.1 (lin64) Build 5076996 Wed May 22 18:36:09 MDT 2024
+| Date         : Wed Feb  5 15:36:10 2025
+| Host         : secil3.siame.univ-tlse3.fr running 64-bit Fedora Linux 40 (Forty)
 | Command      : report_timing -nworst 1 -delay_type max -sort_by group -file reports_cva6_fpga_synth/cva6_fpga.timing.rpt
 | Design       : cva6_zybo_z7_20
 | Device       : 7z020-clg400
@@ -12,23 +12,23 @@ Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanc
 
 Timing Report
 
-Slack (VIOLATED) :        -0.720ns  (required time - arrival time)
+Slack (MET) :             4.277ns  (required time - arrival time)
   Source:                 i_ariane/i_cva6/csr_regfile_i/pmpaddr_q_reg[4][0]/C
-                            (rising edge-triggered cell FDCE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@10.000ns period=20.000ns})
+                            (rising edge-triggered cell FDCE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@12.500ns period=25.000ns})
   Destination:            i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[3].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg/ADDRARDADDR[10]
-                            (rising edge-triggered cell RAMB36E1 clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@10.000ns period=20.000ns})
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@12.500ns period=25.000ns})
   Path Group:             clk_out1_xlnx_clk_gen
   Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            20.000ns  (clk_out1_xlnx_clk_gen rise@20.000ns - clk_out1_xlnx_clk_gen rise@0.000ns)
+  Requirement:            25.000ns  (clk_out1_xlnx_clk_gen rise@25.000ns - clk_out1_xlnx_clk_gen rise@0.000ns)
   Data Path Delay:        19.930ns  (logic 4.792ns (24.044%)  route 15.138ns (75.955%))
   Logic Levels:           27  (CARRY4=3 LUT3=3 LUT4=1 LUT5=7 LUT6=13)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -2.245ns = ( 17.755 - 20.000 ) 
+    Destination Clock Delay (DCD):    -2.245ns = ( 22.755 - 25.000 ) 
     Source Clock Delay      (SCD):    -1.569ns
     Clock Pessimism Removal (CPR):    0.531ns
-  Clock Uncertainty:      0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Clock Uncertainty:      0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.142ns
+    Discrete Jitter          (DJ):    0.149ns
     Phase Error              (PE):    0.000ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -109,26 +109,26 @@ Slack (VIOLATED) :        -0.720ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_xlnx_clk_gen rise edge)
-                                                     20.000    20.000 r  
-    K17                                               0.000    20.000 r  clk_sys (IN)
-                         net (fo=0)                   0.000    20.000    i_xlnx_clk_gen/inst/clk_in1
-    K17                  IBUF (Prop_ibuf_I_O)         1.404    21.404 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
-                         net (fo=1, unplaced)         0.439    21.843    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
+                                                     25.000    25.000 r  
+    K17                                               0.000    25.000 r  clk_sys (IN)
+                         net (fo=0)                   0.000    25.000    i_xlnx_clk_gen/inst/clk_in1
+    K17                  IBUF (Prop_ibuf_I_O)         1.404    26.404 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
+                         net (fo=1, unplaced)         0.439    26.843    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
                          MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
-                                                     -5.378    16.466 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
-                         net (fo=1, unplaced)         0.760    17.225    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
-                         BUFG (Prop_bufg_I_O)         0.091    17.316 r  i_xlnx_clk_gen/inst/clkout1_buf/O
-                         net (fo=17224, unplaced)     0.439    17.755    i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[3].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/clk_out1
+                                                     -5.378    21.466 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.760    22.225    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
+                         BUFG (Prop_bufg_I_O)         0.091    22.316 r  i_xlnx_clk_gen/inst/clkout1_buf/O
+                         net (fo=17224, unplaced)     0.439    22.755    i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[3].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/clk_out1
                          RAMB36E1                                     r  i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[3].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg/CLKARDCLK
-                         clock pessimism              0.531    18.286    
-                         clock uncertainty           -0.079    18.206    
+                         clock pessimism              0.531    23.286    
+                         clock uncertainty           -0.082    23.204    
                          RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ADDRARDADDR[10])
-                                                     -0.566    17.640    i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[3].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg
+                                                     -0.566    22.638    i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/i_wt_dcache_mem/gen_data_banks[3].i_data_sram/gen_cut[0].i_tc_sram_wrapper/i_ram/Mem_DP_reg
   -------------------------------------------------------------------
-                         required time                         17.640    
+                         required time                         22.638    
                          arrival time                         -18.361    
   -------------------------------------------------------------------
-                         slack                                 -0.720    
+                         slack                                  4.277    
 
 Slack (MET) :             5.757ns  (required time - arrival time)
   Source:                 i_dmi_jtag/i_dmi_jtag_tap/td_o_reg/C
@@ -182,23 +182,23 @@ Slack (MET) :             5.757ns  (required time - arrival time)
   -------------------------------------------------------------------
                          slack                                  5.757    
 
-Slack (MET) :             17.010ns  (required time - arrival time)
+Slack (MET) :             22.007ns  (required time - arrival time)
   Source:                 i_axi_dwidth_converter_dm_slave/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/rstblk/ngwrdrst.grst.g7serrst.gnsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[1]/C
-                            (rising edge-triggered cell FDRE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@10.000ns period=20.000ns})
+                            (rising edge-triggered cell FDRE clocked by clk_out1_xlnx_clk_gen  {rise@0.000ns fall@12.500ns period=25.000ns})
   Destination:            i_axi_dwidth_converter_dm_slave/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/PRE
-                            (recovery check against rising-edge clock clk_out1_xlnx_clk_gen  {rise@0.000ns fall@10.000ns period=20.000ns})
+                            (recovery check against rising-edge clock clk_out1_xlnx_clk_gen  {rise@0.000ns fall@12.500ns period=25.000ns})
   Path Group:             **async_default**
   Path Type:              Recovery (Max at Slow Process Corner)
-  Requirement:            20.000ns  (clk_out1_xlnx_clk_gen rise@20.000ns - clk_out1_xlnx_clk_gen rise@0.000ns)
+  Requirement:            25.000ns  (clk_out1_xlnx_clk_gen rise@25.000ns - clk_out1_xlnx_clk_gen rise@0.000ns)
   Data Path Delay:        2.372ns  (logic 0.773ns (32.589%)  route 1.599ns (67.411%))
   Logic Levels:           1  (LUT3=1)
   Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -2.245ns = ( 17.755 - 20.000 ) 
+    Destination Clock Delay (DCD):    -2.245ns = ( 22.755 - 25.000 ) 
     Source Clock Delay      (SCD):    -1.569ns
     Clock Pessimism Removal (CPR):    0.531ns
-  Clock Uncertainty:      0.079ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+  Clock Uncertainty:      0.082ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.142ns
+    Discrete Jitter          (DJ):    0.149ns
     Phase Error              (PE):    0.000ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -224,25 +224,25 @@ Slack (MET) :             17.010ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_out1_xlnx_clk_gen rise edge)
-                                                     20.000    20.000 r  
-    K17                                               0.000    20.000 r  clk_sys (IN)
-                         net (fo=0)                   0.000    20.000    i_xlnx_clk_gen/inst/clk_in1
-    K17                  IBUF (Prop_ibuf_I_O)         1.404    21.404 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
-                         net (fo=1, unplaced)         0.439    21.843    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
+                                                     25.000    25.000 r  
+    K17                                               0.000    25.000 r  clk_sys (IN)
+                         net (fo=0)                   0.000    25.000    i_xlnx_clk_gen/inst/clk_in1
+    K17                  IBUF (Prop_ibuf_I_O)         1.404    26.404 r  i_xlnx_clk_gen/inst/clkin1_ibufg/O
+                         net (fo=1, unplaced)         0.439    26.843    i_xlnx_clk_gen/inst/clk_in1_xlnx_clk_gen
                          MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
-                                                     -5.378    16.466 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
-                         net (fo=1, unplaced)         0.760    17.225    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
-                         BUFG (Prop_bufg_I_O)         0.091    17.316 r  i_xlnx_clk_gen/inst/clkout1_buf/O
-                         net (fo=17224, unplaced)     0.439    17.755    i_axi_dwidth_converter_dm_slave/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/clk
+                                                     -5.378    21.466 r  i_xlnx_clk_gen/inst/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.760    22.225    i_xlnx_clk_gen/inst/clk_out1_xlnx_clk_gen
+                         BUFG (Prop_bufg_I_O)         0.091    22.316 r  i_xlnx_clk_gen/inst/clkout1_buf/O
+                         net (fo=17224, unplaced)     0.439    22.755    i_axi_dwidth_converter_dm_slave/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/clk
                          FDPE                                         r  i_axi_dwidth_converter_dm_slave/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg/C
-                         clock pessimism              0.531    18.286    
-                         clock uncertainty           -0.079    18.206    
-                         FDPE (Recov_fdpe_C_PRE)     -0.394    17.812    i_axi_dwidth_converter_dm_slave/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg
+                         clock pessimism              0.531    23.286    
+                         clock uncertainty           -0.082    23.204    
+                         FDPE (Recov_fdpe_C_PRE)     -0.394    22.810    i_axi_dwidth_converter_dm_slave/inst/gen_downsizer.gen_simple_downsizer.axi_downsizer_inst/USE_READ.read_addr_inst/cmd_queue/inst/fifo_gen_inst/inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gr1.gr1_int.rfwft/aempty_fwft_fb_i_reg
   -------------------------------------------------------------------
-                         required time                         17.812    
+                         required time                         22.810    
                          arrival time                          -0.803    
   -------------------------------------------------------------------
-                         slack                                 17.010    
+                         slack                                 22.007    
 
 
 
