@@ -116,11 +116,13 @@ module cva6_hpdcache_if_adapter
         amo_addr_offset = amo_addr[0+:HPDCACHE_REQ_OFFSET_WIDTH];
         amo_tag = amo_addr[HPDCACHE_REQ_OFFSET_WIDTH+:HPDCACHE_TAG_WIDTH];
         amo_is_word = (cva6_amo_req_i.size == 2'b10);
-        amo_is_word_hi = cva6_amo_req_i.operand_a[2];
+        //amo_is_word_hi = cva6_amo_req_i.operand_a[2];
 
-        amo_data = amo_is_word ? {2{cva6_amo_req_i.operand_b[0+:32]}} : cva6_amo_req_i.operand_b;
+        //amo_data = amo_is_word ? {2{cva6_amo_req_i.operand_b[0+:32]}} : cva6_amo_req_i.operand_b;
+        amo_data = cva6_amo_req_i.operand_b[0 +: 32];
 
-        amo_data_be = amo_is_word_hi ? 8'hf0 : amo_is_word ? 8'h0f : 8'hff;
+        //amo_data_be = amo_is_word_hi ? 8'hf0 : amo_is_word ? 8'h0f : 8'hff;
+        amo_data_be = amo_is_word ? 8'h0f : 8'hff;
 
         unique case (cva6_amo_req_i.amo_op)
           ariane_pkg::AMO_LR:   amo_op = HPDCACHE_REQ_AMO_LR;
@@ -138,8 +140,10 @@ module cva6_hpdcache_if_adapter
         endcase
       end
 
-      assign amo_resp_word  = amo_is_word_hi ? hpdcache_rsp_i.rdata[0][32 +: 32]
-                                                   : hpdcache_rsp_i.rdata[0][0  +: 32];
+      //assign amo_resp_word  = amo_is_word_hi ? hpdcache_rsp_i.rdata[0][32 +: 32]
+      //                                             : hpdcache_rsp_i.rdata[0][0  +: 32];
+                                                   
+      assign amo_resp_word  = hpdcache_rsp_i.rdata[0][0 +: 32];
       //  }}}
 
       //  Request forwarding
@@ -180,9 +184,12 @@ module cva6_hpdcache_if_adapter
           cva6_req_o.data_rid = hpdcache_rsp_i.tid,
           cva6_req_o.data_gnt = hpdcache_req_ready_i;
 
-      assign cva6_amo_resp_o.ack = hpdcache_rsp_valid_i && (hpdcache_rsp_i.tid == '1),
-          cva6_amo_resp_o.result = amo_is_word ? {{32{amo_resp_word[31]}}, amo_resp_word}
-                                                        : hpdcache_rsp_i.rdata[0][63:0];
+      assign cva6_amo_resp_o.ack = hpdcache_rsp_valid_i && (hpdcache_rsp_i.tid == '1);
+      //assign cva6_amo_resp_o.result = amo_is_word ? {{32{amo_resp_word[31]}}, amo_resp_word}
+      //                                                  : hpdcache_rsp_i.rdata[0][63:0];
+      assign cva6_amo_resp_o.result = (amo_is_word == 2'b10) ? {{32{hpdcache_rsp_i.rdata[cva6_amo_req_i.operand_a[2]*32 + 31]}},hpdcache_rsp_i.rdata[cva6_amo_req_i.operand_a[2]*32 +: 32]} :
+                                                       hpdcache_rsp_i.rdata ;                                                  
+      
       //  }}}
     end
     //  }}}
