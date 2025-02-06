@@ -3,8 +3,8 @@
 # SW Build 5164865 on Thu Sep  5 14:36:28 MDT 2024
 # IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
 # SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
-# Start of session at: Wed Feb  5 15:59:18 2025
-# Process ID: 615612
+# Start of session at: Thu Feb  6 17:01:44 2025
+# Process ID: 1482387
 # Current directory: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1
 # Command line: vivado -log frontend.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source frontend.tcl
 # Log file: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/frontend.vds
@@ -13,16 +13,16 @@
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 24.04.1 LTS
 # Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics
-# CPU Frequency     :3277.008 MHz
+# CPU Frequency     :4048.369 MHz
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :16078 MB
 # Swap memory       :2147 MB
 # Total Virtual     :18225 MB
-# Available Virtual :11280 MB
+# Available Virtual :11061 MB
 #-----------------------------------------------------------
 source frontend.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1408.270 ; gain = 51.840 ; free physical = 4138 ; free virtual = 10396
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1418.781 ; gain = 0.027 ; free physical = 3187 ; free virtual = 10160
 Command: read_checkpoint -auto_incremental -incremental /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -32,13 +32,11 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 616346
+INFO: [Synth 8-7075] Helper process launched with PID 1483058
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2196.359 ; gain = 421.715 ; free physical = 3008 ; free virtual = 9266
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2187.996 ; gain = 411.746 ; free physical = 1934 ; free virtual = 9113
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'BRAM' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/src/zybo-z7-20.svh:18]
 INFO: [Synth 8-6157] synthesizing module 'frontend' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:18]
@@ -181,7 +179,7 @@ INFO: [Synth 8-6157] synthesizing module 'instr_scan' [/home/utilisateur/Bureau/
 	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
 	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000000 
 INFO: [Synth 8-6155] done synthesizing module 'instr_scan' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/instr_scan.sv:18]
-INFO: [Synth 8-6157] synthesizing module 'instr_realign' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'instr_realign' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:27]
 	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000000 
 	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000000000000 
 	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000000000000 
@@ -319,9 +317,11 @@ INFO: [Synth 8-6157] synthesizing module 'instr_realign' [/home/utilisateur/Bure
 	Parameter CVA6Cfg[CachedRegionLength][1] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
 	Parameter CVA6Cfg[CachedRegionLength][0] bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
 	Parameter CVA6Cfg[MaxOutstandingStores] bound to: 32'b00000000000000000000000000000000 
-INFO: [Synth 8-6155] done synthesizing module 'instr_realign' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:23]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:203]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:203]
+WARNING: [Synth 8-567] referenced signal 'valid_o_d' should be on the sensitivity list [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:77]
+WARNING: [Synth 8-567] referenced signal 'addr_o_d' should be on the sensitivity list [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:77]
+INFO: [Synth 8-6155] done synthesizing module 'instr_realign' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:27]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:192]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:192]
 INFO: [Synth 8-6157] synthesizing module 'instr_queue' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/instr_queue.sv:46]
 	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000000 
 	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000000000000 
@@ -495,6 +495,41 @@ WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic 
 WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/instr_queue.sv:404]
 INFO: [Synth 8-6155] done synthesizing module 'instr_queue' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/instr_queue.sv:46]
 INFO: [Synth 8-6155] done synthesizing module 'frontend' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:18]
+WARNING: [Synth 8-6014] Unused sequential element data_tmp_2_reg was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:381]
+WARNING: [Synth 8-6014] Unused sequential element data_47_32_reg was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:385]
+WARNING: [Synth 8-6014] Unused sequential element data_47_16_reg was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:386]
+WARNING: [Synth 8-6014] Unused sequential element data_63_32_reg was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:387]
+WARNING: [Synth 8-6014] Unused sequential element data_63_48_reg was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:388]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[31] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[30] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[29] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[28] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[27] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[26] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[25] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[24] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[23] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[22] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[21] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[20] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[19] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[18] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[17] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[16] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[15] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[14] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[13] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[12] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[11] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[10] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[9] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[8] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[7] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[6] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[5] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[4] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[3] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
+WARNING: [Synth 8-6014] Unused sequential element instr_o_q_reg[2] was removed.  [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/instr_realign.sv:70]
 WARNING: [Synth 8-3848] Net btb_prediction_shifted[1][valid] in module/entity frontend does not have driver. [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:97]
 WARNING: [Synth 8-3848] Net bht_prediction_shifted[1][taken] in module/entity frontend does not have driver. [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:96]
 WARNING: [Synth 8-3848] Net bht_prediction_shifted[1][valid] in module/entity frontend does not have driver. [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/frontend/frontend.sv:96]
@@ -601,18 +636,18 @@ WARNING: [Synth 8-7129] Port icache_dreq_i[ex][tval][5] in module frontend is ei
 WARNING: [Synth 8-7129] Port icache_dreq_i[ex][tval][4] in module frontend is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2280.297 ; gain = 505.652 ; free physical = 2926 ; free virtual = 9185
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2278.934 ; gain = 502.684 ; free physical = 1806 ; free virtual = 8989
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2298.109 ; gain = 523.465 ; free physical = 2925 ; free virtual = 9185
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2296.746 ; gain = 520.496 ; free physical = 1809 ; free virtual = 8992
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2298.109 ; gain = 523.465 ; free physical = 2925 ; free virtual = 9185
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2296.746 ; gain = 520.496 ; free physical = 1809 ; free virtual = 8992
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2298.109 ; gain = 0.000 ; free physical = 2927 ; free virtual = 9186
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2296.746 ; gain = 0.000 ; free physical = 1808 ; free virtual = 8991
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -639,32 +674,50 @@ Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev
 Finished Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/constraints/cva6_fpga.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2443.859 ; gain = 0.000 ; free physical = 2943 ; free virtual = 9202
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2443.496 ; gain = 0.000 ; free physical = 1816 ; free virtual = 9002
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2443.859 ; gain = 0.000 ; free physical = 2943 ; free virtual = 9202
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2443.496 ; gain = 0.000 ; free physical = 1816 ; free virtual = 9002
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2443.859 ; gain = 669.215 ; free physical = 2926 ; free virtual = 9186
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2443.496 ; gain = 667.246 ; free physical = 1794 ; free virtual = 8985
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2451.863 ; gain = 677.219 ; free physical = 2926 ; free virtual = 9186
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2451.500 ; gain = 675.250 ; free physical = 1793 ; free virtual = 8985
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2451.863 ; gain = 677.219 ; free physical = 2926 ; free virtual = 9186
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2451.500 ; gain = 675.250 ; free physical = 1793 ; free virtual = 8985
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2451.863 ; gain = 677.219 ; free physical = 2925 ; free virtual = 9187
+Start Preparing Guide Design
 ---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6895] The reference checkpoint /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.srcs/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp is not suitable for use with incremental synthesis for this design. Please regenerate the checkpoint for this design with -incremental_synth switch in the same Vivado session that synth_design has been run. Synthesis will continue with the default flow
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2451.500 ; gain = 675.250 ; free physical = 1791 ; free virtual = 8984
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2451.500 ; gain = 675.250 ; free physical = 1791 ; free virtual = 8984
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2451.500 ; gain = 675.250 ; free physical = 1788 ; free virtual = 8982
+---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: no
+
+   Reason for not running incremental synthesis : 
+
+
+INFO: [Synth 8-7130] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -676,10 +729,10 @@ Detailed RTL Component Info :
 	   2 Input    1 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 10    
-	               16 Bit    Registers := 1     
+	               16 Bit    Registers := 3     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 8     
-	                1 Bit    Registers := 11    
+	                1 Bit    Registers := 7     
 +---Muxes : 
 	   2 Input   69 Bit        Muxes := 2     
 	   2 Input   32 Bit        Muxes := 28    
@@ -708,7 +761,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2451.863 ; gain = 677.219 ; free physical = 2930 ; free virtual = 9196
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 2451.500 ; gain = 675.250 ; free physical = 1736 ; free virtual = 8953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -731,13 +784,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 2451.863 ; gain = 677.219 ; free physical = 2942 ; free virtual = 9208
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:29 . Memory (MB): peak = 2451.500 ; gain = 675.250 ; free physical = 1754 ; free virtual = 8974
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:38 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2380 ; free virtual = 8735
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1485 ; free virtual = 8711
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -766,7 +819,7 @@ INFO: [Synth 8-5816] Retiming module `frontend' done
 
 
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:39 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2381 ; free virtual = 8736
+Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1479 ; free virtual = 8704
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -789,37 +842,37 @@ INFO: [Synth 8-4649] Removing BlackBox instance \i_instr_queue/i_unread_instr_fi
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2399 ; free virtual = 8754
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1480 ; free virtual = 8707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2399 ; free virtual = 8754
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1480 ; free virtual = 8707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2399 ; free virtual = 8754
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1479 ; free virtual = 8707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2399 ; free virtual = 8754
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1479 ; free virtual = 8707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2399 ; free virtual = 8754
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1479 ; free virtual = 8707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2399 ; free virtual = 8754
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1479 ; free virtual = 8707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -843,45 +896,46 @@ Report Cell Usage:
 +------+---------+------+
 |1     |BUFG     |     1|
 |2     |CARRY4   |    40|
-|3     |LUT1     |     2|
-|4     |LUT2     |    88|
-|5     |LUT3     |   147|
-|6     |LUT4     |   127|
-|7     |LUT5     |   296|
-|8     |LUT6     |   244|
+|3     |LUT1     |     3|
+|4     |LUT2     |    93|
+|5     |LUT3     |   170|
+|6     |LUT4     |   145|
+|7     |LUT5     |   131|
+|8     |LUT6     |   287|
 |9     |RAM32M   |    29|
 |10    |RAM32X1D |     2|
-|11    |FDCE     |   335|
+|11    |FDCE     |   315|
 |12    |FDPE     |     3|
 |13    |IBUF     |   269|
 |14    |OBUF     |   201|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.238 ; gain = 1059.594 ; free physical = 2399 ; free virtual = 8754
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.320 ; gain = 863.070 ; free physical = 1479 ; free virtual = 8707
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 104 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 2834.238 ; gain = 913.844 ; free physical = 2398 ; free virtual = 8753
-Synthesis Optimization Complete : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 2834.246 ; gain = 1059.594 ; free physical = 2398 ; free virtual = 8753
+Synthesis finished with 0 errors, 1 critical warnings and 104 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:42 ; elapsed = 00:00:43 . Memory (MB): peak = 2639.320 ; gain = 716.320 ; free physical = 1479 ; free virtual = 8707
+Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 2639.328 ; gain = 863.070 ; free physical = 1479 ; free virtual = 8707
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2834.246 ; gain = 0.000 ; free physical = 2688 ; free virtual = 9043
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2639.328 ; gain = 0.000 ; free physical = 1759 ; free virtual = 8987
 INFO: [Netlist 29-17] Analyzing 71 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2890.266 ; gain = 0.000 ; free physical = 2695 ; free virtual = 9050
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2698.316 ; gain = 0.000 ; free physical = 1763 ; free virtual = 8990
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 31 instances were transformed.
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 29 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 2 instances
 
-Synth Design complete | Checksum: 33434a4b
+Synth Design complete | Checksum: d551e299
 INFO: [Common 17-83] Releasing license: Synthesis
-53 Infos, 129 Warnings, 0 Critical Warnings and 0 Errors encountered.
+50 Infos, 166 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:48 . Memory (MB): peak = 2890.266 ; gain = 1469.121 ; free physical = 2702 ; free virtual = 9057
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2411.057; main = 2069.477; forked = 391.236
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3875.609; main = 2890.270; forked = 1041.367
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2914.277 ; gain = 0.000 ; free physical = 2702 ; free virtual = 9057
+synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:50 . Memory (MB): peak = 2698.316 ; gain = 1276.566 ; free physical = 1765 ; free virtual = 8993
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2217.542; main = 1879.609; forked = 394.278
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3682.691; main = 2698.320; forked = 1043.367
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2722.328 ; gain = 0.000 ; free physical = 1765 ; free virtual = 8993
 INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/frontend.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file frontend_utilization_synth.rpt -pb frontend_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Feb  5 16:00:15 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu Feb  6 17:02:45 2025...

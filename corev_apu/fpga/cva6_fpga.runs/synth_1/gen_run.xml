@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1738767556" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1738857702" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/cva6_zybo_z7_20.dcp">
   <File Type="VDS-TIMINGSUMMARY" Name="frontend_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="frontend.dcp"/>
   <File Type="RDS-UTIL-PB" Name="frontend_utilization_synth.pb"/>

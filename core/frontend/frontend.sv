@@ -110,17 +110,6 @@ module frontend
   logic [ariane_pkg::INSTR_PER_FETCH-1:0] taken_rvc_cf;
 
   logic                                   serving_unaligned;
-
-  // registers temp
-  logic [riscv::VLEN-1:0] boot_addr_q;
-  logic set_pc_commit_q;
-  logic [riscv::VLEN-1:0] pc_commit_q;
-  logic [riscv::VLEN-1:0] epc_q;
-  logic eret_q;
-  logic [riscv::VLEN-1:0] trap_vector_base_q;
-  logic ex_valid_q;
-  logic set_debug_pc_q;
-
   // Re-align instructions
   instr_realign #(
       .CVA6Cfg(CVA6Cfg)
@@ -326,8 +315,8 @@ module frontend
     // boot_addr_i will be assigned a constant
     // on the top-level.
     if (npc_rst_load_q) begin
-      npc_d         = boot_addr_q;
-      fetch_address = boot_addr_q;
+      npc_d         = boot_addr_i;
+      fetch_address = boot_addr_i;
     end else begin
       fetch_address = npc_q;
       // keep stable by default
@@ -351,12 +340,12 @@ module frontend
       npc_d = resolved_branch_i.target_address;
     end
     // 4. Return from environment call
-    if (eret_q) begin
-      npc_d = epc_q;
+    if (eret_i) begin
+      npc_d = epc_i;
     end
     // 5. Exception/Interrupt
-    if (ex_valid_q) begin
-      npc_d = trap_vector_base_q;
+    if (ex_valid_i) begin
+      npc_d = trap_vector_base_i;
     end
     // 6. Pipeline Flush because of CSR side effects
     // On a pipeline flush start fetching from the next address
@@ -367,12 +356,12 @@ module frontend
     // or if the commit stage is halted, just take the current pc of the
     // instruction in the commit stage
     // TODO(zarubaf) This adder can at least be merged with the one in the csr_regfile stage
-    if (set_pc_commit_q) begin
-      npc_d = pc_commit_q + (halt_i ? '0 : {{riscv::VLEN - 3{1'b0}}, 3'b100});
+    if (set_pc_commit_i) begin
+      npc_d = pc_commit_i + (halt_i ? '0 : {{riscv::VLEN - 3{1'b0}}, 3'b100});
     end
     // 7. Debug
     // enter debug on a hard-coded base-address
-    if (set_debug_pc_q)
+    if (set_debug_pc_i)
       npc_d = CVA6Cfg.DmBaseAddress[riscv::VLEN-1:0] + CVA6Cfg.HaltAddress[riscv::VLEN-1:0];
     icache_dreq_o.vaddr = fetch_address;
   end
@@ -392,14 +381,6 @@ module frontend
       icache_ex_valid_q <= ariane_pkg::FE_NONE;
       btb_q             <= '0;
       bht_q             <= '0;
-      boot_addr_q       <= '0;
-      set_pc_commit_q   <= '0;
-      pc_commit_q       <= '0;
-      epc_q             <= '0;
-      eret_q            <= '0;
-      trap_vector_base_q <= '0;
-      ex_valid_q         <= '0;
-      set_debug_pc_q     <= '0;
     end else begin
       npc_rst_load_q <= 1'b0;
       npc_q          <= npc_d;
@@ -420,14 +401,6 @@ module frontend
         btb_q <= btb_prediction[INSTR_PER_FETCH-1];
         bht_q <= bht_prediction[INSTR_PER_FETCH-1];
       end
-      boot_addr_q <= boot_addr_i;
-      set_pc_commit_q <= set_pc_commit_i;
-      pc_commit_q     <= pc_commit_i;
-      epc_q           <= epc_i;
-      eret_q          <= eret_i;
-      trap_vector_base_q <= trap_vector_base_i;
-      ex_valid_q <= ex_valid_i;
-      set_debug_pc_q <= set_debug_pc_i;
     end
   end
 
