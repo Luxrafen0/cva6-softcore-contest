@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Thu Feb  6 17:02:45 2025
+| Date         : Fri Feb  7 13:14:57 2025
 | Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.1 LTS
 | Command      : report_utilization -file frontend_utilization_synth.rpt -pb frontend_utilization_synth.pb
 | Design       : frontend
@@ -36,8 +36,8 @@ Table of Contents
 |   LUT as Memory            |  120 |     0 |          0 |     17400 |  0.69 |
 |     LUT as Distributed RAM |  120 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
-| Slice Registers            |  318 |     0 |          0 |    106400 |  0.30 |
-|   Register as Flip Flop    |  318 |     0 |          0 |    106400 |  0.30 |
+| Slice Registers            |  286 |     0 |          0 |    106400 |  0.27 |
+|   Register as Flip Flop    |  286 |     0 |          0 |    106400 |  0.27 |
 |   Register as Latch        |    0 |     0 |          0 |    106400 |  0.00 |
 | F7 Muxes                   |    0 |     0 |          0 |     26600 |  0.00 |
 | F8 Muxes                   |    0 |     0 |          0 |     13300 |  0.00 |
@@ -60,7 +60,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 3     |          Yes |           - |          Set |
-| 315   |          Yes |           - |        Reset |
+| 283   |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 0     |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -151,8 +151,8 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDCE     |  315 |        Flop & Latch |
 | LUT6     |  287 |                 LUT |
+| FDCE     |  283 |        Flop & Latch |
 | IBUF     |  269 |                  IO |
 | OBUF     |  201 |                  IO |
 | RAMD32   |  178 |  Distributed Memory |
