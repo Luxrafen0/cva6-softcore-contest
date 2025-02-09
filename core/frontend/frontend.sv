@@ -110,6 +110,26 @@ module frontend
   logic [ariane_pkg::INSTR_PER_FETCH-1:0] taken_rvc_cf;
 
   logic                                   serving_unaligned;
+
+
+  // Replication registers
+
+  logic [INSTR_PER_FETCH-1:0] instruction_valid_tmp1,instruction_valid_tmp2;
+  logic [INSTR_PER_FETCH-1:0] valid_1,valid_2,valid_3,valid_4,valid_5,valid_6;
+
+  logic [INSTR_PER_FETCH-1:0][31:0] instr_tmp,instr_queue,instr_scan;
+
+  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_tmp,addr_1,addr_2;
+
+
+
+
+
+
+
+
+
+
   // Re-align instructions
   instr_realign #(
       .CVA6Cfg(CVA6Cfg)
@@ -133,22 +153,22 @@ module frontend
   // in case we are serving an unaligned instruction in instr[0] we need to take
   // the prediction we saved from the previous fetch
   if (CVA6Cfg.RVC) begin : gen_btb_prediction_shifted
-    assign bht_prediction_shifted[0] = (serving_unaligned) ? bht_q : bht_prediction[addr[0][$clog2(
+    assign bht_prediction_shifted[0] = (serving_unaligned) ? bht_q : bht_prediction[addr_1[0][$clog2(
         INSTR_PER_FETCH
     ):1]];
-    assign btb_prediction_shifted[0] = (serving_unaligned) ? btb_q : btb_prediction[addr[0][$clog2(
+    assign btb_prediction_shifted[0] = (serving_unaligned) ? btb_q : btb_prediction[addr_1[0][$clog2(
         INSTR_PER_FETCH
     ):1]];
 
     // for all other predictions we can use the generated address to index
     // into the branch prediction data structures
     for (genvar i = 1; i < INSTR_PER_FETCH; i++) begin : gen_prediction_address
-      assign bht_prediction_shifted[i] = bht_prediction[addr[i][$clog2(INSTR_PER_FETCH):1]];
-      assign btb_prediction_shifted[i] = btb_prediction[addr[i][$clog2(INSTR_PER_FETCH):1]];
+      assign bht_prediction_shifted[i] = bht_prediction[addr_2[i][$clog2(INSTR_PER_FETCH):1]];
+      assign btb_prediction_shifted[i] = btb_prediction[addr_2[i][$clog2(INSTR_PER_FETCH):1]];
     end
   end else begin
-    assign bht_prediction_shifted[0] = (serving_unaligned) ? bht_q : bht_prediction[addr[0][1]];
-    assign btb_prediction_shifted[0] = (serving_unaligned) ? btb_q : btb_prediction[addr[0][1]];
+    assign bht_prediction_shifted[0] = (serving_unaligned) ? bht_q : bht_prediction[addr_1[0][1]];
+    assign btb_prediction_shifted[0] = (serving_unaligned) ? btb_q : btb_prediction[addr_1[0][1]];
   end
   ;
 
@@ -164,15 +184,15 @@ module frontend
 
   for (genvar i = 0; i < INSTR_PER_FETCH; i++) begin
     // branch history table -> BHT
-    assign is_branch[i] = instruction_valid[i] & (rvi_branch[i] | rvc_branch[i]);
+    assign is_branch[i] = valid_1[i] & (rvi_branch[i] | rvc_branch[i]);
     // function calls -> RAS
-    assign is_call[i] = instruction_valid[i] & (rvi_call[i] | rvc_call[i]);
+    assign is_call[i] = valid_2[i] & (rvi_call[i] | rvc_call[i]);
     // function return -> RAS
-    assign is_return[i] = instruction_valid[i] & (rvi_return[i] | rvc_return[i]);
+    assign is_return[i] = valid_3[i] & (rvi_return[i] | rvc_return[i]);
     // unconditional jumps with known target -> immediately resolved
-    assign is_jump[i] = instruction_valid[i] & (rvi_jump[i] | rvc_jump[i]);
+    assign is_jump[i] = valid_4[i] & (rvi_jump[i] | rvc_jump[i]);
     // unconditional jumps with unknown target -> BTB
-    assign is_jalr[i] = instruction_valid[i] & ~is_return[i] & (rvi_jalr[i] | rvc_jalr[i] | rvc_jr[i]);
+    assign is_jalr[i] = valid_5[i] & ~is_return[i] & (rvi_jalr[i] | rvc_jalr[i] | rvc_jr[i]);
   end
 
   // taken/not taken
@@ -243,11 +263,11 @@ module frontend
       // but only if we actually consumed the address
       if (is_call[i]) begin
         ras_push   = instr_queue_consumed[i];
-        ras_update = addr[i] + (rvc_call[i] ? 2 : 4);
+        ras_update = addr_1[i] + (rvc_call[i] ? 2 : 4);
       end
       // calculate the jump target address
       if (taken_rvc_cf[i] || taken_rvi_cf[i]) begin
-        predict_address = addr[i] + (taken_rvc_cf[i] ? rvc_imm[i] : rvi_imm[i]);
+        predict_address = addr_2[i] + (taken_rvc_cf[i] ? rvc_imm[i] : rvi_imm[i]);
       end
     end
   end
@@ -381,6 +401,24 @@ module frontend
       icache_ex_valid_q <= ariane_pkg::FE_NONE;
       btb_q             <= '0;
       bht_q             <= '0;
+      
+      //instruction_valid_tmp1 <= '0;
+      //instruction_valid_tmp2 <= '0;
+      valid_1 <= '0;
+      valid_2 <= '0;
+      valid_3 <= '0;
+      valid_4 <= '0;
+      valid_5 <= '0;
+      valid_6 <= '0;
+
+      //instr_tmp <= '0;
+      instr_queue <= '0;
+      instr_scan <= '0;
+
+      //addr_tmp <= '0;
+      addr_1 <= '0;
+      addr_2 <= '0;
+
     end else begin
       npc_rst_load_q <= 1'b0;
       npc_q          <= npc_d;
@@ -401,6 +439,39 @@ module frontend
         btb_q <= btb_prediction[INSTR_PER_FETCH-1];
         bht_q <= bht_prediction[INSTR_PER_FETCH-1];
       end
+
+      // Replication valid
+      /*instruction_valid_tmp1 <= instruction_valid;
+      instruction_valid_tmp2 <= instruction_valid;
+      valid_1 <= instruction_valid_tmp1;
+      valid_2 <= instruction_valid_tmp1;
+      valid_3 <= instruction_valid_tmp1;
+      valid_4 <= instruction_valid_tmp2;
+      valid_5 <= instruction_valid_tmp2;
+      valid_6 <= instruction_valid_tmp2;*/
+      valid_1 <= instruction_valid;
+      valid_2 <= instruction_valid;
+      valid_3 <= instruction_valid;
+      valid_4 <= instruction_valid;
+      valid_5 <= instruction_valid;
+      valid_6 <= instruction_valid;
+
+      // Replication instr
+
+      /*instr_tmp <= instr;
+      instr_queue <= instr_tmp;
+      instr_scan <= instr_tmp;*/
+      instr_queue <= instr;
+      instr_scan <= instr;
+
+      // Replication addr
+
+      /*addr_tmp <= addr;
+      addr_1 <= addr_tmp;
+      addr_2 <= addr_tmp;*/
+      addr_1 <= addr;
+      addr_2 <= addr;
+
     end
   end
 
@@ -466,7 +537,7 @@ module frontend
     instr_scan #(
         .CVA6Cfg(CVA6Cfg)
     ) i_instr_scan (
-        .instr_i     (instr[i]),
+        .instr_i     (instr_scan[i]),
         .rvi_return_o(rvi_return[i]),
         .rvi_call_o  (rvi_call[i]),
         .rvi_branch_o(rvi_branch[i]),
@@ -489,13 +560,13 @@ module frontend
       .clk_i              (clk_i),
       .rst_ni             (rst_ni),
       .flush_i            (flush_i),
-      .instr_i            (instr),                 // from re-aligner
-      .addr_i             (addr),                  // from re-aligner
+      .instr_i            (instr_queue),                 // from re-aligner
+      .addr_i             (addr_1),                  // from re-aligner
       .exception_i        (icache_ex_valid_q),     // from I$
       .exception_addr_i   (icache_vaddr_q),
       .predict_address_i  (predict_address),
       .cf_type_i          (cf_type),
-      .valid_i            (instruction_valid),     // from re-aligner
+      .valid_i            (valid_6),     // from re-aligner
       .consumed_o         (instr_queue_consumed),
       .ready_o            (instr_queue_ready),
       .replay_o           (replay),

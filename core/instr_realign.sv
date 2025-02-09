@@ -43,6 +43,9 @@ module instr_realign
 
   //registres pipelining
   logic [FETCH_WIDTH-1:0][31:0] instr_o_d,instr_o_q;
+  logic [INSTR_PER_FETCH-1:0] valid_o_d,valid_o_q;
+  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_o_d,addr_o_q;
+  
 
   //logic [FETCH_WIDTH-1:0] data_tmp_1,data_tmp_2;
   logic [15:0] data_31_16,data_15_0,data_47_32,data_63_48;
@@ -70,13 +73,10 @@ module instr_realign
   assign instr_o = instr_o_q;
 
 
-  logic [INSTR_PER_FETCH-1:0] valid_o_d;
-  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_o_d;
-
 
   always_ff @(instr_o_q) begin
-    valid_o <= valid_o_d;
-    addr_o <= addr_o_d;
+    valid_o <= valid_o_q;
+    addr_o <= addr_o_q;
   end
 
   // Instruction re-alignment
@@ -372,13 +372,15 @@ module instr_realign
       unaligned_address_q <= '0;
       unaligned_instr_q   <= '0;
       instr_o_q <= '0;
-      data_31_16 <= 0;
-      data_31_0 <= 0;
-      data_15_0 <= 0;
-      data_47_32 <= 0;
-      data_47_16 <= 0;
-      data_63_32 <= 0; 
-      data_63_48 <= 0;
+      addr_o_q <= '0;
+      valid_o_q <= '0;
+      data_31_16 <= '0;
+      data_31_0 <= '0;
+      data_15_0 <= '0;
+      data_47_32 <= '0;
+      data_47_16 <= '0;
+      data_63_32 <= '0; 
+      data_63_48 <= '0;
     end else begin
       if (valid_i) begin
         unaligned_address_q <= unaligned_address_d;
@@ -390,7 +392,10 @@ module instr_realign
       end else if (valid_i) begin
         unaligned_q <= unaligned_d;
       end
+      
       instr_o_q <= instr_o_d;
+      addr_o_q <= addr_o_d;
+      valid_o_q <= valid_o_d;
 
       if( FETCH_WIDTH == 32) begin 
         data_31_16 <= data_i[31:16] ;//data_tmp_1[31:16];
