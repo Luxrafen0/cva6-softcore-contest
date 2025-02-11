@@ -37,4 +37,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log frontend.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source frontend.tcl
+EAStep vivado -log cva6_zybo_z7_20.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source cva6_zybo_z7_20.tcl

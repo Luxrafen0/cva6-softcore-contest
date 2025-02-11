@@ -37,13 +37,11 @@ module instr_realign
     output logic [INSTR_PER_FETCH-1:0][31:0] instr_o
 );
 
-  //registres pipelining
-  /*logic [FETCH_WIDTH-1:0][31:0] instr_o,instr_o_q;
-  logic [INSTR_PER_FETCH-1:0] valid_o,valid_o_q;
-  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_o,addr_o_q;*/
 
   // as a maximum we support a fetch width of 64-bit, hence there can be 4 compressed instructions
   logic [3:0] instr_is_compressed;
+
+  logic [15:0] unaligned_instr_val;
 
   for (genvar i = 0; i < INSTR_PER_FETCH; i++) begin
     // LSB != 2'b11
@@ -59,10 +57,6 @@ module instr_realign
   // we have an unaligned instruction
   assign serving_unaligned_o = unaligned_q;
 
-  /*assign valid_o = valid_o_q;
-  assign instr_o = instr_o_q;
-  assign addr_o  = addr_o_q;*/
-
 
   // Instruction re-alignment
   if (FETCH_WIDTH == 32) begin : realign_bp_32
@@ -72,7 +66,7 @@ module instr_realign
       unaligned_instr_d = data_i[31:16];
 
       valid_o[0] = valid_i;
-      instr_o[0] = (unaligned_q) ? {data_i[15:0], unaligned_instr_q} : data_i[31:0];
+      instr_o[0] = (unaligned_q) ? unaligned_instr_val : data_i[31:0];
       addr_o[0] = (unaligned_q) ? unaligned_address_q : address_i;
 
       valid_o[1] = 1'b0;
@@ -141,7 +135,7 @@ module instr_realign
 
       // last instruction was unaligned
       if (unaligned_q) begin
-        instr_o[0] = {data_i[15:0], unaligned_instr_q};
+        instr_o[0] = unaligned_instr_val;
         addr_o[0]  = unaligned_address_q;
         // for 64 bit there exist the following options:
         //     64      32      0
@@ -357,29 +351,15 @@ module instr_realign
       unaligned_address_q <= '0;
       unaligned_instr_q   <= '0;
 
-      /*data_i[31:16] <= '0;
-      data_i[31:0] <= '0;
-      data_i[15:0] <= '0;
-      data_i[47:32] <= '0;
-      data_i[47:16] <= '0;
-      data_i[63:32] <= '0; 
-      data_i[63:48] <= '0;
-
-      instr_is_compressed <= '0;
-      valid_i <= '0;
-      address_i <= '0;
-
-      flush_tmp <= '0;*/
-
     end else begin
-
-      /*valid_i <= valid_i;
-      flush_tmp <= flush_i;*/
 
       if (valid_i) begin
         unaligned_address_q <= unaligned_address_d;
         unaligned_instr_q   <= unaligned_instr_d;
-      end
+        unaligned_instr_val <= {data_i[15:0], unaligned_instr_d};
+      end else begin
+        unaligned_instr_val <= {data_i[15:0], unaligned_instr_q};
+      end 
     
 
       if (flush_i) begin
@@ -387,10 +367,7 @@ module instr_realign
       end else if (valid_i) begin
         unaligned_q <= unaligned_d;
       end
-      
-      /*instr_o_q <= instr_o;
-      addr_o_q <= addr_o;
-      valid_o_q <= valid_o;*/
+
     end
   end
 endmodule

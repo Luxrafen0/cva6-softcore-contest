@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Mon Feb 10 19:24:39 2025
-| Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.1 LTS
+| Date         : Tue Feb 11 18:12:45 2025
+| Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.2 LTS
 | Command      : report_clock_interaction -file reports_cva6_fpga_synth/cva6_fpga.clock_interaction.rpt
 | Design       : cva6_zybo_z7_20
 | Device       : 7z020-clg400
@@ -15,12 +15,9 @@ Clock Interaction Report
 Clock Interaction Table
 -----------------------
 
-                                              WNS                            TNS Failing  TNS Total    WNS Path         Clock-Pair           Inter-Clock              
-From Clock             To Clock               Clock Edges  WNS(ns)  TNS(ns)    Endpoints    Endpoints  Requirement(ns)  Classification       Constraints              
----------------------  ---------------------  -----------  -------  -------  -----------  -----------  ---------------  -------------------  -----------------------  
-clk_out1_xlnx_clk_gen  clk_out1_xlnx_clk_gen  rise - rise     4.09     0.00            0        51061            25.00  Clean                Partial False Path       
-clk_out1_xlnx_clk_gen  tck                    rise - rise    18.92     0.00            0           36            20.00  Ignored              Max Delay Datapath Only  
-tck                    clk_out1_xlnx_clk_gen  rise - rise    18.10     0.00            0           43            25.00  No Common Clock      Timed (unsafe)           
-tck                    tck                    fall - rise     5.76     0.00            0          453            20.00  Clean                Timed                    
+                                              WNS                            TNS Failing  TNS Total    WNS Path         Clock-Pair           Inter-Clock         
+From Clock             To Clock               Clock Edges  WNS(ns)  TNS(ns)    Endpoints    Endpoints  Requirement(ns)  Classification       Constraints         
+---------------------  ---------------------  -----------  -------  -------  -----------  -----------  ---------------  -------------------  ------------------  
+clk_out1_xlnx_clk_gen  clk_out1_xlnx_clk_gen  rise - rise     4.09     0.00            0        50872            25.00  Clean                Partial False Path  
 
 
