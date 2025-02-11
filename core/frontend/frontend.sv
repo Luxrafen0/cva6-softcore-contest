@@ -113,22 +113,11 @@ module frontend
 
 
   // Replication registers
-
-  logic [INSTR_PER_FETCH-1:0] instruction_valid_tmp1,instruction_valid_tmp2;
   logic [INSTR_PER_FETCH-1:0] valid_1,valid_2,valid_3,valid_4,valid_5,valid_6;
 
-  logic [INSTR_PER_FETCH-1:0][31:0] instr_tmp,instr_queue,instr_scan;
+  logic [INSTR_PER_FETCH-1:0][31:0] instr_queue,instr_scan;
 
-  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_tmp,addr_1,addr_2;
-
-
-
-
-
-
-
-
-
+  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_1,addr_2;
 
   // Re-align instructions
   instr_realign #(
@@ -401,9 +390,7 @@ module frontend
       icache_ex_valid_q <= ariane_pkg::FE_NONE;
       btb_q             <= '0;
       bht_q             <= '0;
-      
-      //instruction_valid_tmp1 <= '0;
-      //instruction_valid_tmp2 <= '0;
+
       valid_1 <= '0;
       valid_2 <= '0;
       valid_3 <= '0;
@@ -411,11 +398,9 @@ module frontend
       valid_5 <= '0;
       valid_6 <= '0;
 
-      //instr_tmp <= '0;
       instr_queue <= '0;
       instr_scan <= '0;
-
-      //addr_tmp <= '0;
+      
       addr_1 <= '0;
       addr_2 <= '0;
 
@@ -440,15 +425,6 @@ module frontend
         bht_q <= bht_prediction[INSTR_PER_FETCH-1];
       end
 
-      // Replication valid
-      /*instruction_valid_tmp1 <= instruction_valid;
-      instruction_valid_tmp2 <= instruction_valid;
-      valid_1 <= instruction_valid_tmp1;
-      valid_2 <= instruction_valid_tmp1;
-      valid_3 <= instruction_valid_tmp1;
-      valid_4 <= instruction_valid_tmp2;
-      valid_5 <= instruction_valid_tmp2;
-      valid_6 <= instruction_valid_tmp2;*/
       valid_1 <= instruction_valid;
       valid_2 <= instruction_valid;
       valid_3 <= instruction_valid;
@@ -456,19 +432,9 @@ module frontend
       valid_5 <= instruction_valid;
       valid_6 <= instruction_valid;
 
-      // Replication instr
-
-      /*instr_tmp <= instr;
-      instr_queue <= instr_tmp;
-      instr_scan <= instr_tmp;*/
       instr_queue <= instr;
       instr_scan <= instr;
 
-      // Replication addr
-
-      /*addr_tmp <= addr;
-      addr_1 <= addr_tmp;
-      addr_2 <= addr_tmp;*/
       addr_1 <= addr;
       addr_2 <= addr;
 

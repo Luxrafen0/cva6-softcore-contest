@@ -121,6 +121,7 @@ opt_design -directive ExploreArea -verbose -debug_log
 
 # Activation de l'optimisation post routing -------
 set_property STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
+list_property [get_runs impl_1]
 
 #Activation de l'optimisation post placement avec la directive Explore
 #set_property STEPS.PHYS_OPT_DESIGN.IS_ENABLED true [get_runs impl_1]
@@ -143,7 +144,7 @@ wait_on_run impl_1
 open_run impl_1
 
 
-#phys_opt_design -placement_opt -restruct_opt -routing_opt -critical_pin_opt
+phys_opt_design -placement_opt -restruct_opt -routing_opt -critical_pin_opt
 
 
 # reports

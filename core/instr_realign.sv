@@ -20,10 +20,6 @@
 // instruction e.g. a branch.
 
 
-// FANOUT ÉNORME SUR L'ENTRÉE DATA_I ====> réplications
-
-
-
 module instr_realign
   import ariane_pkg::*;
 #(
@@ -42,16 +38,9 @@ module instr_realign
 );
 
   //registres pipelining
-  logic [FETCH_WIDTH-1:0][31:0] instr_o_d,instr_o_q;
-  logic [INSTR_PER_FETCH-1:0] valid_o_d,valid_o_q;
-  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_o_d,addr_o_q;
-  
-
-  //logic [FETCH_WIDTH-1:0] data_tmp_1,data_tmp_2;
-  logic [15:0] data_31_16,data_15_0,data_47_32,data_63_48;
-  logic [31:0] data_31_0,data_47_16,data_63_32;
-
-
+  /*logic [FETCH_WIDTH-1:0][31:0] instr_o,instr_o_q;
+  logic [INSTR_PER_FETCH-1:0] valid_o,valid_o_q;
+  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_o,addr_o_q;*/
 
   // as a maximum we support a fetch width of 64-bit, hence there can be 4 compressed instructions
   logic [3:0] instr_is_compressed;
@@ -70,29 +59,25 @@ module instr_realign
   // we have an unaligned instruction
   assign serving_unaligned_o = unaligned_q;
 
+  /*assign valid_o = valid_o_q;
   assign instr_o = instr_o_q;
+  assign addr_o  = addr_o_q;*/
 
-
-
-  always_ff @(instr_o_q) begin
-    valid_o <= valid_o_q;
-    addr_o <= addr_o_q;
-  end
 
   // Instruction re-alignment
   if (FETCH_WIDTH == 32) begin : realign_bp_32
     always_comb begin : re_align
       unaligned_d = unaligned_q;
       unaligned_address_d = {address_i[riscv::VLEN-1:2], 2'b10};
-      unaligned_instr_d = data_31_16;
+      unaligned_instr_d = data_i[31:16];
 
-      valid_o_d[0] = valid_i;
-      instr_o_d[0] = (unaligned_q) ? {data_15_0, unaligned_instr_q} : data_31_0;
-      addr_o_d[0] = (unaligned_q) ? unaligned_address_q : address_i;
+      valid_o[0] = valid_i;
+      instr_o[0] = (unaligned_q) ? {data_i[15:0], unaligned_instr_q} : data_i[31:0];
+      addr_o[0] = (unaligned_q) ? unaligned_address_q : address_i;
 
-      valid_o_d[1] = 1'b0;
-      instr_o_d[1] = '0;
-      addr_o_d[1] = {address_i[riscv::VLEN-1:2], 2'b10};
+      valid_o[1] = 1'b0;
+      instr_o[1] = '0;
+      addr_o[1] = {address_i[riscv::VLEN-1:2], 2'b10};
 
       // this instruction is compressed or the last instruction was unaligned
       if (instr_is_compressed[0] || unaligned_q) begin
@@ -104,12 +89,12 @@ module instr_realign
         // yes? -> no problem, no -> we've got an unaligned instruction
         if (instr_is_compressed[1]) begin
           unaligned_d = 1'b0;
-          valid_o_d[1]  = valid_i;
-          instr_o_d[1]  = {16'b0, data_31_16};
+          valid_o[1]  = valid_i;
+          instr_o[1]  = {16'b0, data_i[31:16]};
         end else begin
           // save the upper bits for next cycle
           unaligned_d = 1'b1;
-          unaligned_instr_d = data_31_16;
+          unaligned_instr_d = data_i[31:16];
           unaligned_address_d = {address_i[riscv::VLEN-1:2], 2'b10};
         end
       end  // else -> normal fetch
@@ -119,13 +104,13 @@ module instr_realign
       if (valid_i && address_i[1]) begin
         // the instruction is not compressed so we can't do anything in this cycle
         if (!instr_is_compressed[0]) begin
-          valid_o_d = '0;
+          valid_o = '0;
           unaligned_d = 1'b1;
           unaligned_address_d = {address_i[riscv::VLEN-1:2], 2'b10};
-          unaligned_instr_d = data_15_0;
+          unaligned_instr_d = data_i[15:0];
           // the instruction isn't compressed but only the lower is ready
         end else begin
-          valid_o_d = 1'b1;
+          valid_o = 1'b1;
         end
       end
     end
@@ -139,25 +124,25 @@ module instr_realign
       unaligned_address_d = unaligned_address_q;
       unaligned_instr_d = unaligned_instr_q;
 
-      valid_o_d    = '0;
-      valid_o_d[0] = valid_i;
+      valid_o    = '0;
+      valid_o[0] = valid_i;
 
-      instr_o_d[0] = data_31_0;
-      addr_o_d[0]  = address_i;
+      instr_o[0] = data_i[31:0];
+      addr_o[0]  = address_i;
 
-      instr_o_d[1] = '0;
-      addr_o_d[1]  = {address_i[riscv::VLEN-1:3], 3'b010};
+      instr_o[1] = '0;
+      addr_o[1]  = {address_i[riscv::VLEN-1:3], 3'b010};
 
-      instr_o_d[2] = {16'b0, data_47_32};
-      addr_o_d[2]  = {address_i[riscv::VLEN-1:3], 3'b100};
+      instr_o[2] = {16'b0, data_i[47:32]};
+      addr_o[2]  = {address_i[riscv::VLEN-1:3], 3'b100};
 
-      instr_o_d[3] = {16'b0, data_63_48};
-      addr_o_d[3]  = {address_i[riscv::VLEN-1:3], 3'b110};
+      instr_o[3] = {16'b0, data_i[63:48]};
+      addr_o[3]  = {address_i[riscv::VLEN-1:3], 3'b110};
 
       // last instruction was unaligned
       if (unaligned_q) begin
-        instr_o_d[0] = {data_15_0, unaligned_instr_q};
-        addr_o_d[0]  = unaligned_address_q;
+        instr_o[0] = {data_i[15:0], unaligned_instr_q};
+        addr_o[0]  = unaligned_address_q;
         // for 64 bit there exist the following options:
         //     64      32      0
         //     | 3 | 2 | 1 | 0 | <- instruction slot
@@ -169,30 +154,30 @@ module instr_realign
         // Legend: C = compressed, I = 32 bit instruction, U = unaligned upper half
         //         * = don't care
         if (instr_is_compressed[1]) begin
-          instr_o_d[1] = {16'b0, data_31_16};
-          valid_o_d[1] = valid_i;
+          instr_o[1] = {16'b0, data_i[31:16]};
+          valid_o[1] = valid_i;
 
           if (instr_is_compressed[2]) begin
             if (instr_is_compressed[3]) begin
               unaligned_d = 1'b0;
-              valid_o_d[3]  = valid_i;
+              valid_o[3]  = valid_i;
             end else begin
               // continues to be unaligned
             end
           end else begin
             unaligned_d = 1'b0;
-            instr_o_d[2]  = data_63_32;
-            valid_o_d[2]  = valid_i;
+            instr_o[2]  = data_i[63:32];
+            valid_o[2]  = valid_i;
           end
           // instruction 1 is not compressed
         end else begin
-          instr_o_d[1] = data_47_16;
-          valid_o_d[1] = valid_i;
-          addr_o_d[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
+          instr_o[1] = data_i[47:16];
+          valid_o[1] = valid_i;
+          addr_o[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
           if (instr_is_compressed[2]) begin
             unaligned_d = 1'b0;
-            instr_o_d[2]  = {16'b0, data_63_48};
-            valid_o_d[2]  = valid_i;
+            instr_o[2]  = {16'b0, data_i[63:48]};
+            valid_o[2]  = valid_i;
           end else begin
             // continues to be unaligned
           end
@@ -206,35 +191,35 @@ module instr_realign
         // |   I   | C | C | C | -> again unaligned
         // | * | C | C | C | C | -> aligned
         if (instr_is_compressed[1]) begin
-          instr_o_d[1] = {16'b0, data_31_16};
-          valid_o_d[1] = valid_i;
+          instr_o[1] = {16'b0, data_i[31:16]};
+          valid_o[1] = valid_i;
 
           if (instr_is_compressed[2]) begin
-            valid_o_d[2] = valid_i;
+            valid_o[2] = valid_i;
             if (instr_is_compressed[3]) begin
-              valid_o_d[3] = valid_i;
+              valid_o[3] = valid_i;
             end else begin
               // this instruction is unaligned
               unaligned_d = 1'b1;
-              unaligned_instr_d = data_63_48;
-              unaligned_address_d = addr_o_d[3];
+              unaligned_instr_d = data_i[63:48];
+              unaligned_address_d = addr_o[3];
             end
           end else begin
-            instr_o_d[2] = data_63_32;
-            valid_o_d[2] = valid_i;
+            instr_o[2] = data_i[63:32];
+            valid_o[2] = valid_i;
           end
           // instruction 1 is not compressed -> check slot 3
         end else begin
-          instr_o_d[1] = data_47_16;
-          valid_o_d[1] = valid_i;
-          addr_o_d[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
+          instr_o[1] = data_i[47:16];
+          valid_o[1] = valid_i;
+          addr_o[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
           if (instr_is_compressed[3]) begin
-            instr_o_d[2] = data_63_48;
-            valid_o_d[2] = valid_i;
+            instr_o[2] = data_i[63:48];
+            valid_o[2] = valid_i;
           end else begin
             unaligned_d = 1'b1;
-            unaligned_instr_d = data_63_48;
-            unaligned_address_d = addr_o_d[2];
+            unaligned_instr_d = data_i[63:48];
+            unaligned_address_d = addr_o[2];
           end
         end
 
@@ -245,26 +230,26 @@ module instr_realign
         // | * | C | C |   I   |
         // | * |   I   |   I   |
       end else begin
-        addr_o_d[1] = {address_i[riscv::VLEN-1:3], 3'b100};
+        addr_o[1] = {address_i[riscv::VLEN-1:3], 3'b100};
 
         if (instr_is_compressed[2]) begin
-          instr_o_d[1] = {16'b0, data_47_32};
-          valid_o_d[1] = valid_i;
-          addr_o_d[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
+          instr_o[1] = {16'b0, data_i[47:32]};
+          valid_o[1] = valid_i;
+          addr_o[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
           if (instr_is_compressed[3]) begin
             // | * | C | C |   I   |
-            valid_o_d[2] = valid_i;
-            addr_o_d[2]  = {16'b0, data_63_48};
+            valid_o[2] = valid_i;
+            addr_o[2]  = {16'b0, data_i[63:48]};
           end else begin
             // this instruction is unaligned
             unaligned_d = 1'b1;
-            unaligned_instr_d = data_63_48;
+            unaligned_instr_d = data_i[63:48];
             unaligned_address_d = addr_o[2];
           end
         end else begin
           // two regular instructions back-to-back
-          instr_o_d[1] = data_63_32;
-          valid_o_d[1] = valid_i;
+          instr_o[1] = data_i[63:32];
+          valid_o[1] = valid_i;
         end
       end
 
@@ -283,83 +268,83 @@ module instr_realign
           // | * |   I   | C | x  -> aligned
           // |   I   | C | C | x  -> again unaligned
           // | * | C | C | C | x  -> aligned
-          addr_o_d[0] = {address_i[riscv::VLEN-1:3], 3'b010};
+          addr_o[0] = {address_i[riscv::VLEN-1:3], 3'b010};
 
           if (instr_is_compressed[1]) begin
-            instr_o_d[0] = {16'b0, data_31_16};
-            valid_o_d[0] = valid_i;
+            instr_o[0] = {16'b0, data_i[31:16]};
+            valid_o[0] = valid_i;
 
             if (instr_is_compressed[2]) begin
-              valid_o_d[1] = valid_i;
-              instr_o_d[1] = {16'b0, data_47_32};
-              addr_o_d[1]  = {address_i[riscv::VLEN-1:3], 3'b100};
+              valid_o[1] = valid_i;
+              instr_o[1] = {16'b0, data_i[47:32]};
+              addr_o[1]  = {address_i[riscv::VLEN-1:3], 3'b100};
               if (instr_is_compressed[3]) begin
-                instr_o_d[2] = {16'b0, data_63_48};
-                addr_o_d[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
-                valid_o_d[2] = valid_i;
+                instr_o[2] = {16'b0, data_i[63:48]};
+                addr_o[2]  = {address_i[riscv::VLEN-1:3], 3'b110};
+                valid_o[2] = valid_i;
               end else begin
                 // this instruction is unaligned
                 unaligned_d = 1'b1;
-                unaligned_instr_d = data_63_48;
+                unaligned_instr_d = data_i[63:48];
                 unaligned_address_d = addr_o[3];
               end
             end else begin
-              instr_o_d[1] = data_63_32;
-              addr_o_d[1]  = {address_i[riscv::VLEN-1:3], 3'b100};
-              valid_o_d[1] = valid_i;
+              instr_o[1] = data_i[63:32];
+              addr_o[1]  = {address_i[riscv::VLEN-1:3], 3'b100};
+              valid_o[1] = valid_i;
             end
             // instruction 1 is not compressed -> check slot 3
           end else begin
-            instr_o_d[0] = data_47_16;
-            valid_o_d[0] = valid_i;
-            addr_o_d[1]  = {address_i[riscv::VLEN-1:3], 3'b110};
+            instr_o[0] = data_i[47:16];
+            valid_o[0] = valid_i;
+            addr_o[1]  = {address_i[riscv::VLEN-1:3], 3'b110};
             if (instr_is_compressed[3]) begin
-              instr_o_d[1] = data_63_48;
-              valid_o_d[1] = valid_i;
+              instr_o[1] = data_i[63:48];
+              valid_o[1] = valid_i;
             end else begin
               unaligned_d = 1'b1;
-              unaligned_instr_d = data_63_48;
-              unaligned_address_d = addr_o_d[1];
+              unaligned_instr_d = data_i[63:48];//data_i[63:48];
+              unaligned_address_d = addr_o[1];
             end
           end
         end
         2'b10: begin
-          valid_o_d = '0;
+          valid_o = '0;
           //     64     32       0
           //     | 3 | 2 | 1 | 0 | <- instruction slot
           // |   I   | C |   *   | <- unaligned
           //    | C  | C |   *   | <- aligned
           //    |    I   |   *   | <- aligned
           if (instr_is_compressed[2]) begin
-            valid_o_d[0] = valid_i;
-            instr_o_d[0] = data_47_32;
+            valid_o[0] = valid_i;
+            instr_o[0] = data_i[47:32];//data_i[47:32];
             // second instruction is also compressed
             if (instr_is_compressed[3]) begin
-              valid_o_d[1] = valid_i;
-              instr_o_d[1] = data_63_48;
+              valid_o[1] = valid_i;
+              instr_o[1] = data_i[63:48];//data_i[63:48];
               // regular instruction -> unaligned
             end else begin
               unaligned_d = 1'b1;
               unaligned_address_d = {address_i[riscv::VLEN-1:3], 3'b110};
-              unaligned_instr_d = data_63_48;
+              unaligned_instr_d = data_i[63:48];//data_i[63:48];
             end
             // instruction is a regular instruction
           end else begin
-            valid_o_d[0] = valid_i;
-            instr_o_d[0] = data_63_32;
-            addr_o_d[0]  = address_i;
+            valid_o[0] = valid_i;
+            instr_o[0] = data_i[63:32];
+            addr_o[0]  = address_i;
           end
         end
         // we started to fetch on a unaligned boundary with a whole instruction -> wait until we've
         // received the next instruction
         2'b11: begin
-          valid_o_d = '0;
+          valid_o = '0;
           if (!instr_is_compressed[3]) begin
             unaligned_d = 1'b1;
             unaligned_address_d = {address_i[riscv::VLEN-1:3], 3'b110};
-            unaligned_instr_d = data_63_48;
+            unaligned_instr_d = data_i[63:48];//data_i[63:48];
           end else begin
-            valid_o_d[3] = valid_i;
+            valid_o[3] = valid_i;//valid_i;
           end
         end
       endcase
@@ -371,21 +356,31 @@ module instr_realign
       unaligned_q         <= 1'b0;
       unaligned_address_q <= '0;
       unaligned_instr_q   <= '0;
-      instr_o_q <= '0;
-      addr_o_q <= '0;
-      valid_o_q <= '0;
-      data_31_16 <= '0;
-      data_31_0 <= '0;
-      data_15_0 <= '0;
-      data_47_32 <= '0;
-      data_47_16 <= '0;
-      data_63_32 <= '0; 
-      data_63_48 <= '0;
+
+      /*data_i[31:16] <= '0;
+      data_i[31:0] <= '0;
+      data_i[15:0] <= '0;
+      data_i[47:32] <= '0;
+      data_i[47:16] <= '0;
+      data_i[63:32] <= '0; 
+      data_i[63:48] <= '0;
+
+      instr_is_compressed <= '0;
+      valid_i <= '0;
+      address_i <= '0;
+
+      flush_tmp <= '0;*/
+
     end else begin
+
+      /*valid_i <= valid_i;
+      flush_tmp <= flush_i;*/
+
       if (valid_i) begin
         unaligned_address_q <= unaligned_address_d;
         unaligned_instr_q   <= unaligned_instr_d;
       end
+    
 
       if (flush_i) begin
         unaligned_q <= 1'b0;
@@ -393,20 +388,9 @@ module instr_realign
         unaligned_q <= unaligned_d;
       end
       
-      instr_o_q <= instr_o_d;
-      addr_o_q <= addr_o_d;
-      valid_o_q <= valid_o_d;
-
-      if( FETCH_WIDTH == 32) begin 
-        data_31_16 <= data_i[31:16] ;//data_tmp_1[31:16];
-        data_31_0 <= data_i[31:0];//data_tmp_1[31:0];
-        data_15_0 <= data_i[15:0];//data_tmp_1[15:0];
-      end else begin
-        data_47_32 <= data_i[47:32];//data_tmp_1[47:32];
-        data_47_16 <= data_i[47_16];//data_tmp_1[47:16];
-        data_63_32 <= data_i[63:32];//data_tmp_1[63:32];
-        data_63_48 <= data_i[63:48];//data_tmp_1[63:48];
-      end
+      /*instr_o_q <= instr_o;
+      addr_o_q <= addr_o;
+      valid_o_q <= valid_o;*/
     end
   end
 endmodule
