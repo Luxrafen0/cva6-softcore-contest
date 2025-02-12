@@ -350,6 +350,7 @@ module instr_realign
       unaligned_q         <= 1'b0;
       unaligned_address_q <= '0;
       unaligned_instr_q   <= '0;
+      unaligned_instr_val <= '0;
 
     end else begin
 
