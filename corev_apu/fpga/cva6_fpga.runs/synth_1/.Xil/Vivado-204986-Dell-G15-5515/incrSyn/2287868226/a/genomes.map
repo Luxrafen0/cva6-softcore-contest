@@ -1,0 +1,12 @@
+addr_decode 55D300E0
+axi_xbar__GC0 55A2C4A0
+cva6_hpdcache_subsystem__GB0 8056B300
+cva6_hpdcache_subsystem__GB1 82B47280
+cva6_mmu_sv32 8BCDDC60
+load_store_unit__GB1 862E70A0
+ex_stage__GC0 891A6AE0
+cva6__GCB0 78D51F20
+cva6__GCB1 54D0D8C0
+cva6_zybo_z7_20__GCB0 74B99EE0
+cva6_zybo_z7_20__GCB1 55448C20
+addr_decode__1 5557E140

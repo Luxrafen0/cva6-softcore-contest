@@ -1,0 +1,8 @@
+cva6_zybo_z7_20: cva6_hpdcache_subsystem__GB1, cva6_mmu_sv32, cva6__GCB0, load_store_unit__GB1, cva6_zybo_z7_20__GCB0, addr_decode, cva6__GCB1, axi_xbar__GC0, cva6_hpdcache_subsystem__GB0, cva6_zybo_z7_20__GCB1, ex_stage__GC0, 
+ariane: cva6__GCB1, cva6__GCB0, ex_stage__GC0, load_store_unit__GB1, cva6_mmu_sv32, cva6_hpdcache_subsystem__GB1, cva6_hpdcache_subsystem__GB0, 
+cva6: cva6__GCB1, cva6__GCB0, ex_stage__GC0, load_store_unit__GB1, cva6_mmu_sv32, cva6_hpdcache_subsystem__GB1, cva6_hpdcache_subsystem__GB0, 
+ex_stage: ex_stage__GC0, load_store_unit__GB1, cva6_mmu_sv32, 
+load_store_unit: load_store_unit__GB1, cva6_mmu_sv32, 
+cva6_hpdcache_subsystem: cva6_hpdcache_subsystem__GB1, cva6_hpdcache_subsystem__GB0, 
+axi_xbar_intf: axi_xbar__GC0, addr_decode, 
+axi_xbar: axi_xbar__GC0, addr_decode, 

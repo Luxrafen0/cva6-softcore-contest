@@ -1,0 +1,11 @@
+addr_decode
+axi_xbar__GC0
+cva6_hpdcache_subsystem__GB0
+cva6_hpdcache_subsystem__GB1
+cva6_mmu_sv32
+load_store_unit__GB1
+ex_stage__GC0
+cva6__GCB0
+cva6__GCB1
+cva6_zybo_z7_20__GCB0
+cva6_zybo_z7_20__GCB1

@@ -59,8 +59,7 @@ module pmp #(
         // case it also applies in M mode
         if (priv_lvl_i != riscv::PRIV_LVL_M || conf_i[i].locked) begin
           if (match[i]) begin
-            if ((access_type_i & conf_i[i].access_type) != access_type_i) allow_o = 1'b0;
-            else allow_o = 1'b1;
+            if (access_type_i != conf_i[i].access_type) allow_o = 1'b1;
             break;
           end
         end
@@ -68,9 +67,6 @@ module pmp #(
       if (i == NR_ENTRIES) begin  // no PMP entry matched the address
         // allow all accesses from M-mode for no pmp match
         if (priv_lvl_i == riscv::PRIV_LVL_M) allow_o = 1'b1;
-        // disallow accesses for all other modes
-        else
-          allow_o = 1'b0;
       end
     end
   end else assign allow_o = 1'b1;
@@ -83,7 +79,7 @@ module pmp #(
       no_locked = 1'b1;
       for (int i = 0; i < NR_ENTRIES; i++) begin
         if (conf_i[i].locked && conf_i[i].addr_mode != riscv::OFF) begin
-          no_locked &= 1'b0;
+          no_locked = 1'b0;
         end else no_locked &= 1'b1;
       end
       if (no_locked == 1'b1) assert (allow_o == 1'b1);

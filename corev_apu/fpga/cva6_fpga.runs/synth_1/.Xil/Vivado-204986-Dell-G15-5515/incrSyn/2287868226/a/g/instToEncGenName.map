@@ -1,0 +1,14 @@
+/i_ariane/i_cva6/cva6__GCB0:1510207769
+/i_ariane/i_cva6/cva6__GCB1:755286415
+/i_axi_xbar/i_xbar/gen_slv_port_demux[1].i_axi_ar_decode:2047454656
+/i_ariane/i_cva6/ex_stage_i/lsu_i/gen_mmu_sv32.i_cva6_mmu:2064618017
+/i_ariane/i_cva6/ex_stage_i/lsu_i/load_store_unit__GB1:3340632951
+/i_axi_xbar/i_xbar/gen_slv_port_demux[0].i_axi_aw_decode:2354108912
+/cva6_zybo_z7_20__GCB1:4198715654
+/cva6_zybo_z7_20__GCB0:2370068880
+/i_axi_xbar/i_xbar/gen_slv_port_demux[1].i_axi_aw_decode:2047454656
+/i_ariane/i_cva6/ex_stage_i/ex_stage__GC0:3464880387
+/i_axi_xbar/i_xbar/axi_xbar__GC0:2386172538
+/i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/cva6_hpdcache_subsystem__GB0:3168245287
+/i_axi_xbar/i_xbar/gen_slv_port_demux[0].i_axi_ar_decode:2354108912
+/i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/cva6_hpdcache_subsystem__GB1:3419449009
