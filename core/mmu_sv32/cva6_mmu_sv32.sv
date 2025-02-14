@@ -267,7 +267,7 @@ module cva6_mmu_sv32
   // Instruction Interface
   //-----------------------
   logic match_any_execute_region;
-  logic pmp_instr_allow;
+  logic pmp_instr_allow,pmp_instr_allow_q;
 
   // The instruction interface is a simple request response interface
   always_comb begin : instr_interface
@@ -325,7 +325,7 @@ module cva6_mmu_sv32
             {{riscv::XLEN - riscv::VLEN{1'b0}}, icache_areq_i.fetch_vaddr},
             1'b1
           };  //to check on wave --> not connected
-        end else if (!pmp_instr_allow) begin
+        end else if (!pmp_instr_allow_q) begin
           icache_areq_o.fetch_exception = {
             riscv::INSTR_ACCESS_FAULT, icache_areq_i.fetch_vaddr, 1'b1
           };  //to check on wave --> not connected
@@ -350,7 +350,7 @@ module cva6_mmu_sv32
     end
     // if it didn't match any execute region throw an `Instruction Access Fault`
     // or: if we are not translating, check PMPs immediately on the paddr
-    if (!match_any_execute_region || (!enable_translation_i && !pmp_instr_allow)) begin
+    if (!match_any_execute_region || (!enable_translation_i && !pmp_instr_allow_q)) begin
       icache_areq_o.fetch_exception = {
         riscv::INSTR_ACCESS_FAULT, icache_areq_o.fetch_paddr[riscv::PLEN-1:2], 1'b1
       };  //to check on wave --> not connected
@@ -394,7 +394,7 @@ module cva6_mmu_sv32
 
   // Wires to PMP checks
   riscv::pmp_access_t pmp_access_type;
-  logic               pmp_data_allow;
+  logic               pmp_data_allow,pmp_data_allow_q;
   localparam PPNWMin = (riscv::PPNW - 1 > 29) ? 29 : riscv::PPNW - 1;
   // The data interface is simpler and only consists of a request/response interface
   always_comb begin : data_interface
@@ -457,7 +457,7 @@ module cva6_mmu_sv32
               1'b1
             };  //to check on wave
             // Check if any PMPs are violated
-          end else if (!pmp_data_allow) begin
+          end else if (!pmp_data_allow_q) begin
             lsu_exception_o = {
               riscv::ST_ACCESS_FAULT, lsu_paddr_o[riscv::PLEN-1:2], 1'b1
             };  //only 32 bits on 34b of lsu_paddr_o are returned.
@@ -473,7 +473,7 @@ module cva6_mmu_sv32
               1'b1
             };
             // Check if any PMPs are violated
-          end else if (!pmp_data_allow) begin
+          end else if (!pmp_data_allow_q) begin
             lsu_exception_o = {
               riscv::LD_ACCESS_FAULT, lsu_paddr_o[riscv::PLEN-1:2], 1'b1
             };  //only 32 bits on 34b of lsu_paddr_o are returned.
@@ -514,7 +514,7 @@ module cva6_mmu_sv32
         end
       end
     end  // If translation is not enabled, check the paddr immediately against PMPs
-    else if (lsu_req_q && !misaligned_ex_q.valid && !pmp_data_allow) begin
+    else if (lsu_req_q && !misaligned_ex_q.valid && !pmp_data_allow_q) begin
       if (lsu_is_store_q) begin
         lsu_exception_o = {riscv::ST_ACCESS_FAULT, lsu_paddr_o[riscv::PLEN-1:2], 1'b1};
       end else begin
@@ -550,6 +550,8 @@ module cva6_mmu_sv32
       dtlb_hit_q      <= '0;
       lsu_is_store_q  <= '0;
       dtlb_is_4M_q    <= '0;
+      pmp_data_allow_q <= '0;
+      pmp_instr_allow_q <= '0;
     end else begin
       lsu_vaddr_q     <= lsu_vaddr_n;
       lsu_req_q       <= lsu_req_n;
@@ -558,6 +560,8 @@ module cva6_mmu_sv32
       dtlb_hit_q      <= dtlb_hit_n;
       lsu_is_store_q  <= lsu_is_store_n;
       dtlb_is_4M_q    <= dtlb_is_4M_n;
+      pmp_data_allow_q <= pmp_data_allow;
+      pmp_instr_allow_q <= pmp_instr_allow;
     end
   end
 endmodule
