@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Thu Feb 13 17:51:10 2025
+| Date         : Sat Feb 15 17:02:58 2025
 | Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.2 LTS
 | Command      : check_timing -verbose -file reports_cva6_fpga_synth/cva6_fpga.check_timing.rpt
 | Design       : cva6_zybo_z7_20
@@ -15,7 +15,7 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (772)
+1. checking no_clock (548)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
 4. checking unconstrained_internal_endpoints (36)
@@ -28,7 +28,7 @@ Table of Contents
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (772)
+1. checking no_clock (548)
 --------------------------
  There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/ldbuf_q_reg[0][operation][0]/Q (HIGH)
 
@@ -590,252 +590,7 @@ i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
 i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
 i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
 
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_ctrl_i/st1_req_q_reg[tid][0]/Q (HIGH)
-
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[11]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[12]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[13]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[14]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[15]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[16]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[17]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[18]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[19]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[1]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[20]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[21]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[22]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[23]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[24]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[25]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[26]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[27]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[28]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[29]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[2]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[30]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[31]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[3]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[4]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[5]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[6]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_miss_handler_i/refill_core_rsp_tid_q_reg[0]/Q (HIGH)
-
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[11]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[12]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[13]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[14]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[15]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[16]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[17]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[18]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[19]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[1]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[20]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[21]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[22]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[23]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[24]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[25]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[26]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[27]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[28]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[29]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[2]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[30]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[31]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[3]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[4]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[5]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[6]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_miss_handler_i/refill_core_rsp_valid_q_reg/Q (HIGH)
-
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[11]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[12]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[13]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[14]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[15]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[16]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[17]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[18]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[19]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[1]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[20]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[21]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[22]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[23]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[24]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[25]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[26]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[27]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[28]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[29]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[2]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[30]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[31]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[3]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[4]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[5]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[6]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_uc_i/req_tid_q_reg[0]/Q (HIGH)
-
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[11]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[12]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[13]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[14]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[15]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[16]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[17]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[18]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[19]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[1]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[20]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[21]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[22]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[23]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[24]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[25]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[26]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[27]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[28]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[29]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[2]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[30]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[31]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[3]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[4]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[5]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[6]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_uc_i/uc_fsm_q_reg[0]/Q (HIGH)
-
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[11]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[12]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[13]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[14]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[15]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[16]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[17]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[18]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[19]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[1]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[20]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[21]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[22]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[23]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[24]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[25]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[26]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[27]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[28]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[29]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[2]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[30]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[31]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[3]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[4]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[5]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[6]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_uc_i/uc_fsm_q_reg[1]/Q (HIGH)
-
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[11]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[12]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[13]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[14]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[15]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[16]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[17]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[18]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[19]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[1]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[20]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[21]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[22]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[23]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[24]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[25]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[26]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[27]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[28]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[29]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[2]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[30]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[31]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[3]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[4]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[5]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[6]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_uc_i/uc_fsm_q_reg[2]/Q (HIGH)
-
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[11]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[12]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[13]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[14]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[15]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[16]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[17]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[18]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[19]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[1]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[20]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[21]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[22]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[23]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[24]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[25]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[26]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[27]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[28]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[29]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[2]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[30]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[31]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[3]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[4]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[5]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[6]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[7]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[8]/G
-i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[9]/G
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_hpd.i_cache_subsystem/i_hpdcache/hpdcache_uc_i/uc_fsm_q_reg[3]/Q (HIGH)
+ There are 32 register/latch pins with no clock driven by root clock pin: i_ariane/i_cva6/gen_cache_wt.i_cache_subsystem/i_wt_dcache/gen_rd_ports[1].i_wt_dcache_ctrl/id_q_reg[0]/Q (HIGH)
 
 i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[0]/G
 i_ariane/i_cva6/ex_stage_i/lsu_i/i_load_unit/result_o_reg[10]/G
