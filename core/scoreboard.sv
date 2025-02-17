@@ -411,7 +411,7 @@ module scoreboard #(
   if (CVA6Cfg.NrRgprPorts == 3) begin : gen_gp_three_port
     assign rs3_o = rs3[riscv::XLEN-1:0];
   end else begin : gen_fp_three_port
-    assign rs3_o = rs3[CVA6Cfg.FLen-1:0];
+    assign rs3_o = (CVA6Cfg.FLen > 0) ? rs3[CVA6Cfg.FLen-1:0] : '0;
   end
 
 
