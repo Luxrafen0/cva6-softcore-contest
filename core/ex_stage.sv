@@ -389,6 +389,7 @@ module ex_stage
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (~rst_ni) begin
       current_instruction_is_sfence_vma <= 1'b0;
+      
     end else begin
       if (flush_i) begin
         current_instruction_is_sfence_vma <= 1'b0;
