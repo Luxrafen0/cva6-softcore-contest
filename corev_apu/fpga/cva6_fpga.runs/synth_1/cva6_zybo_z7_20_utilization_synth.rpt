@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Sat Feb 15 17:02:39 2025
+| Date         : Mon Feb 17 17:42:21 2025
 | Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.2 LTS
 | Command      : report_utilization -file cva6_zybo_z7_20_utilization_synth.rpt -pb cva6_zybo_z7_20_utilization_synth.pb
 | Design       : cva6_zybo_z7_20
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+-------+-------+------------+-----------+-------+
 |          Site Type         |  Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+-------+-------+------------+-----------+-------+
-| Slice LUTs*                | 24555 |     0 |          0 |     53200 | 46.16 |
-|   LUT as Logic             | 23717 |     0 |          0 |     53200 | 44.58 |
+| Slice LUTs*                | 24546 |     0 |          0 |     53200 | 46.14 |
+|   LUT as Logic             | 23708 |     0 |          0 |     53200 | 44.56 |
 |   LUT as Memory            |   838 |     0 |          0 |     17400 |  4.82 |
 |     LUT as Distributed RAM |   838 |     0 |            |           |       |
 |     LUT as Shift Register  |     0 |     0 |            |           |       |
-| Slice Registers            | 14161 |     0 |          0 |    106400 | 13.31 |
-|   Register as Flip Flop    | 14125 |     0 |          0 |    106400 | 13.28 |
+| Slice Registers            | 14120 |     0 |          0 |    106400 | 13.27 |
+|   Register as Flip Flop    | 14084 |     0 |          0 |    106400 | 13.24 |
 |   Register as Latch        |    36 |     0 |          0 |    106400 |  0.03 |
-| F7 Muxes                   |   388 |     0 |          0 |     26600 |  1.46 |
+| F7 Muxes                   |   396 |     0 |          0 |     26600 |  1.49 |
 | F8 Muxes                   |    14 |     0 |          0 |     13300 |  0.11 |
 +----------------------------+-------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -60,7 +60,7 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 69    |          Yes |           - |          Set |
-| 13921 |          Yes |           - |        Reset |
+| 13880 |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
 | 171   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -153,16 +153,16 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+-------+---------------------+
 | Ref Name |  Used | Functional Category |
 +----------+-------+---------------------+
-| FDCE     | 13885 |        Flop & Latch |
-| LUT6     | 10523 |                 LUT |
-| LUT5     |  5985 |                 LUT |
-| LUT4     |  4447 |                 LUT |
-| LUT2     |  3830 |                 LUT |
-| LUT3     |  3290 |                 LUT |
+| FDCE     | 13844 |        Flop & Latch |
+| LUT6     | 10510 |                 LUT |
+| LUT5     |  5983 |                 LUT |
+| LUT4     |  4417 |                 LUT |
+| LUT2     |  3869 |                 LUT |
+| LUT3     |  3320 |                 LUT |
 | CARRY4   |  1547 |          CarryLogic |
 | RAMD32   |  1218 |  Distributed Memory |
+| MUXF7    |   396 |               MuxFx |
 | RAMS32   |   392 |  Distributed Memory |
-| MUXF7    |   388 |               MuxFx |
 | LUT1     |   225 |                 LUT |
 | FDRE     |   171 |        Flop & Latch |
 | FDPE     |    69 |        Flop & Latch |

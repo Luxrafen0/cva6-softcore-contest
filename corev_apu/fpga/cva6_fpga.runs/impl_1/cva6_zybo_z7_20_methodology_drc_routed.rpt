@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Sat Feb 15 17:06:54 2025
+| Date         : Mon Feb 17 17:46:39 2025
 | Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.2 LTS
 | Command      : report_methodology -file cva6_zybo_z7_20_methodology_drc_routed.rpt -pb cva6_zybo_z7_20_methodology_drc_routed.pb -rpx cva6_zybo_z7_20_methodology_drc_routed.rpx
 | Design       : cva6_zybo_z7_20
