@@ -94,6 +94,7 @@ module issue_stage
     input [          (riscv::XLEN/8)-1:0] lsu_wmask_i,
     input [ariane_pkg::TRANS_ID_BITS-1:0] lsu_addr_trans_id_i
 );
+
   // ---------------------------------------------------
   // Scoreboard (SB) <-> Issue and Read Operands (IRO)
   // ---------------------------------------------------
@@ -127,49 +128,116 @@ module issue_stage
   assign issue_instr_o    = issue_instr_sb_iro;
   assign issue_instr_hs_o = issue_instr_valid_sb_iro & issue_ack_iro_sb;
 
+    // ---------------------------------------------------
+    // Pipeline registers for scoreboard inputs
+    // ---------------------------------------------------
+    scoreboard_entry_t decoded_instr_reg;
+    logic decoded_instr_valid_reg;
+    logic issue_ack_reg;
+    bp_resolve_t resolved_branch_reg;
+    logic [CVA6Cfg.NrWbPorts-1:0][TRANS_ID_BITS-1:0] trans_id_reg;
+    logic [CVA6Cfg.NrWbPorts-1:0][riscv::XLEN-1:0] wbdata_reg;
+    exception_t [CVA6Cfg.NrWbPorts-1:0] ex_reg;
+    logic [riscv::VLEN-1:0] lsu_addr_reg;
+    logic [(riscv::XLEN/8)-1:0] lsu_rmask_reg;
+    logic [(riscv::XLEN/8)-1:0] lsu_wmask_reg;
+    logic [ariane_pkg::TRANS_ID_BITS-1:0] lsu_addr_trans_id_reg;
+    logic [REG_ADDR_SIZE-1:0] rs1_reg;
+    logic [REG_ADDR_SIZE-1:0] rs2_reg;
+    logic [REG_ADDR_SIZE-1:0] rs3_reg;
+    riscv::xlen_t rs1_forwarding_reg;
+    riscv::xlen_t rs2_forwarding_reg;
+    logic unresolved_branch_reg;
+    logic flush_reg;
 
-  // ---------------------------------------------------------
-  // 2. Manage instructions in a scoreboard
-  // ---------------------------------------------------------
-  scoreboard #(
-      .CVA6Cfg   (CVA6Cfg),
-      .IsRVFI    (IsRVFI),
-      .rs3_len_t (rs3_len_t),
-      .NR_ENTRIES(NR_ENTRIES)
-  ) i_scoreboard (
-      .sb_full_o          (sb_full_o),
-      .unresolved_branch_i(1'b0),
-      .rd_clobber_gpr_o   (rd_clobber_gpr_sb_iro),
-      .rd_clobber_fpr_o   (rd_clobber_fpr_sb_iro),
-      .rs1_i              (rs1_iro_sb),
-      .rs1_o              (rs1_sb_iro),
-      .rs1_valid_o        (rs1_valid_sb_iro),
-      .rs2_i              (rs2_iro_sb),
-      .rs2_o              (rs2_sb_iro),
-      .rs2_valid_o        (rs2_valid_iro_sb),
-      .rs3_i              (rs3_iro_sb),
-      .rs3_o              (rs3_sb_iro),
-      .rs3_valid_o        (rs3_valid_iro_sb),
+// ---------------------------------------------------
+// Pipeline stage: Capturing scoreboard inputs
+// ---------------------------------------------------
+always_ff @(posedge clk_i or negedge rst_ni) begin
+    if (!rst_ni) begin
+        decoded_instr_reg        <= '0;
+        decoded_instr_valid_reg  <= 1'b0;
+        issue_ack_reg            <= 1'b0;
+        resolved_branch_reg      <= '0;
+        trans_id_reg             <= '0;
+        wbdata_reg               <= '0;
+        ex_reg                   <= '0;
+        lsu_addr_reg             <= '0;
+        lsu_rmask_reg            <= '0;
+        lsu_wmask_reg            <= '0;
+        lsu_addr_trans_id_reg    <= '0;
+        rs1_reg                  <= '0;
+        rs2_reg                  <= '0;
+        rs3_reg                  <= '0;
+        rs1_forwarding_reg       <= '0;
+        rs2_forwarding_reg       <= '0;
+        unresolved_branch_reg    <= 1'b0;
+        flush_reg                <= 1'b0;
+    end else if (!stall_i) begin
+        decoded_instr_reg        <= decoded_instr_i;
+        decoded_instr_valid_reg  <= decoded_instr_valid_i;
+        issue_ack_reg            <= issue_ack_iro_sb;
+        resolved_branch_reg      <= resolved_branch_i;
+        trans_id_reg             <= trans_id_i;
+        wbdata_reg               <= wbdata_i;
+        ex_reg                   <= ex_ex_i;
+        lsu_addr_reg             <= lsu_addr_i;
+        lsu_rmask_reg            <= lsu_rmask_i;
+        lsu_wmask_reg            <= lsu_wmask_i;
+        lsu_addr_trans_id_reg    <= lsu_addr_trans_id_i;
+        rs1_reg                  <= rs1_iro_sb;
+        rs2_reg                  <= rs2_iro_sb;
+        rs3_reg                  <= rs3_iro_sb;
+        rs1_forwarding_reg       <= rs1_forwarding_xlen;
+        rs2_forwarding_reg       <= rs2_forwarding_xlen;
+        unresolved_branch_reg    <= 1'b0; // Peut être mis à jour selon la logique de branche
+        flush_reg                <= flush_i;
+    end
+end
 
-      .decoded_instr_i      (decoded_instr_i),
-      .decoded_instr_valid_i(decoded_instr_valid_i),
-      .decoded_instr_ack_o  (decoded_instr_ack_o),
-      .issue_instr_o        (issue_instr_sb_iro),
-      .issue_instr_valid_o  (issue_instr_valid_sb_iro),
-      .issue_ack_i          (issue_ack_iro_sb),
 
-      .resolved_branch_i  (resolved_branch_i),
-      .trans_id_i         (trans_id_i),
-      .wbdata_i           (wbdata_i),
-      .ex_i               (ex_ex_i),
-      .lsu_addr_i         (lsu_addr_i),
-      .lsu_rmask_i        (lsu_rmask_i),
-      .lsu_wmask_i        (lsu_wmask_i),
-      .lsu_addr_trans_id_i(lsu_addr_trans_id_i),
-      .rs1_forwarding_i   (rs1_forwarding_xlen),
-      .rs2_forwarding_i   (rs2_forwarding_xlen),
-      .*
-  );
+// ---------------------------------------------------------
+// 2. Manage instructions in a scoreboard
+// ---------------------------------------------------------
+scoreboard #(
+    .CVA6Cfg   (CVA6Cfg),
+    .IsRVFI    (IsRVFI),
+    .rs3_len_t (rs3_len_t),
+    .NR_ENTRIES(NR_ENTRIES)
+) i_scoreboard (
+    .sb_full_o          (sb_full_o),
+    .unresolved_branch_i(unresolved_branch_reg),
+    .rd_clobber_gpr_o   (rd_clobber_gpr_sb_iro),
+    .rd_clobber_fpr_o   (rd_clobber_fpr_sb_iro),
+    .rs1_i              (rs1_reg),
+    .rs1_o              (rs1_sb_iro),
+    .rs1_valid_o        (rs1_valid_sb_iro),
+    .rs2_i              (rs2_reg),
+    .rs2_o              (rs2_sb_iro),
+    .rs2_valid_o        (rs2_valid_iro_sb),
+    .rs3_i              (rs3_reg),
+    .rs3_o              (rs3_sb_iro),
+    .rs3_valid_o        (rs3_valid_iro_sb),
+
+    .decoded_instr_i      (decoded_instr_reg),
+    .decoded_instr_valid_i(decoded_instr_valid_reg),
+    .decoded_instr_ack_o  (decoded_instr_ack_o),
+    .issue_instr_o        (issue_instr_sb_iro),
+    .issue_instr_valid_o  (issue_instr_valid_sb_iro),
+    .issue_ack_i          (issue_ack_reg),
+
+    .resolved_branch_i  (resolved_branch_reg),
+    .trans_id_i         (trans_id_reg),
+    .wbdata_i           (wbdata_reg),
+    .ex_i               (ex_reg),
+    .lsu_addr_i         (lsu_addr_reg),
+    .lsu_rmask_i        (lsu_rmask_reg),
+    .lsu_wmask_i        (lsu_wmask_reg),
+    .lsu_addr_trans_id_i(lsu_addr_trans_id_reg),
+    .rs1_forwarding_i   (rs1_forwarding_reg),
+    .rs2_forwarding_i   (rs2_forwarding_reg),
+    .*
+);
 
   // ---------------------------------------------------------
   // 3. Issue instruction and read operand, also commit
@@ -207,5 +275,6 @@ module issue_stage
       .stall_issue_o      (stall_issue_o),
       .*
   );
+
 
 endmodule
