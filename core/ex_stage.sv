@@ -151,7 +151,7 @@ module ex_stage
   //                        instructions.
 
   // register temp
-  logic alu_valid_q;
+  //logic alu_valid_q;
   logic current_instruction_is_sfence_vma;
   // These two register store the rs1 and rs2 parameters in case of `SFENCE_VMA`
   // instruction to be used for TLB flush in the next clock cycle.
@@ -169,7 +169,7 @@ module ex_stage
   // 1. ALU (combinatorial)
   // data silence operation
   fu_data_t alu_data;
-  assign alu_data = (alu_valid_q | branch_valid_i) ? fu_data_i : '0;
+  assign alu_data = (alu_valid_i | branch_valid_i) ? fu_data_i : '0;
 
   alu #(
       .CVA6Cfg(CVA6Cfg)
@@ -194,7 +194,7 @@ module ex_stage
       .pc_i,
       .is_compressed_instr_i,
       // any functional unit is valid, check that there is no accidental mis-predict
-      .fu_valid_i ( alu_valid_q || lsu_valid_i || csr_valid_i || mult_valid_i || fpu_valid_i || acc_valid_i ) ,
+      .fu_valid_i ( alu_valid_i || lsu_valid_i || csr_valid_i || mult_valid_i || fpu_valid_i || acc_valid_i ) ,
       .branch_valid_i,
       .branch_comp_res_i(alu_branch_res),
       .branch_result_o(branch_result),
@@ -219,7 +219,7 @@ module ex_stage
       .csr_addr_o
   );
 
-  assign flu_valid_o = alu_valid_q | branch_valid_i | csr_valid_i | mult_valid;
+  assign flu_valid_o = alu_valid_i | branch_valid_i | csr_valid_i | mult_valid;
 
   // result MUX
   always_comb begin
@@ -227,7 +227,7 @@ module ex_stage
     flu_result_o   = {{riscv::XLEN - riscv::VLEN{1'b0}}, branch_result};
     flu_trans_id_o = fu_data_i.trans_id;
     // ALU result
-    if (alu_valid_q) begin
+    if (alu_valid_i) begin
       flu_result_o = alu_result;
       // CSR result
     end else if (csr_valid_i) begin
@@ -390,9 +390,9 @@ module ex_stage
   always_ff @(posedge clk_i or negedge rst_ni) begin
     if (~rst_ni) begin
       current_instruction_is_sfence_vma <= 1'b0;
-      alu_valid_q <= '0;
+      //alu_valid_q <= '0;
     end else begin
-      alu_valid_q <= alu_valid_i;
+      //alu_valid_q <= alu_valid_i;
       if (flush_i) begin
         current_instruction_is_sfence_vma <= 1'b0;
       end else if ((fu_data_i.operation == SFENCE_VMA) && csr_valid_i) begin
