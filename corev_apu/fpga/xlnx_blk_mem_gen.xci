@@ -178,7 +178,7 @@
         "OUTPUTDIR": [ { "value": "../../../../xlnx_blk_mem_gen.gen/sources_1/ip/xlnx_blk_mem_gen" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "." } ],
-        "SWVERSION": [ { "value": "2024.1.2" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
         "SYNTHESISFLOW": [ { "value": "OUT_OF_CONTEXT" } ]
       }
     },

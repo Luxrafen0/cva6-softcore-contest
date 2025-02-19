@@ -56,6 +56,7 @@ module perf_counters
 
 
   riscv::xlen_t data_o_d,data_o_q;
+
   logic [63:0] generic_counter_d[6:1];
   logic [63:0] generic_counter_q[6:1];
 

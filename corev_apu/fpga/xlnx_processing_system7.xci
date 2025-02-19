@@ -965,7 +965,7 @@
         "OUTPUTDIR": [ { "value": "../../../../xlnx_processing_system7.gen/sources_1/ip/xlnx_processing_system7" } ],
         "SELECTEDSIMMODEL": [ { "value": "" } ],
         "SHAREDDIR": [ { "value": "." } ],
-        "SWVERSION": [ { "value": "2024.1.2" } ],
+        "SWVERSION": [ { "value": "2024.1" } ],
         "SYNTHESISFLOW": [ { "value": "OUT_OF_CONTEXT" } ]
       }
     },
