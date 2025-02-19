@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Tue Feb 18 22:21:07 2025
+| Date         : Wed Feb 19 09:16:16 2025
 | Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.2 LTS
 | Command      : report_utilization -hierarchical -file reports_cva6_fpga_synth/cva6_fpga.utilization.rpt
 | Design       : cva6_zybo_z7_20
@@ -22,10 +22,10 @@ Table of Contents
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
 |                                   Instance                                  |                                                Module                                                | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
 +-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------+------------+------------+---------+------+-------+--------+--------+------------+
-| cva6_zybo_z7_20                                                             |                                                                                                (top) |      26173 |      25222 |     886 |   65 | 15604 |     66 |      0 |          4 |
+| cva6_zybo_z7_20                                                             |                                                                                                (top) |      26173 |      25222 |     886 |   65 | 15636 |     66 |      0 |          4 |
 |   (cva6_zybo_z7_20)                                                         |                                                                                                (top) |        636 |         46 |     590 |    0 |     3 |      0 |      0 |          0 |
-|   i_ariane                                                                  |                                                                                               ariane |      13597 |      13381 |     216 |    0 |  5454 |     16 |      0 |          4 |
-|     i_cva6                                                                  |                                                                                                 cva6 |      13597 |      13381 |     216 |    0 |  5454 |     16 |      0 |          4 |
+|   i_ariane                                                                  |                                                                                               ariane |      13597 |      13381 |     216 |    0 |  5486 |     16 |      0 |          4 |
+|     i_cva6                                                                  |                                                                                                 cva6 |      13597 |      13381 |     216 |    0 |  5486 |     16 |      0 |          4 |
 |       commit_stage_i                                                        |                                                                                         commit_stage |        103 |        103 |       0 |    0 |     0 |      0 |      0 |          0 |
 |       csr_regfile_i                                                         |                                                                                          csr_regfile |       1854 |       1854 |       0 |    0 |  1010 |      0 |      0 |          0 |
 |       ex_stage_i                                                            |                                                                                             ex_stage |       4063 |       4063 |       0 |    0 |  1817 |      4 |      0 |          4 |
@@ -161,7 +161,7 @@ Table of Contents
 |             i_dirty_rr                                                      |                                                                          rr_arb_tree__parameterized4 |        112 |        112 |       0 |    0 |     4 |      0 |      0 |          0 |
 |             i_rtrn_id_fifo                                                  |                                                                              fifo_v3__parameterized6 |         36 |         36 |       0 |    0 |     7 |      0 |      0 |          0 |
 |             i_tx_id_rr                                                      |                                                                          rr_arb_tree__parameterized3 |         16 |         16 |       0 |    0 |     7 |      0 |      0 |          0 |
-|       gen_perf_counter.perf_counters_i                                      |                                                                                        perf_counters |        213 |        213 |       0 |    0 |   414 |      0 |      0 |          0 |
+|       gen_perf_counter.perf_counters_i                                      |                                                                                        perf_counters |        213 |        213 |       0 |    0 |   446 |      0 |      0 |          0 |
 |       i_frontend                                                            |                                                                                             frontend |        871 |        799 |      72 |    0 |   379 |      0 |      0 |          0 |
 |         (i_frontend)                                                        |                                                                                             frontend |          0 |          0 |       0 |    0 |   136 |      0 |      0 |          0 |
 |         bht_gen.i_bht                                                       |                                                                                                  bht |         14 |         14 |       0 |    0 |     4 |      0 |      0 |          0 |
