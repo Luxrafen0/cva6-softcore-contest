@@ -53,11 +53,16 @@ module instr_realign
   // we have an unaligned instruction
   assign serving_unaligned_o = unaligned_q;
 
+
+  logic [INSTR_PER_FETCH-1:0][riscv::VLEN-1:0] addr_o_1;
+
+  assign addr_o_1 = {address_i[riscv::VLEN-1:2], 2'b10}; 
+
   // Instruction re-alignment
   if (FETCH_WIDTH == 32) begin : realign_bp_32
     always_comb begin : re_align
       unaligned_d = unaligned_q;
-      unaligned_address_d = {address_i[riscv::VLEN-1:2], 2'b10};
+      unaligned_address_d = addr_o_1;
       unaligned_instr_d = data_i[31:16];
 
       valid_o[0] = valid_i;
@@ -66,7 +71,7 @@ module instr_realign
 
       valid_o[1] = 1'b0;
       instr_o[1] = '0;
-      addr_o[1] = {address_i[riscv::VLEN-1:2], 2'b10};
+      addr_o[1] = addr_o_1;
 
       // this instruction is compressed or the last instruction was unaligned
       if (instr_is_compressed[0] || unaligned_q) begin
@@ -84,7 +89,7 @@ module instr_realign
           // save the upper bits for next cycle
           unaligned_d = 1'b1;
           unaligned_instr_d = data_i[31:16];
-          unaligned_address_d = {address_i[riscv::VLEN-1:2], 2'b10};
+          unaligned_address_d = addr_o_1;
         end
       end  // else -> normal fetch
 
@@ -95,7 +100,7 @@ module instr_realign
         if (!instr_is_compressed[0]) begin
           valid_o = '0;
           unaligned_d = 1'b1;
-          unaligned_address_d = {address_i[riscv::VLEN-1:2], 2'b10};
+          unaligned_address_d = addr_o_1;
           unaligned_instr_d = data_i[15:0];
           // the instruction isn't compressed but only the lower is ready
         end else begin

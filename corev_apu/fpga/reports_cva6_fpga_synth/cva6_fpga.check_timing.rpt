@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date         : Tue Feb 18 17:55:09 2025
+| Date         : Tue Feb 18 22:21:05 2025
 | Host         : Dell-G15-5515 running 64-bit Ubuntu 24.04.2 LTS
 | Command      : check_timing -verbose -file reports_cva6_fpga_synth/cva6_fpga.check_timing.rpt
 | Design       : cva6_zybo_z7_20

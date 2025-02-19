@@ -3,8 +3,8 @@
 # SW Build 5164865 on Thu Sep  5 14:36:28 MDT 2024
 # IP Build 5164407 on Fri Sep  6 08:18:11 MDT 2024
 # SharedData Build 5164864 on Thu Sep 05 13:09:09 MDT 2024
-# Start of session at: Tue Feb 18 17:50:10 2025
-# Process ID: 111753
+# Start of session at: Tue Feb 18 22:15:39 2025
+# Process ID: 434608
 # Current directory: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1
 # Command line: vivado -log cva6_zybo_z7_20.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cva6_zybo_z7_20.tcl
 # Log file: /home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/cva6_zybo_z7_20.vds
@@ -13,16 +13,16 @@
 # Platform          :Ubuntu
 # Operating System  :Ubuntu 24.04.2 LTS
 # Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics
-# CPU Frequency     :3642.409 MHz
+# CPU Frequency     :4066.982 MHz
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :16078 MB
 # Swap memory       :2147 MB
 # Total Virtual     :18225 MB
-# Available Virtual :12702 MB
+# Available Virtual :12512 MB
 #-----------------------------------------------------------
 source cva6_zybo_z7_20.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1419.816 ; gain = 0.027 ; free physical = 6308 ; free virtual = 11786
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1410.180 ; gain = 55.809 ; free physical = 4695 ; free virtual = 11555
 Command: synth_design -top cva6_zybo_z7_20 -part xc7z020clg400-1 -directive PerformanceOptimized -global_retiming on
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
@@ -31,9 +31,9 @@ INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Device 21-9227] Part: xc7z020clg400-1 does not have CEAM library.
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 111964
+INFO: [Synth 8-7075] Helper process launched with PID 434629
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2197.789 ; gain = 411.598 ; free physical = 5227 ; free virtual = 10706
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2198.238 ; gain = 412.746 ; free physical = 3655 ; free virtual = 10517
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9535] ignoring re-definition of command line macro 'BRAM' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/src/zybo-z7-20.svh:18]
 WARNING: [Synth 8-11067] parameter 'NbInstr' declared inside package 'cvxif_instr_pkg' shall be treated as localparam [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/cvxif_example/include/cvxif_instr_pkg.sv:19]
@@ -130,10 +130,10 @@ INFO: [Synth 8-6157] synthesizing module 'AXI_BUS' [/home/utilisateur/Bureau/pro
 	Parameter AXI_ID_WIDTH bound to: 5 - type: integer 
 	Parameter AXI_USER_WIDTH bound to: 32 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'AXI_BUS' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/tb/axi_intf.sv:19]
-INFO: [Synth 8-6157] synthesizing module 'xlnx_axi_dwidth_converter_dm_slave' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-111753-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_slave_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'xlnx_axi_dwidth_converter_dm_slave' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-111753-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_slave_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'xlnx_axi_dwidth_converter_dm_master' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-111753-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_master_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'xlnx_axi_dwidth_converter_dm_master' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-111753-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_master_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'xlnx_axi_dwidth_converter_dm_slave' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-434608-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_slave_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'xlnx_axi_dwidth_converter_dm_slave' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-434608-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_slave_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'xlnx_axi_dwidth_converter_dm_master' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-434608-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_master_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'xlnx_axi_dwidth_converter_dm_master' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/.Xil/Vivado-434608-Dell-G15-5515/realtime/xlnx_axi_dwidth_converter_dm_master_stub.v:6]
 INFO: [Synth 8-6157] synthesizing module 'bootrom_32' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/src/bootrom/bootrom_32.sv:17]
 INFO: [Synth 8-6155] done synthesizing module 'bootrom_32' (0#1) [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/src/bootrom/bootrom_32.sv:17]
 INFO: [Synth 8-6157] synthesizing module 'rstgen' [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/vendor/pulp-platform/common_cells/src/rstgen.sv:13]
@@ -4665,13 +4665,13 @@ WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utili
 	Parameter MODE bound to: 1'b1 
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:73]
 INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:84]
-WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:254]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:265]
-WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:275]
-WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:279]
-INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:293]
-WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:326]
-WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:329]
+WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:242]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:253]
+WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:263]
+WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:267]
+INFO: [Synth 8-294] found qualifier unique on case statement: implementing as parallel_case [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:281]
+WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:314]
+WARNING: [Synth 8-693] zero replication count - replication ignored [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/alu.sv:317]
 	Parameter CVA6Cfg[NrCommitPorts] bound to: 32'b00000000000000000000000000000001 
 	Parameter CVA6Cfg[AxiAddrWidth] bound to: 32'b00000000000000000000000001000000 
 	Parameter CVA6Cfg[AxiDataWidth] bound to: 32'b00000000000000000000000001000000 
@@ -8165,18 +8165,18 @@ WARNING: [Synth 8-7129] Port gpio\.r_data[58] in module ariane_peripherals is ei
 WARNING: [Synth 8-7129] Port gpio\.r_data[57] in module ariane_peripherals is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2635.008 ; gain = 848.816 ; free physical = 4715 ; free virtual = 10213
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2634.457 ; gain = 848.965 ; free physical = 3005 ; free virtual = 9881
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2652.820 ; gain = 866.629 ; free physical = 4714 ; free virtual = 10211
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2652.270 ; gain = 866.777 ; free physical = 2993 ; free virtual = 9870
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2652.820 ; gain = 866.629 ; free physical = 4714 ; free virtual = 10211
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2652.270 ; gain = 866.777 ; free physical = 2993 ; free virtual = 9870
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.83 ; elapsed = 00:00:00.83 . Memory (MB): peak = 2656.820 ; gain = 0.000 ; free physical = 4730 ; free virtual = 10228
+Netlist sorting complete. Time (s): cpu = 00:00:00.81 ; elapsed = 00:00:00.82 . Memory (MB): peak = 2652.270 ; gain = 0.000 ; free physical = 3201 ; free virtual = 9989
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -8204,22 +8204,22 @@ Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev
 Finished Parsing XDC File [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2843.602 ; gain = 0.000 ; free physical = 4670 ; free virtual = 10169
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2846.988 ; gain = 0.000 ; free physical = 3175 ; free virtual = 9964
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2855.523 ; gain = 0.000 ; free physical = 4659 ; free virtual = 10158
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.16 . Memory (MB): peak = 2858.910 ; gain = 0.000 ; free physical = 3164 ; free virtual = 9952
 WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'i_axi_dwidth_converter_dm_master' at clock pin 's_axi_aclk' is different from the actual clock period '20.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '100.000' specified during out-of-context synthesis of instance 'i_axi_dwidth_converter_dm_slave' at clock pin 's_axi_aclk' is different from the actual clock period '20.000', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:28 ; elapsed = 00:00:27 . Memory (MB): peak = 2868.398 ; gain = 1082.207 ; free physical = 3328 ; free virtual = 8829
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:29 . Memory (MB): peak = 2869.816 ; gain = 1084.324 ; free physical = 1802 ; free virtual = 8592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:28 ; elapsed = 00:00:27 . Memory (MB): peak = 2876.402 ; gain = 1090.211 ; free physical = 3324 ; free virtual = 8825
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:29 . Memory (MB): peak = 2877.820 ; gain = 1092.328 ; free physical = 1802 ; free virtual = 8592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -8231,7 +8231,7 @@ Applied set_property KEEP_HIERARCHY = SOFT for i_axi_dwidth_converter_dm_slave. 
 Applied set_property KEEP_HIERARCHY = SOFT for i_xlnx_blk_mem_gen. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_xlnx_clk_gen. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:27 . Memory (MB): peak = 2876.402 ; gain = 1090.211 ; free physical = 3311 ; free virtual = 8812
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:29 . Memory (MB): peak = 2877.820 ; gain = 1092.328 ; free physical = 1800 ; free virtual = 8590
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'r_state_q_reg' in module 'axi_atop_filter'
 INFO: [Synth 8-802] inferred FSM for state register 'w_state_q_reg' in module 'axi_atop_filter'
@@ -8569,7 +8569,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'w_state_q_reg' using encod
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'r_state_q_reg' using encoding 'sequential' in module 'axi_riscv_lrsc'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:48 ; elapsed = 00:00:48 . Memory (MB): peak = 2880.488 ; gain = 1094.297 ; free physical = 279 ; free virtual = 5355
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:51 . Memory (MB): peak = 2881.906 ; gain = 1096.414 ; free physical = 339 ; free virtual = 5179
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'i_ariane/i_cva6/ex_stage_i/alu_i/gen_bitmanip.i_clz_64b' (lzc__parameterized2) to 'i_ariane/i_cva6/ex_stage_i/alu_i/gen_bitmanip.i_clz_32b'
 ---------------------------------------------------------------------------------
@@ -8618,7 +8618,7 @@ Detailed RTL Component Info :
 	               41 Bit    Registers := 1     
 	               34 Bit    Registers := 10    
 	               33 Bit    Registers := 4     
-	               32 Bit    Registers := 282   
+	               32 Bit    Registers := 281   
 	               30 Bit    Registers := 5     
 	               27 Bit    Registers := 1     
 	               24 Bit    Registers := 1     
@@ -8637,7 +8637,7 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 299   
 	                3 Bit    Registers := 168   
 	                2 Bit    Registers := 410   
-	                1 Bit    Registers := 738   
+	                1 Bit    Registers := 737   
 +---Multipliers : 
 	              33x33  Multipliers := 1     
 +---RAMs : 
@@ -9021,151 +9021,16 @@ INFO: [Synth 8-5546] ROM "dcache_d" won't be mapped to RAM because it is too spa
 INFO: [Synth 8-5546] ROM "icache_d" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "flush_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "perf_we_o" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][31] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][30] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][29] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][28] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][27] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][26] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][25] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][24] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][23] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][22] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][21] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][20] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][19] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][18] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][17] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][16] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][15] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][14] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][13] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][12] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][11] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][10] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][9] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][8] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][7] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][6] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][5] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][4] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][3] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][2] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[cause][0] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][31] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][30] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][29] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][28] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][27] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][26] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][25] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][24] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][23] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][22] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][21] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][20] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][19] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][18] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][17] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][16] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][15] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][14] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][13] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][12] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][11] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][10] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][9] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][8] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][7] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][6] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][5] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][4] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][3] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][2] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][1] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port csr_exception_o[tval][0] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port trap_vector_base_o[1] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port trap_vector_base_o[0] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port acc_cons_en_o driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port mcountinhibit_o[31] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port mcountinhibit_o[30] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port mcountinhibit_o[29] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port mcountinhibit_o[28] driven by constant 0
-WARNING: [Synth 8-3917] design csr_regfile has port mcountinhibit_o[27] driven by constant 0
-INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][0]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][1]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[1]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[1]' (FDCE) to 'dcache_q_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mcountinhibit_q_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\stvec_q_reg[1] )
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][2]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[2]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[2]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][3]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[3]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[3]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][4]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[4]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[4]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][5]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'pmpcfg_q_reg[4][reserved][0]' (FDCE) to 'pmpcfg_q_reg[4][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'pmpcfg_q_reg[0][reserved][0]' (FDCE) to 'pmpcfg_q_reg[0][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[5]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[5]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][6]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[4][reserved][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[0][reserved][1] )
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[6]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[6]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][7]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[7]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[7]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][8]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[8]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[8]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][9]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[9]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[9]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][10]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[10]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[10]' (FDCE) to 'dcache_q_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\dcsr_q_reg[stopcount] )
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][11]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[11]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[11]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][12]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[12]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[12]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][13]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'pmpcfg_q_reg[5][reserved][0]' (FDCE) to 'pmpcfg_q_reg[5][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'pmpcfg_q_reg[1][reserved][0]' (FDCE) to 'pmpcfg_q_reg[1][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[13]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[13]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'mstatus_q_reg[fs][0]' (FDCE) to 'mstatus_q_reg[fs][1]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][14]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[5][reserved][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[1][reserved][1] )
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[14]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[14]' (FDCE) to 'dcache_q_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mstatus_q_reg[fs][1] )
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][15]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[15]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[15]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][16]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[16]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[16]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][17]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[17]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[17]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'pmpaddr_q_reg[15][18]' (FDC) to 'pmpcfg_q_reg[15][reserved][1]'
-INFO: [Synth 8-3886] merging instance 'icache_q_reg[18]' (FDCE) to 'icache_q_reg[31]'
-INFO: [Synth 8-3886] merging instance 'dcache_q_reg[18]' (FDCE) to 'dcache_q_reg[31]'
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[6][reserved][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[2][reserved][1] )
-INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[7][reserved][1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pmpcfg_q_reg[3][reserved][1] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (\dcsr_q_reg[xdebugver][30] )
@@ -9240,15 +9105,148 @@ INFO: [Synth 8-5546] ROM "instruction_o" won't be mapped to RAM because it is to
 INFO: [Synth 8-5544] ROM "p_0_out" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 WARNING: [Synth 8-6014] Unused sequential element btb_gen.i_btb/gen_fpga_btb.gen_btb_ram[0].i_btb_ram/Mem_DP_reg was removed. 
 WARNING: [Synth 8-6014] Unused sequential element btb_gen.i_btb/gen_fpga_btb.gen_btb_ram[1].i_btb_ram/Mem_DP_reg was removed. 
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][0]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][trans_id][0]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][trans_id][1]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][1]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][2]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][3]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][4]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][5]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][6]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][7]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][8]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][9]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][10]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][11]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][12]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][13]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][14]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][15]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][16]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][17]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][18]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][19]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][20]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][21]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][22]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][23]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
+INFO: [Synth 8-3886] merging instance 'id_stage_i/issue_q_reg[sbe][lsu_wdata][24]' (FDCE) to 'id_stage_i/issue_q_reg[sbe][vfp]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5544] ROM "state_d" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "axi_fsm.result" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "axi_fsm.result" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/dmcontrol_q_reg[zero0][4]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/dmcontrol_q_reg[zero0][5]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbasize][5]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbasize][11]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbasize][8]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbasize][9]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbasize][6]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbasize][7]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][14]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][15]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][13]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][12]' (FDC) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][13]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[zero0][13]' (FDC) to 'i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartreset]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/dmcontrol_q_reg[hartreset]' (FDC) to 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbaccess][19]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbversion][30]' (FDC) to 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbaccess][19]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbversion][31]' (FDC) to 'i_dm_top/i_dm_csrs/sbcs_q_reg[sbaccess][19]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][11]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][10]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][9]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][8]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][7]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][6]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][5]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][4]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][3]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecdata][2]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][31]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][30]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][29]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][28]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][27]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][26]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][25]' (FDCE) to 'i_dm_top/i_dm_csrs/abstractauto_q_reg[autoexecprogbuf][24]'
+INFO: [Synth 8-3886] merging instance 'i_dmi_jtag/error_q_reg[0]' (FDCE) to 'i_dmi_jtag/error_q_reg[1]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5546] ROM "resp_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ip_re_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "resp_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "ip_re_o" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port O22 driven by constant 1
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port O23 driven by constant 1
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_resp[1] driven by constant 1
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_resp[0] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[31] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[30] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[29] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[28] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[27] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[26] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[25] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[24] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[23] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[22] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[21] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[20] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[19] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[18] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[17] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[16] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[15] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[14] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[13] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[12] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[11] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[10] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[9] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[8] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[7] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[6] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[5] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[4] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[3] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[2] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[1] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.b_user[0] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port O25 driven by constant 1
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[63] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[62] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[61] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[60] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[59] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[58] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[57] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[56] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[55] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[54] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[53] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[52] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[51] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[50] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[49] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[48] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[47] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[46] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[45] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[44] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[43] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[42] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[41] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[40] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[39] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[38] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[37] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[36] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[35] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[34] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[33] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[32] driven by constant 0
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[31] driven by constant 1
+WARNING: [Synth 8-3917] design cva6_zybo_z7_20__GCB1 has port spi\.r_data[30] driven by constant 1
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-7067] Removed DRAM instance i_ariane_peripherals/i_axi2apb_64_32_uart/slave_r_buffer_i//i_/slave_r_buffer_i/i_axi_single_slice/i_fifo/impl/i_fifo_v3/gen_fpga_queue.fifo_ram/mem_reg_0_1_60_65 from module axi2apb_64_32 due to constant propagation
@@ -9260,7 +9258,7 @@ INFO: [Synth 8-7067] Removed DRAM instance i_ariane_peripherals/i_axi2apb_64_32_
 INFO: [Synth 8-7067] Removed DRAM instance i_ariane_peripherals/i_axi2apb_64_32_uart/slave_r_buffer_i//i_/slave_r_buffer_i/i_axi_single_slice/i_fifo/impl/i_fifo_v3/gen_fpga_queue.fifo_ram/mem_reg_0_1_54_59 from module axi2apb_64_32 due to constant propagation
 WARNING: [Synth 8-3332] Sequential element (ip_re_o_reg[0]) is unused and will be removed from module plic_regs.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:01 ; elapsed = 00:02:01 . Memory (MB): peak = 2892.414 ; gain = 1106.223 ; free physical = 188 ; free virtual = 4036
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:09 ; elapsed = 00:02:09 . Memory (MB): peak = 2893.832 ; gain = 1108.340 ; free physical = 278 ; free virtual = 3869
 ---------------------------------------------------------------------------------
  Sort Area is ex_stage__GC0 mult_result_d_0 : 0 0 : 2701 5011 : Used 1 time 0
  Sort Area is ex_stage__GC0 mult_result_d_0 : 0 1 : 2310 5011 : Used 1 time 0
@@ -9364,13 +9362,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:07 ; elapsed = 00:02:08 . Memory (MB): peak = 2892.414 ; gain = 1106.223 ; free physical = 175 ; free virtual = 4037
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:16 ; elapsed = 00:02:16 . Memory (MB): peak = 2893.832 ; gain = 1108.340 ; free physical = 283 ; free virtual = 3899
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:31 ; elapsed = 00:03:33 . Memory (MB): peak = 2966.797 ; gain = 1180.605 ; free physical = 169 ; free virtual = 3907
+Finished Timing Optimization : Time (s): cpu = 00:03:42 ; elapsed = 00:03:45 . Memory (MB): peak = 2966.215 ; gain = 1180.723 ; free physical = 404 ; free virtual = 3750
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -10159,6 +10157,7 @@ INFO: [Synth 8-5816] Retiming module `cva6_zybo_z7_20`
 INFO: [Synth 8-5816] Retiming module `cva6_zybo_z7_20' done
 
 
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/multiplier.sv:146]
 INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/core/multiplier.sv:146]
 INFO: [Synth 8-5816] Retiming module `cva6_zybo_z7_20_GT0_tempName`
@@ -10176,7 +10175,7 @@ INFO: [Synth 8-5816] Retiming module `cva6_zybo_z7_20' done
 
 
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:45 ; elapsed = 00:03:54 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 224 ; free virtual = 3154
+Finished Technology Mapping : Time (s): cpu = 00:04:02 ; elapsed = 00:04:12 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 247 ; free virtual = 2435
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -10219,37 +10218,37 @@ INFO: [Synth 8-4649] Removing BlackBox instance \i_ariane/i_cva6/i_frontend/i_in
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:52 ; elapsed = 00:04:01 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 317 ; free virtual = 3186
+Finished IO Insertion : Time (s): cpu = 00:04:10 ; elapsed = 00:04:21 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 468 ; free virtual = 2804
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:52 ; elapsed = 00:04:02 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 299 ; free virtual = 3179
+Finished Renaming Generated Instances : Time (s): cpu = 00:04:10 ; elapsed = 00:04:21 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 464 ; free virtual = 2803
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:56 ; elapsed = 00:04:06 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 193 ; free virtual = 3156
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:16 ; elapsed = 00:04:26 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 256 ; free virtual = 2636
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:56 ; elapsed = 00:04:06 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 189 ; free virtual = 3157
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:16 ; elapsed = 00:04:27 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 264 ; free virtual = 2644
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:57 ; elapsed = 00:04:07 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 170 ; free virtual = 3145
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:17 ; elapsed = 00:04:28 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 264 ; free virtual = 2644
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:57 ; elapsed = 00:04:07 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 169 ; free virtual = 3146
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:17 ; elapsed = 00:04:28 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 262 ; free virtual = 2645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -10305,19 +10304,19 @@ Report Cell Usage:
 |6     |CARRY4                              |  1547|
 |7     |DSP48E1                             |     4|
 |9     |LUT1                                |   227|
-|10    |LUT2                                |  3830|
-|11    |LUT3                                |  3290|
-|12    |LUT4                                |  4447|
-|13    |LUT5                                |  5985|
-|14    |LUT6                                | 10523|
-|15    |MUXF7                               |   388|
+|10    |LUT2                                |  3869|
+|11    |LUT3                                |  3320|
+|12    |LUT4                                |  4417|
+|13    |LUT5                                |  5983|
+|14    |LUT6                                | 10510|
+|15    |MUXF7                               |   396|
 |16    |MUXF8                               |    14|
 |17    |RAM16X1D                            |     6|
 |18    |RAM32M                              |   196|
 |19    |RAM32X1D                            |    15|
 |20    |RAM64X1D                            |     6|
 |21    |RAMB36E1                            |    18|
-|24    |FDCE                                | 13885|
+|24    |FDCE                                | 13844|
 |25    |FDPE                                |    69|
 |26    |FDRE                                |   171|
 |27    |LD                                  |    36|
@@ -10325,18 +10324,18 @@ Report Cell Usage:
 |29    |OBUF                                |     2|
 +------+------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:57 ; elapsed = 00:04:07 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 169 ; free virtual = 3147
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:17 ; elapsed = 00:04:28 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 255 ; free virtual = 2642
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 691 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:03:48 ; elapsed = 00:04:01 . Memory (MB): peak = 2978.723 ; gain = 976.953 ; free physical = 7436 ; free virtual = 10354
-Synthesis Optimization Complete : Time (s): cpu = 00:03:59 ; elapsed = 00:04:10 . Memory (MB): peak = 2978.723 ; gain = 1192.531 ; free physical = 7450 ; free virtual = 10355
+Synthesis finished with 0 errors, 0 critical warnings and 620 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:08 ; elapsed = 00:04:22 . Memory (MB): peak = 2978.141 ; gain = 975.102 ; free physical = 7426 ; free virtual = 9972
+Synthesis Optimization Complete : Time (s): cpu = 00:04:19 ; elapsed = 00:04:32 . Memory (MB): peak = 2978.141 ; gain = 1192.648 ; free physical = 7430 ; free virtual = 9964
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.43 ; elapsed = 00:00:00.42 . Memory (MB): peak = 2978.723 ; gain = 0.000 ; free physical = 7484 ; free virtual = 10388
-INFO: [Netlist 29-17] Analyzing 2230 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.54 ; elapsed = 00:00:00.54 . Memory (MB): peak = 2978.141 ; gain = 0.000 ; free physical = 6726 ; free virtual = 9479
+INFO: [Netlist 29-17] Analyzing 2238 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 34 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3022.824 ; gain = 0.000 ; free physical = 7495 ; free virtual = 10400
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3022.242 ; gain = 0.000 ; free physical = 6323 ; free virtual = 9313
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 259 instances were transformed.
   LD => LDCE: 2 instances
@@ -10346,15 +10345,15 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32X1D => RAM32X1D (RAMD32(x2)): 15 instances
   RAM64X1D => RAM64X1D (RAMD64E(x2)): 6 instances
 
-Synth Design complete | Checksum: a09f450b
+Synth Design complete | Checksum: c3dd941a
 INFO: [Common 17-83] Releasing license: Synthesis
-816 Infos, 545 Warnings, 0 Critical Warnings and 0 Errors encountered.
+815 Infos, 545 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:10 ; elapsed = 00:04:21 . Memory (MB): peak = 3022.824 ; gain = 1597.070 ; free physical = 7494 ; free virtual = 10400
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 9560.562; main = 2178.341; forked = 7558.238
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 14900.305; main = 3022.828; forked = 11925.500
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3046.836 ; gain = 0.000 ; free physical = 7493 ; free virtual = 10402
+synth_design: Time (s): cpu = 00:04:31 ; elapsed = 00:04:44 . Memory (MB): peak = 3022.242 ; gain = 1597.219 ; free physical = 6271 ; free virtual = 9316
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 9309.280; main = 2001.968; forked = 7389.190
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 15047.559; main = 3022.246; forked = 12073.336
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3046.254 ; gain = 0.000 ; free physical = 6260 ; free virtual = 9315
 INFO: [Common 17-1381] The checkpoint '/home/utilisateur/Bureau/projet_M2/cva6-softcore-contest/corev_apu/fpga/cva6_fpga.runs/synth_1/cva6_zybo_z7_20.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3046.836 ; gain = 24.012 ; free physical = 7218 ; free virtual = 10314
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 3046.254 ; gain = 24.012 ; free physical = 5720 ; free virtual = 9316
 INFO: [Vivado 12-24828] Executing command : report_utilization -file cva6_zybo_z7_20_utilization_synth.rpt -pb cva6_zybo_z7_20_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Feb 18 17:54:46 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Feb 18 22:20:39 2025...

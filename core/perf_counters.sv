@@ -54,6 +54,8 @@ module perf_counters
     input logic [31:0] mcountinhibit_i
 );
 
+
+  riscv::xlen_t data_o_d,data_o_q;
   logic [63:0] generic_counter_d[6:1];
   logic [63:0] generic_counter_q[6:1];
 
@@ -64,6 +66,8 @@ module perf_counters
   //internal signal for  MUX select line input
   logic [4:0] mhpmevent_d[6:1];
   logic [4:0] mhpmevent_q[6:1];
+  
+  assign data_o = data_o_q;
 
   //Multiplexer
   always_comb begin : Mux
@@ -125,7 +129,7 @@ module perf_counters
 
   always_comb begin : generic_counter
     generic_counter_d = generic_counter_q;
-    data_o = 'b0;
+    data_o_d = 'b0;
     mhpmevent_d = mhpmevent_q;
     read_access_exception = 1'b0;
     update_access_exception = 1'b0;
@@ -147,8 +151,8 @@ module perf_counters
             riscv::CSR_MHPM_COUNTER_6,
             riscv::CSR_MHPM_COUNTER_7,
             riscv::CSR_MHPM_COUNTER_8  :begin
-        if (riscv::XLEN == 32) data_o = generic_counter_q[addr_i-riscv::CSR_MHPM_COUNTER_3+1][31:0];
-        else data_o = generic_counter_q[addr_i-riscv::CSR_MHPM_COUNTER_3+1];
+        if (riscv::XLEN == 32) data_o_d = generic_counter_q[addr_i-riscv::CSR_MHPM_COUNTER_3+1][31:0];
+        else data_o_d = generic_counter_q[addr_i-riscv::CSR_MHPM_COUNTER_3+1];
       end
       riscv::CSR_MHPM_COUNTER_3H,
             riscv::CSR_MHPM_COUNTER_4H,
@@ -157,7 +161,7 @@ module perf_counters
             riscv::CSR_MHPM_COUNTER_7H,
             riscv::CSR_MHPM_COUNTER_8H :begin
         if (riscv::XLEN == 32)
-          data_o = generic_counter_q[addr_i-riscv::CSR_MHPM_COUNTER_3H+1][63:32];
+          data_o_d = generic_counter_q[addr_i-riscv::CSR_MHPM_COUNTER_3H+1][63:32];
         else read_access_exception = 1'b1;
       end
       riscv::CSR_MHPM_EVENT_3,
@@ -166,8 +170,8 @@ module perf_counters
             riscv::CSR_MHPM_EVENT_6,
             riscv::CSR_MHPM_EVENT_7,
             riscv::CSR_MHPM_EVENT_8   :
-      data_o = mhpmevent_q[addr_i-riscv::CSR_MHPM_EVENT_3+1];
-      default: data_o = 'b0;
+      data_o_d = mhpmevent_q[addr_i-riscv::CSR_MHPM_EVENT_3+1];
+      default: data_o_d = 'b0;
     endcase
 
     //Write
@@ -210,9 +214,11 @@ module perf_counters
     if (!rst_ni) begin
       generic_counter_q <= '{default: 0};
       mhpmevent_q       <= '{default: 0};
+      data_o_q <= '0;
     end else begin
       generic_counter_q <= generic_counter_d;
       mhpmevent_q       <= mhpmevent_d;
+      data_o_q <= data_o_d;
     end
   end
 
