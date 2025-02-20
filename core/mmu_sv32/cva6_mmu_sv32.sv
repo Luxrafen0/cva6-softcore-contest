@@ -533,7 +533,7 @@ module cva6_mmu_sv32
   ) i_pmp_data (
       .addr_i       (lsu_paddr_o),
       .priv_lvl_i   (ld_st_priv_lvl_i),
-      .access_type_i(pmp_access_typmpaddr_intpe),
+      .access_type_i(pmp_access_type),
       // Configuration
       .conf_addr_i  (pmpaddr_i),
       .conf_i       (pmpcfg_i),

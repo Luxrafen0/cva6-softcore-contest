@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2024.1.2 (lin64) Build 5164865 Thu Sep  5 14:36:28 MDT 2024
-| Date             : Tue Feb 18 07:03:44 2025
+| Date             : Thu Feb 20 06:53:53 2025
 | Host             : Dell-G15-5515 running 64-bit Ubuntu 24.04.2 LTS
 | Command          : report_power -file cva6_zybo_z7_20_power_routed.rpt -pb cva6_zybo_z7_20_power_summary_routed.pb -rpx cva6_zybo_z7_20_power_routed.rpx
 | Design           : cva6_zybo_z7_20
@@ -53,20 +53,20 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.019 |        6 |       --- |             --- |
-| Slice Logic              |     0.012 |    46184 |       --- |             --- |
-|   LUT as Logic           |     0.011 |    23410 |     53200 |           44.00 |
+| Slice Logic              |     0.012 |    46215 |       --- |             --- |
+|   LUT as Logic           |     0.011 |    23402 |     53200 |           43.99 |
 |   CARRY4                 |    <0.001 |     1392 |     13300 |           10.47 |
 |   Register               |    <0.001 |    14617 |    106400 |           13.74 |
 |   LUT as Distributed RAM |    <0.001 |      862 |     17400 |            4.95 |
 |   F7/F8 Muxes            |    <0.001 |      399 |     53200 |            0.75 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   LUT as Shift Register  |    <0.001 |       40 |     17400 |            0.23 |
-|   Others                 |     0.000 |      669 |       --- |             --- |
-| Signals                  |     0.015 |    36732 |       --- |             --- |
-| Block RAM                |     0.009 |       66 |       140 |           47.14 |
+|   Others                 |     0.000 |      676 |       --- |             --- |
+| Signals                  |     0.014 |    36714 |       --- |             --- |
+| Block RAM                |     0.008 |       66 |       140 |           47.14 |
 | MMCM                     |     0.106 |        1 |         4 |           25.00 |
-| DSPs                     |    <0.001 |        4 |       220 |            1.82 |
-| I/O                      |    <0.001 |        9 |       125 |            7.20 |
+| DSPs                     |     0.000 |        4 |       220 |            1.82 |
+| I/O                      |     0.001 |        9 |       125 |            7.20 |
 | Static Power             |     0.112 |          |           |                 |
 | Total                    |     0.272 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
@@ -78,7 +78,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.063 |       0.054 |      0.009 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.062 |       0.053 |      0.009 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.069 |       0.059 |      0.011 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -163,7 +163,7 @@ Table of Contents
 |       csr_regfile_i                     |     0.002 |
 |       ex_stage_i                        |     0.004 |
 |       gen_cache_wt.i_cache_subsystem    |     0.012 |
-|       i_frontend                        |     0.002 |
+|       i_frontend                        |     0.001 |
 |       issue_stage_i                     |     0.005 |
 |   i_ariane_peripherals                  |     0.008 |
 |     gen_timer.i_axi2apb_64_32_timer     |     0.001 |
@@ -177,9 +177,9 @@ Table of Contents
 |     i_xbar                              |     0.009 |
 |       gen_slv_port_demux[0].i_axi_demux |     0.002 |
 |       gen_slv_port_demux[1].i_axi_demux |     0.001 |
-|   i_xlnx_blk_mem_gen                    |     0.002 |
-|     U0                                  |     0.002 |
-|       inst_blk_mem_gen                  |     0.002 |
+|   i_xlnx_blk_mem_gen                    |     0.001 |
+|     U0                                  |     0.001 |
+|       inst_blk_mem_gen                  |     0.001 |
 |   i_xlnx_clk_gen                        |     0.107 |
 |     inst                                |     0.107 |
 +-----------------------------------------+-----------+
