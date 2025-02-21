@@ -261,7 +261,7 @@ module ariane_peripherals #(
 
     if (InclUART) begin : gen_uart
         apb_uart i_apb_uart (
-            .CLK     ( clk_i           ),
+            .CLK     ( clk_i          ),
             .RSTN    ( rst_ni          ),
             .PSEL    ( uart_psel       ),
             .PENABLE ( uart_penable    ),
