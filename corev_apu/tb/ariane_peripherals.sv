@@ -258,10 +258,21 @@ module ariane_peripherals #(
         .PREADY    ( uart_pready    ),
         .PSLVERR   ( uart_pslverr   )
     );
-
+    logic clk_i_uart;
+    initial begin
+        clk_i_uart = 1'b0;
+        //rst_ni = 1'b0;
+        repeat(8)
+            #(25ns/2) clk_i_uart = ~clk_i_uart;
+        //rst_ni = 1'b1;
+        forever begin
+            #(25ns/2) clk_i_uart = 1'b1;
+            #(25ns/2) clk_i_uart = 1'b0;
+        end
+    end
     if (InclUART) begin : gen_uart
         apb_uart i_apb_uart (
-            .CLK     ( clk_i           ),
+            .CLK     ( clk_i_uart           ),
             .RSTN    ( rst_ni          ),
             .PSEL    ( uart_psel       ),
             .PENABLE ( uart_penable    ),
