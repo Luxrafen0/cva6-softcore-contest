@@ -1,0 +1,343 @@
+# //  Questa Sim-64
+# //  Version 2022.3_1 linux_x86_64 Aug 12 2022
+# //
+# //  Copyright 1991-2022 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim "+permissive" -t 1ns -64 -coverage -classdebug "+tohost_addr=" -do " log -r /*; run -all;" "+jtag_rbb_enable=0" -lib work "+MAX_CYCLES=1000000000" "+UVM_TESTNAME=core_test" "+UVM_NO_RELNOTES" "+UVM_VERBOSITY=LOW" ariane_tb_optimized "+permissive-off" "+binary_mem=/nfs/home/camsi6/Documents/Projet_CVA6/contest//sw/app/coremark.mem" 
+# Start time: 22:55:15 on May 05,2025
+# Loading sv_std.std
+# Loading work.config_pkg(fast)
+# Loading work.cva6_config_pkg(fast)
+# Loading work.riscv(fast)
+# Loading work.dm(fast)
+# Loading work.jtag_pkg(fast)
+# Loading work.ariane_pkg(fast)
+# Loading work.ariane_tb_sv_unit(fast)
+# Loading work.ariane_tb(fast)
+# Loading work.ariane_soc(fast)
+# Loading work.axi_pkg(fast)
+# Loading work.ariane_axi(fast)
+# Loading work.ariane_axi_soc(fast)
+# Loading work.ariane_testharness(fast)
+# Loading work.rstgen(fast)
+# Loading work.rstgen_bypass(fast)
+# Loading work.dmi_jtag(fast)
+# Loading work.dmi_jtag_tap(fast)
+# Loading work.cluster_clock_inverter(fast)
+# Loading work.tc_clk_inverter(fast)
+# Loading work.pulp_clock_mux2(fast)
+# Loading work.tc_clk_mux2(fast)
+# Loading work.dmi_cdc(fast)
+# Loading work.cdc_2phase(fast)
+# Loading work.cdc_2phase_src(fast)
+# Loading work.cdc_2phase_dst(fast)
+# Loading work.cdc_2phase(fast__1)
+# Loading work.cdc_2phase_src(fast__1)
+# Loading work.cdc_2phase_dst(fast__1)
+# Loading work.dm_top(fast)
+# Loading work.dm_csrs(fast)
+# Loading work.fifo_v2(fast)
+# Loading work.fifo_v3(fast)
+# Loading work.AsyncDpRam(fast)
+# Loading work.dm_sba(fast)
+# Loading work.dm_mem(fast)
+# Loading work.debug_rom(fast)
+# Loading work.axi2mem(fast)
+# Loading work.axi_adapter(fast)
+# Loading work.axi2mem(fast__1)
+# Loading work.bootrom(fast)
+# Loading work.axi_err_slv(fast)
+# Loading work.axi_atop_filter(fast)
+# Loading work.stream_register(fast)
+# Loading work.fifo_v2(fast__1)
+# Loading work.fifo_v3(fast__1)
+# Loading work.AsyncDpRam(fast__1)
+# Loading work.fifo_v3(fast__2)
+# Loading work.AsyncDpRam(fast__2)
+# Loading work.fifo_v3(fast__3)
+# Loading work.AsyncDpRam(fast__3)
+# Loading work.fifo_v3(fast__4)
+# Loading work.AsyncDpRam(fast__4)
+# Loading work.counter(fast)
+# Loading work.delta_counter(fast)
+# Loading work.AXI_BUS(fast__4)
+# Loading work.axi_riscv_atomics_wrap(fast)
+# Loading work.axi_riscv_atomics(fast)
+# Loading work.axi_riscv_amos(fast)
+# Loading work.axi_riscv_amos_alu(fast)
+# Loading work.axi_riscv_lrsc(fast)
+# Loading work.axi_res_tbl(fast)
+# Loading work.stream_arbiter(fast)
+# Loading work.stream_arbiter_flushable(fast)
+# Loading work.rr_arb_tree(fast)
+# Loading work.cf_math_pkg(fast)
+# Loading work.lzc(fast)
+# Loading work.AXI_BUS(fast__5)
+# Loading work.axi2mem(fast__2)
+# Loading work.sram(fast)
+# Loading work.tc_sram_wrapper(fast)
+# Loading work.SyncSpRamBeNx64(fast)
+# Loading work.axi_xbar_intf(fast)
+# Loading work.axi_xbar(fast)
+# Loading work.addr_decode(fast)
+# Loading work.axi_demux(fast)
+# Loading work.spill_register(fast)
+# Loading work.spill_register_flushable(fast)
+# Loading work.axi_demux_id_counters(fast)
+# Loading work.delta_counter(fast__1)
+# Loading work.fifo_v3(fast__5)
+# Loading work.AsyncDpRam(fast__5)
+# Loading work.spill_register(fast__1)
+# Loading work.spill_register_flushable(fast__1)
+# Loading work.spill_register(fast__2)
+# Loading work.spill_register_flushable(fast__2)
+# Loading work.rr_arb_tree(fast__1)
+# Loading work.lzc(fast__1)
+# Loading work.spill_register(fast__3)
+# Loading work.spill_register_flushable(fast__3)
+# Loading work.axi_demux_id_counters(fast__1)
+# Loading work.spill_register(fast__4)
+# Loading work.spill_register_flushable(fast__4)
+# Loading work.rr_arb_tree(fast__2)
+# Loading work.axi_err_slv(fast__1)
+# Loading work.axi_atop_filter(fast__1)
+# Loading work.stream_register(fast__1)
+# Loading work.fifo_v2(fast__2)
+# Loading work.fifo_v3(fast__6)
+# Loading work.fifo_v3(fast__7)
+# Loading work.AsyncDpRam(fast__6)
+# Loading work.fifo_v3(fast__8)
+# Loading work.AsyncDpRam(fast__7)
+# Loading work.fifo_v3(fast__9)
+# Loading work.AsyncDpRam(fast__8)
+# Loading work.axi_mux(fast)
+# Loading work.axi_id_prepend(fast)
+# Loading work.rr_arb_tree(fast__3)
+# Loading work.fifo_v3(fast__10)
+# Loading work.AsyncDpRam(fast__9)
+# Loading work.spill_register(fast__5)
+# Loading work.spill_register_flushable(fast__5)
+# Loading work.spill_register(fast__6)
+# Loading work.spill_register_flushable(fast__6)
+# Loading work.spill_register(fast__7)
+# Loading work.spill_register_flushable(fast__7)
+# Loading work.rr_arb_tree(fast__4)
+# Loading work.spill_register(fast__8)
+# Loading work.spill_register_flushable(fast__8)
+# Loading work.spill_register(fast__9)
+# Loading work.spill_register_flushable(fast__9)
+# Loading work.clint(fast)
+# Loading work.axi_lite_interface(fast)
+# Loading work.clint_sync_wedge(fast)
+# Loading work.clint_sync(fast)
+# Loading work.ariane_peripherals(fast)
+# Loading work.REG_BUS(fast__1)
+# Loading work.axi2apb_64_32(fast)
+# Loading work.axi_aw_buffer(fast)
+# Loading work.axi_single_slice(fast)
+# Loading work.fifo(fast)
+# Loading work.fifo_v2(fast__3)
+# Loading work.fifo_v3(fast__11)
+# Loading work.AsyncDpRam(fast__10)
+# Loading work.axi_ar_buffer(fast)
+# Loading work.axi_w_buffer(fast)
+# Loading work.axi_single_slice(fast__1)
+# Loading work.fifo(fast__1)
+# Loading work.fifo_v2(fast__4)
+# Loading work.fifo_v3(fast__12)
+# Loading work.AsyncDpRam(fast__11)
+# Loading work.axi_r_buffer(fast)
+# Loading work.axi_single_slice(fast__2)
+# Loading work.fifo(fast__2)
+# Loading work.fifo_v2(fast__5)
+# Loading work.fifo_v3(fast__13)
+# Loading work.AsyncDpRam(fast__12)
+# Loading work.axi_b_buffer(fast)
+# Loading work.axi_single_slice(fast__3)
+# Loading work.fifo(fast__3)
+# Loading work.fifo_v2(fast__6)
+# Loading work.fifo_v3(fast__14)
+# Loading work.AsyncDpRam(fast__13)
+# Loading work.apb_to_reg(fast)
+# Loading work.plic_top(fast)
+# Loading work.rv_plic_gateway(fast)
+# Loading work.rv_plic_target(fast)
+# Loading work.plic_regs(fast)
+# Loading work.axi2apb_64_32(fast__1)
+# Loading work.apb_timer(fast)
+# Loading work.timer(fast)
+# Loading work.uart_bus(fast__1)
+# Loading work.cvxif_pkg(fast)
+# Loading work.ariane(fast)
+# Loading work.cva6(fast)
+# Loading work.frontend(fast)
+# Loading work.instr_realign(fast)
+# Loading work.ras(fast)
+# Loading work.btb(fast)
+# Loading work.unread(fast)
+# Loading work.SyncDpRam(fast)
+# Loading work.bht(fast)
+# Loading work.AsyncThreePortRam(fast)
+# Loading work.instr_scan(fast)
+# Loading work.instr_queue(fast)
+# Loading work.popcount(fast)
+# Loading work.fifo_v3(fast__15)
+# Loading work.AsyncDpRam(fast__14)
+# Loading work.fifo_v3(fast__16)
+# Loading work.AsyncDpRam(fast__15)
+# Loading work.id_stage(fast)
+# Loading work.compressed_decoder(fast)
+# Loading work.decoder(fast)
+# Loading work.issue_stage(fast)
+# Loading work.scoreboard(fast)
+# Loading work.rr_arb_tree(fast__5)
+# Loading work.rr_arb_tree(fast__6)
+# Loading work.issue_read_operands(fast)
+# Loading work.ariane_regfile_fpga(fast)
+# Loading work.ex_stage(fast)
+# Loading work.alu(fast)
+# Loading work.popcount(fast__4)
+# Loading work.popcount(fast__3)
+# Loading work.popcount(fast__2)
+# Loading work.popcount(fast__1)
+# Loading work.lzc(fast__2)
+# Loading work.branch_unit(fast)
+# Loading work.csr_buffer(fast)
+# Loading work.mult(fast)
+# Loading work.multiplier(fast)
+# Loading work.serdiv(fast)
+# Loading work.load_store_unit(fast)
+# Loading work.cva6_mmu_sv32(fast)
+# Loading work.cva6_tlb_sv32(fast)
+# Loading work.cva6_shared_tlb_sv32(fast)
+# Loading work.lfsr(fast)
+# Loading work.sram(fast__1)
+# Loading work.tc_sram_wrapper(fast__1)
+# Loading work.SyncSpRamBeNx64(fast__1)
+# Loading work.sram(fast__2)
+# Loading work.cva6_ptw_sv32(fast)
+# Loading work.pmp(fast)
+# Loading work.pmp_entry(fast)
+# Loading work.lzc(fast__3)
+# Loading work.pmp(fast__1)
+# Loading work.pmp_entry(fast__1)
+# Loading work.store_unit(fast)
+# Loading work.amo_buffer(fast)
+# Loading work.fifo_v3(fast__17)
+# Loading work.AsyncDpRam(fast__16)
+# Loading work.store_buffer(fast)
+# Loading work.load_unit(fast)
+# Loading work.shift_reg(fast)
+# Loading work.shift_reg(fast__1)
+# Loading work.lsu_bypass(fast)
+# Loading work.commit_stage(fast)
+# Loading work.csr_regfile(fast)
+# Loading work.perf_counters(fast)
+# Loading work.controller(fast)
+# Loading work.wt_cache_pkg(fast)
+# Loading work.wt_cache_subsystem(fast)
+# Loading work.cva6_icache(fast)
+# Loading work.sram(fast__3)
+# Loading work.tc_sram_wrapper(fast__2)
+# Loading work.SyncSpRamBeNx64(fast__2)
+# Loading work.sram(fast__4)
+# Loading work.wt_dcache(fast)
+# Loading work.wt_dcache_missunit(fast)
+# Loading work.lzc(fast__4)
+# Loading work.exp_backoff(fast)
+# Loading work.wt_dcache_ctrl(fast)
+# Loading work.wt_dcache_wbuffer(fast)
+# Loading work.fifo_v3(fast__18)
+# Loading work.AsyncDpRam(fast__17)
+# Loading work.rr_arb_tree(fast__7)
+# Loading work.rr_arb_tree(fast__8)
+# Loading work.rr_arb_tree(fast__9)
+# Loading work.wt_dcache_mem(fast)
+# Loading work.rr_arb_tree(fast__10)
+# Loading work.sram(fast__5)
+# Loading work.wt_axi_adapter(fast)
+# Loading work.rr_arb_tree(fast__11)
+# Loading work.fifo_v3(fast__19)
+# Loading work.AsyncDpRam(fast__18)
+# Loading work.fifo_v3(fast__20)
+# Loading work.AsyncDpRam(fast__19)
+# Loading work.fifo_v3(fast__21)
+# Loading work.AsyncDpRam(fast__20)
+# Loading work.axi_shim(fast)
+# Loading work.instr_tracer_if(fast__1)
+# Loading work.instr_tracer_pkg(fast)
+# Loading work.instr_tracer_sv_unit(fast)
+# Loading work.instr_tracer(fast)
+# Loading work.rvfi_tracer(fast)
+# Loading work.AXI_BUS(fast__1)
+# Loading work.AXI_BUS(fast__2)
+# Loading work.AXI_BUS(fast__3)
+# ** Warning: (vsim-PLI-3691) Expected a system task, not a system function '$value$plusargs'.
+#    Time: 0 ns  Iteration: 0  Region: /ariane_tb/#ublk#260365858#154 File: /nfs/home/camsi6/Documents/Projet_CVA6/contest/corev_apu/tb/ariane_tb.sv Line: 185
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.apb_uart(rtl)#1
+# Loading work.slib_input_sync(rtl)#1
+# Loading work.slib_input_filter(rtl)#1
+# Loading work.uart_interrupt(rtl)#1
+# Loading work.slib_edge_detect(rtl)#1
+# Loading work.uart_baudgen(rtl)#1
+# Loading work.slib_clock_div(rtl)#1
+# Loading work.slib_fifo(rtl)#1
+# Loading work.slib_fifo(rtl)#2
+# Loading work.uart_transmitter(rtl)#1
+# Loading work.uart_receiver(rtl)#1
+# Loading work.slib_counter(rtl)#1
+# Loading work.slib_mv_filter(rtl)#1
+# Loading work.slib_input_filter(rtl)#2
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (64) for port 'addr_i'. The port definition is at: /nfs/home/camsi6/Documents/Projet_CVA6/contest/core/cache_subsystem/axi_adapter.sv(34).
+#    Time: 0 ns  Iteration: 0  Instance: /ariane_tb/dut/i_dm_axi_master File: /nfs/home/camsi6/Documents/Projet_CVA6/contest/corev_apu/tb/ariane_testharness.sv Line: 340
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (64) for port 'boot_addr_i'. The port definition is at: /nfs/home/camsi6/Documents/Projet_CVA6/contest/corev_apu/src/ariane.sv(32).
+#    Time: 0 ns  Iteration: 0  Instance: /ariane_tb/dut/i_ariane File: /nfs/home/camsi6/Documents/Projet_CVA6/contest/corev_apu/tb/ariane_testharness.sv Line: 654
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (64) for port 'hart_id_i'. The port definition is at: /nfs/home/camsi6/Documents/Projet_CVA6/contest/corev_apu/src/ariane.sv(33).
+#    Time: 0 ns  Iteration: 0  Instance: /ariane_tb/dut/i_ariane File: /nfs/home/camsi6/Documents/Projet_CVA6/contest/corev_apu/tb/ariane_testharness.sv Line: 654
+#  log -r /*
+#  run -all
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /ariane_tb/dut/i_ariane_peripherals/gen_uart/i_apb_uart/UART_RXFF
+# ** Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+#    Time: 0 ns  Iteration: 0  Instance: /ariane_tb/dut/i_ariane_peripherals/gen_uart/i_apb_uart/UART_TXFF
+# [TB]                    0 - Asserting hard reset
+# ** Error: Assertion error.
+#    Time: 0 ns  Scope: ariane_tb.dut.i_ariane.i_cva6.ex_stage_i.lsu_i.gen_mmu_sv32.i_cva6_mmu.i_pmp_data File: /nfs/home/camsi6/Documents/Projet_CVA6/contest/core/pmp/src/pmp.sv Line: 89
+# [TRACER] Output filename is: trace_hart_0.log
+# [JTAG] SoftReset Done(                 106)
+# [TB]                 5202 - init_dmi_access
+# [TB]                 6078 - set_dmactive
+# [TB]                 7830 - set_hartsel
+# [TB]                 7830 - Halting the Core
+# Loading application to memory from /nfs/home/camsi6/Documents/Projet_CVA6/contest//sw/app/coremark.mem
+# [TB]                14838 - Writing the boot address into dpc
+# [TB]                20970 - Resuming the CORE
+# [UART]: 2K performance run parameters for coremark.                                                                                                                                                                                                                     
+# [UART]: CoreMark Size    : 666                                                                                                                                                                                                                                          
+# [UART]: Total ticks      : 1151831                                                                                                                                                                                                                                      
+# [UART]: Total time (secs): 1.151831                                                                                                                                                                                                                                     
+# [UART]: Iterations/Sec   : 2.604549                                                                                                                                                                                                                                     
+# [UART]: Iterations       : 3                                                                                                                                                                                                                                            
+# [UART]: Compiler version : GCC13.1.0                                                                                                                                                                                                                                    
+# [UART]: Compiler flags   :                                                                                                                                                                                                                                              
+# [UART]: Memory location  : BRAM                                                                                                                                                                                                                                         
+# [UART]: seedcrc          : 0xe9f5                                                                                                                                                                                                                                       
+# [UART]: [0]crclist       : 0xe714                                                                                                                                                                                                                                       
+# [UART]: [0]crcmatrix     : 0x1fd7                                                                                                                                                                                                                                       
+# [UART]: [0]crcstate      : 0x8e3a                                                                                                                                                                                                                                       
+# [UART]: [0]crcfinal      : 0x2e87                                                                                                                                                                                                                                       
+# [UART]: Correct operation validated. See README.md for run and reporting rules.                                                                                                                                                                                         
+# [UART]: CoreMark 1.0 : 2.604549 / GCC13.1.0     / BRAM                                                                                                                                                                                                                  
